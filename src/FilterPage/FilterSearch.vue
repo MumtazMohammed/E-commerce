@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- fillter small screen from 600px and down -->
-    <div class="hidden-sm-and-up filtertion">
+    <div class="hidden-md-and-up filtertion">
       <v-dialog v-model="filterdialog" persistent fullscreen>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
@@ -133,102 +133,141 @@
         </v-card>
       </v-dialog>
     </div>
-    <v-card flat tile color="transparent " class="hidden-xs-only">
-      <v-card-title class="pa-2 text">
+    <div class="hidden-sm-and-down">
+      <v-card-title class=" text">
         <v-icon right color="primary" size="16">mdi-filter-outline</v-icon>
         تصفية البحث
       </v-card-title>
-      <div>
-        <v-card-text class="pa-2 text"> المناطق </v-card-text>
-        <v-checkbox
-          v-for="i in 10"
-          :key="i"
-          v-model="ex4"
-          label="تعز"
-          color="primary"
-          value="primary"
-          class="ma-0"
-          multiple
-          hide-details
-        ></v-checkbox>
-      </div>
-      <v-divider class="mt-3"></v-divider>
-      <div>
-        <v-card-text class="pa-2 text"> ألوان </v-card-text>
-        <v-card-actions class="" style="flex-wrap: wrap">
-          <v-avatar
-            v-for="PerColor in Colors"
-            :key="PerColor"
-            size="15"
-            :color="PerColor"
-            class="ma-1"
-          >
-          </v-avatar>
-        </v-card-actions>
-      </div>
-      <v-divider class="mt-3"></v-divider>
-      <div>
-        <v-card-text class="pa-2 text"> السعر </v-card-text>
-        <v-card-actions class="">
-          <v-text-field
-            type="number"
-            dense
-            hide-details=""
-            outlined
-            placeholder="من"
-          ></v-text-field>
-          <v-icon class="mx-2" color="primary">mdi-arrow-left-thin</v-icon>
-          <v-text-field
-            type="number"
-            dense
-            hide-details=""
-            outlined
-            placeholder="الى"
-          ></v-text-field>
-        </v-card-actions>
-        <v-card-actions class="pa-0">
-          <v-btn small block rounded elevation="0" color="primary" class="text">
-            بحث
-          </v-btn>
-        </v-card-actions>
-      </div>
-      <v-divider class="mt-3"></v-divider>
-      <div>
-        <v-card-text class="pa-2 text"> الفئات </v-card-text>
-        <v-checkbox
-          v-model="ex4"
-          label="تعز"
-          color="primary"
-          value="primary"
-          class="ma-0"
-          hide-details
-        ></v-checkbox>
-      </div>
-      <v-divider class="mt-3"></v-divider>
-      <div>
-        <v-card-text class="pa-2 text"> العلامة التجارية </v-card-text>
-        <v-checkbox
-          v-model="ex4"
-          label="تعز"
-          color="primary"
-          value="primary"
-          class="ma-0"
-          hide-details
-        ></v-checkbox>
-      </div>
-      <v-divider class="mt-3"></v-divider>
-      <div>
-        <v-card-text class="pa-2 text"> الحالة </v-card-text>
-        <v-checkbox
-          v-model="ex4"
-          label="تعز"
-          color="primary"
-          value="primary"
-          class="ma-0"
-          hide-details
-        ></v-checkbox>
-      </div>
-    </v-card>
+      <v-expansion-panels light focusable tile popout flat multiple>
+        <v-expansion-panel>
+          <v-expansion-panel-header color="transparent" class="text">
+            المناطق
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-row no-gutters>
+              <v-col cols="6" v-for="i in 10" :key="i">
+                <v-checkbox
+                  v-model="ex4"
+                  label="تعز"
+                  color="primary"
+                  value="primary"
+                  class="ma-0"
+                  multiple
+                  hide-details
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+        <v-expansion-panel>
+          <v-expansion-panel-header class="text">
+            ألوان
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-row no-gutters>
+              <v-col v-for="PerColor in Colors" :key="PerColor">
+                <v-avatar size="15" :color="PerColor" class="ma-1"> </v-avatar>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+        <v-expansion-panel>
+          <v-expansion-panel-header class="text">
+            الفئات
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-row no-gutters>
+              <v-col cols="6" v-for="i in 10" :key="i">
+                <v-checkbox
+                  v-model="ex4"
+                  label="تعز"
+                  color="primary"
+                  value="primary"
+                  class="ma-0"
+                  multiple
+                  hide-details
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+        <v-expansion-panel>
+          <v-expansion-panel-header class="text">
+            السعر
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-row no-gutters class="mt-1">
+              <v-col>
+                <v-text-field
+                  type="number"
+                  dense
+                  hide-details=""
+                  outlined
+                  placeholder="من"
+                ></v-text-field>
+              </v-col>
+              <v-col class="text-center">
+                <v-icon color="primary"> mdi-arrow-left-thin </v-icon>
+              </v-col>
+              <v-col>
+                <v-text-field
+                  type="number"
+                  dense
+                  hide-details=""
+                  outlined
+                  placeholder="الى"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" class="pa-3">
+                <v-btn small block elevation="0" color="primary" class="text">
+                  بحث
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+        <v-expansion-panel>
+          <v-expansion-panel-header class="text">
+            العلامة التجارية
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-row no-gutters>
+              <v-col cols="6" v-for="i in 10" :key="i">
+                <v-checkbox
+                  v-model="ex4"
+                  label="تعز"
+                  color="primary"
+                  value="primary"
+                  class="ma-0"
+                  multiple
+                  hide-details
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+        <v-expansion-panel>
+          <v-expansion-panel-header class="text">
+            الحالة
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-row no-gutters>
+              <v-col cols="6" v-for="i in 10" :key="i">
+                <v-checkbox
+                  v-model="ex4"
+                  label="تعز"
+                  color="primary"
+                  value="primary"
+                  class="ma-0"
+                  multiple
+                  hide-details
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+    </div>
   </div>
 </template>
 
@@ -355,9 +394,6 @@ export default {
   margin: 0;
 }
 /* Firefox */
-::v-deep input[type="number"] {
-  -moz-appearance: textfield;
-}
 ::v-deep .v-input__slot {
   min-height: 25px !important;
 }
@@ -376,5 +412,8 @@ export default {
     min-width: 22px !important;
     width: 22px !important;
   }
+}
+::v-deep .v-expansion-panel-content__wrap {
+  padding: 0px 10px 10px;
 }
 </style>

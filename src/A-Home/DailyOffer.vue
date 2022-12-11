@@ -11,53 +11,59 @@
 
         <swiper class="swiper" :options="swiperOption">
           <swiper-slide v-for="(Product, index) in getCarInfo" :key="index">
-            <h1 class="ribbon">متميز</h1>
-            <v-card
-              :to="{
-                name: 'ShowTheProduct',
-                params: {
-                  carName: Product.name,
-                  carShape: Product.Shape,
-                  carId: Product.id,
-                  Company: Product.folder,
-                },
-              }"
-              height="230px"
-              color="transparent"
-              style="overflow: hidden"
-            >
-              <div v-if="Product.discountPercent" class="best-price-tag">
-                <small class="discountPercent">
-                  {{ Product.discountPercent }}-
-                </small>
-              </div>
-              <v-img
-                height="120"
-                full-width
-                :src="getimageUrl(Product.folder, Product.image)"
-              ></v-img>
-              <v-card-text
-                class="d-inline-block card-text pb-0 pa-2 text-truncate"
+            <div style="position: relative">
+              <h1 class="ribbon">متميز</h1>
+              <v-card
+                :to="{
+                  name: 'ShowTheProduct',
+                  params: {
+                    carName: Product.name,
+                    carShape: Product.Shape,
+                    carId: Product.id,
+                    Company: Product.folder,
+                  },
+                }"
+                width="100%"
+                min-height="220"
+                style="overflow: hidden"
               >
-                {{ Product.name }} {{ Product.company }}
-              </v-card-text>
-              <!-- <v-card-actions class="pa-0"> -->
-              <strong class="grey--text PriceBefore px-2 text-truncate">
-                {{ Product.payment }}
-                <small class="text-truncate">ريال</small>
-              </strong>
-              <strong class="PriceAfter px-2 text-truncate">
-                {{ Product.payment }}
-                <small class="text-truncate">ريال</small>
-              </strong>
-              <!-- </v-card-actions> -->
-              <v-spacer></v-spacer>
-              <v-card-actions class="justify-space-between pt-1 pa-0">
-                <p class="ma-0 sold-info px-2 text-truncate">
-                  <span>{{ Product.id }} </span>بيعت
-                </p>
-              </v-card-actions>
-            </v-card>
+                <div v-if="Product.discountPercent" class="best-price-tag">
+                  <small class="discountPercent">
+                    {{ Product.discountPercent }}-
+                  </small>
+                </div>
+                <v-img
+                  height="150"
+                  full-width
+                  :src="getimageUrl(Product.folder, Product.image)"
+                ></v-img>
+                <v-card-text
+                  class="d-inline-block card-text py-0 pa-2 text-truncate"
+                >
+                  {{ Product.name }} {{ Product.company }}
+                </v-card-text>
+                <v-card-actions class="py-0 justify-space-between">
+                  <strong
+                    class="grey--text text--lighten-1 PriceBefore text-truncate"
+                  >
+                    {{ Product.payment }}
+                    <small class="text-truncate">ريال</small>
+                  </strong>
+                  <strong class="PriceAfter text-truncate">
+                    {{ Product.payment }}
+                    <small class="text-truncate">ريال</small>
+                  </strong>
+                </v-card-actions>
+                <v-card-actions class="py-1 justify-space-between">
+                  <p class="ma-0 sold-info px-2 text-truncate">
+                    <span>{{ Product.id }} </span>بيعت
+                  </p>
+                  <span class="card-text grey--text px-2">
+                    {{ Product.location }}
+                  </span>
+                </v-card-actions>
+              </v-card>
+            </div>
           </swiper-slide>
           <swiper-slide>
             <v-card
@@ -308,7 +314,9 @@ export default {
 }
 .card-text {
   font-family: $fontfamliy3 !important;
-  color: $fontcolor !important;
+  color: $fontcolor;
+  letter-spacing: 0 !important;
+  font-size: 13px !important;
 }
 .PriceBefore {
   font-size: 14px !important;
@@ -338,7 +346,7 @@ export default {
   );
 
   background-color: $color-2;
-  width: 45px;
+  width: 35px;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -349,7 +357,7 @@ export default {
 .discountPercent {
   color: white !important;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   display: flex;
   justify-content: center;
   align-items: center;
