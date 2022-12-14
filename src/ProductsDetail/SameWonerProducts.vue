@@ -177,11 +177,6 @@ export default {
 .DailyOffer {
   width: 100%;
   min-height: 40vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $color-background;
-  font-family: $fontfamliy;
 
   strong {
     color: $color-2;
@@ -206,7 +201,6 @@ export default {
   }
   ::v-deep.swiper-container {
     @media (max-width: 600px) {
-      
     }
   }
 
@@ -224,7 +218,7 @@ export default {
     }
   }
   .card-text {
-    font-family: $fontfamliy2;
+    font-family: $fontfamliy3;
     letter-spacing: 0;
     font-size: 13px;
   }
@@ -287,13 +281,12 @@ export default {
   }
 }
 .PriceBefore {
-  font-size: 14px !important;
+  font-size: 13px !important;
   text-decoration: line-through;
 }
 .PriceAfter {
-  font-size: 15px !important;
-  display: block;
-  text-align: left;
+  font-size: 14px !important;
+
   color: $color-2;
 }
 .card-text-seeMore {

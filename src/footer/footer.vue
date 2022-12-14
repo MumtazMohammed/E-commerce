@@ -145,7 +145,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .footer {
-  border-top: 1px solid $color-2 !important;
+  border-top: 2px solid $color-2 !important;
   background-color: #f8f9fa !important;
   position: relative;
 }

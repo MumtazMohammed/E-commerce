@@ -191,8 +191,6 @@ export default {
   }
   .PriceAfter {
     font-size: 15px !important;
-    display: block;
-    text-align: left;
     color: $color-2;
   }
   .best-price-tag {
@@ -280,6 +278,5 @@ export default {
   box-shadow: inset -1px 2px 2px rgba(0, 0, 0, 0.3);
 }
 @media (max-width: 600px) {
-
 }
 </style>

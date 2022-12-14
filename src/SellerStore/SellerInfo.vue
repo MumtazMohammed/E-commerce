@@ -12,7 +12,6 @@
               src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
             ></v-img>
           </v-avatar>
-
           <!-- store view -->
           <v-dialog persistent v-model="dialog" max-width="300px">
             <template v-slot:activator="{ on, attrs }">

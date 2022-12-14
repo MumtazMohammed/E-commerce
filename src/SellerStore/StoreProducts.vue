@@ -1,84 +1,108 @@
 <template>
   <div class="AboutStore">
-    <v-card
-      v-scroll.self="onScroll"
-      class="overflow-y-auto overflow-x-hidden transparent"
-      flat
-      tile
-    >
-      <v-banner rounded="lg" style="overflow: hidden" elevation="0" sticky>
-        <v-tabs show-arrows="" background-color="grey lighten-2" center-active>
-          <v-tab>One</v-tab>
-          <v-tab>Two</v-tab>
-          <v-tab>Three</v-tab>
-          <v-tab>Four</v-tab>
-          <v-tab>Five</v-tab>
-          <v-tab>Six</v-tab>
-        </v-tabs>
-      </v-banner>
-      <v-row no-gutters>
-        <v-col
-          cols="6"
-          md="2"
-          sm="3"
-          lg="2"
-          class="pa-1 py-2"
-          v-for="Product in Products"
-          :key="Product.id"
-        >
-          <div style="position: relative">
-            <h1 class="ribbon">متميز</h1>
-            <v-card
-              :to="{
-                name: 'ShowTheProduct',
-                params: {
-                  carName: Product.name,
-                  carShape: Product.Shape,
-                  carId: Product.id,
-                  Company: Product.folder,
-                },
-              }"
-              height="230px"
-              width="100%"
-              color="transparent"
-              style="overflow: hidden"
+    <v-row no-gutters>
+      <v-menu
+        v-model="menu"
+        style="z-index: 16"
+        bottom
+        left
+        offset-y
+        open-on-hover
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            class="btn-categories"
+            elevation="0"
+            color="transparent"
+            v-bind="attrs"
+            v-on="on"
+          >
+            الفئات
+            <v-icon
+              size="22"
+              v-text="menu ? 'mdi-menu-up' : 'mdi-menu-down'"
+            ></v-icon>
+          </v-btn>
+        </template>
+
+        <v-list class="mt-2">
+          <v-list-item v-for="i in 5" :key="i">
+            <v-list-item-title>{{ i }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+      <v-spacer></v-spacer>
+      <v-btn-toggle dense v-model="text" tile color="primary" group>
+        <v-btn class="btn-categories" value="TopSales"> أعلى المبيعات </v-btn>
+        <v-btn class="btn-categories" value="latest"> الأجدد </v-btn>
+        <v-btn class="btn-categories" value="all"> الكل </v-btn>
+      </v-btn-toggle>
+    </v-row>
+    <v-row no-gutters>
+      <v-col
+        cols="6"
+        md="2"
+        sm="3"
+        lg="2"
+        class="pa-2"
+        v-for="Product in Products"
+        :key="Product.id"
+      >
+        <div style="position: relative">
+          <h1 class="ribbon">متميز</h1>
+          <v-card
+            :to="{
+              name: 'ShowTheProduct',
+              params: {
+                carName: Product.name,
+                carShape: Product.Shape,
+                carId: Product.id,
+                Company: Product.folder,
+              },
+            }"
+            min-height="220px"
+            width="100%"
+            style="overflow: hidden"
+          >
+            <div v-if="Product.discountPercent" class="best-price-tag">
+              <small class="discountPercent">
+                {{ Product.discountPercent }}-
+              </small>
+            </div>
+            <v-img
+              height="150"
+              full-width
+              :src="getimageUrl(Product.folder, Product.image)"
+            ></v-img>
+            <v-card-text
+              class="d-inline-block card-text py-0 pa-2 text-truncate"
             >
-              <div v-if="Product.discountPercent" class="best-price-tag">
-                <small class="discountPercent">
-                  {{ Product.discountPercent }}-
-                </small>
-              </div>
-              <v-img
-                height="120"
-                full-width
-                :src="getimageUrl(Product.folder, Product.image)"
-              ></v-img>
-              <v-card-text
-                class="d-inline-block card-text pb-0 pa-2 text-truncate"
+              {{ Product.name }} {{ Product.company }}
+            </v-card-text>
+            <v-card-actions class="py-0 justify-space-between">
+              <strong
+                class="grey--text text--lighten-1 PriceBefore text-truncate"
               >
-                {{ Product.name }} {{ Product.company }}
-              </v-card-text>
-              <!-- <v-card-actions class="pa-0"> -->
-              <strong class="grey--text PriceBefore px-2 text-truncate">
                 {{ Product.payment }}
                 <small class="text-truncate">ريال</small>
               </strong>
-              <strong class="PriceAfter px-2 text-truncate">
+              <strong class="PriceAfter text-truncate">
                 {{ Product.payment }}
                 <small class="text-truncate">ريال</small>
               </strong>
-              <!-- </v-card-actions> -->
-              <v-spacer></v-spacer>
-              <v-card-actions class="justify-space-between pt-1 pa-0">
-                <p class="ma-0 sold-info px-2 text-truncate">
-                  <span>{{ Product.id }} </span>بيعت
-                </p>
-              </v-card-actions>
-            </v-card>
-          </div>
-        </v-col>
-      </v-row>
-    </v-card>
+            </v-card-actions>
+            <v-card-actions class="py-1 justify-space-between">
+              <p class="ma-0 sold-info px-2 text-truncate">
+                <span>{{ Product.id }} </span>بيعت
+              </p>
+              <span class="card-text grey--text px-2">
+                {{ Product.location }}
+              </span>
+            </v-card-actions>
+          </v-card>
+        </div>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -94,6 +118,8 @@ export default {
       Services,
       Products,
       model: null,
+      menu: false,
+      text: "all",
       filterdialog: null,
       items: ["مقديشو", "كزبرا", "صلصة", "ثوم"],
     };
@@ -122,13 +148,11 @@ export default {
     font-family: $fontfamliy3 !important;
     color: $fontcolor !important;
   }
-  .text {
+  .btn-categories {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;
-    color: $fontcolorlinks !important;
-    text-align: justify;
-    line-height: 1.7;
-    font-size: 15px;
+    color: $fontcolorlinks;
+    font-size: 16px;
   }
 }
 ::v-deep .v-banner__wrapper {
@@ -150,7 +174,7 @@ export default {
 }
 .card-text {
   font-family: $fontfamliy3 !important;
-  color: $fontcolor !important;
+  font-size: 13px;
 }
 .PriceBefore {
   font-size: 13px !important;
@@ -180,7 +204,7 @@ export default {
   );
 
   background-color: $color-2;
-  width: 45px;
+  width: 35px;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -191,7 +215,7 @@ export default {
 .discountPercent {
   color: white !important;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   display: flex;
   justify-content: center;
   align-items: center;

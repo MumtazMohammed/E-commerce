@@ -109,60 +109,81 @@
           </v-card>
         </v-dialog>
       </div>
-      <v-sheet rounded class="grey lighten-2 pa-2 mt-3">
-        <v-row no-gutters class="fill-height">
-          <v-col
-            cols="6"
-            md="4"
-            sm="6"
-            lg="3"
-            xl="1"
-            class="pa-1"
-            v-for="(Servic, i) in Services"
-            :key="i"
-          >
-            <v-card flat to="/SellerStorePage" height="250px">
+      <v-row no-gutters class="fill-height">
+        <v-col
+          cols="6"
+          md="4"
+          sm="6"
+          lg="3"
+          xl="1"
+          class="pa-1"
+          v-for="(Product, i) in Products"
+          :key="i"
+        >
+          <div style="position: relative">
+            <h1 class="ribbon">متميز</h1>
+            <v-card
+              :to="{
+                name: 'ShowTheProduct',
+                params: {
+                  carName: Product.name,
+                  carShape: Product.Shape,
+                  carId: Product.id,
+                  Company: Product.folder,
+                },
+              }"
+              min-height="220px"
+              width="100%"
+              style="overflow: hidden"
+            >
+              <div v-if="Product.discountPercent" class="best-price-tag">
+                <small class="discountPercent">
+                  {{ Product.discountPercent }}-
+                </small>
+              </div>
               <v-img
-                class="mx-auto grey darken-3"
-                aspect-ratio="2"
-                contain
-                :src="getimageUrl(Servic.folder, Servic.ShowroomImg)"
+                height="150"
+                full-width
+                :src="getimageUrl(Product.folder, Product.image)"
               ></v-img>
-              <v-card-text class="card-text pa-2 text-truncate">
-                {{ Servic.ShowroomName }}
-              </v-card-text>
-              <p class="ma-0 location px-2 text-truncate">
-                {{ Servic.location }}
-              </p>
-              <v-card-title
-                class="customer-rating-text pa-2 py-0 text-truncate"
+              <v-card-text
+                class="d-inline-block card-text py-0 pa-2 text-truncate"
               >
-                تقييمات العملاء :
-                <v-spacer></v-spacer>
-                <v-rating
-                  background-color="warning lighten-1"
-                  color="warning"
-                  dense
-                  half-increments
-                  hover
-                  length="5"
-                  readonly
-                  size="16"
-                  value="3.5"
-                ></v-rating>
-              </v-card-title>
+                {{ Product.name }} {{ Product.company }}
+              </v-card-text>
+              <v-card-actions class="py-0 justify-space-between">
+                <strong
+                  class="grey--text text--lighten-1 PriceBefore text-truncate"
+                >
+                  {{ Product.payment }}
+                  <small class="text-truncate">ريال</small>
+                </strong>
+                <strong class="PriceAfter text-truncate">
+                  {{ Product.payment }}
+                  <small class="text-truncate">ريال</small>
+                </strong>
+              </v-card-actions>
+              <v-card-actions class="py-1 justify-space-between">
+                <p class="ma-0 sold-info px-2 text-truncate">
+                  <span>{{ Product.id }} </span>بيعت
+                </p>
+                <span class="card-text grey--text px-2">
+                  {{ Product.location }}
+                </span>
+              </v-card-actions>
             </v-card>
-          </v-col>
-          <v-col cols="12" class="mt-2">
-            <v-card-actions class="justify-center">
-              <v-btn elevation="0" width="190" class="seeMoreBtn">
-                المزيد
-                <v-icon right size="16">mdi-dots-horizontal</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-col>
-        </v-row>
-        <!-- <v-col cols="12">
+          </div>
+        </v-col>
+        <v-col cols="12" class="mt-2">
+          <v-card-actions class="justify-center">
+            <v-btn elevation="0" width="190" class="seeMoreBtn">
+              المزيد
+              <v-icon right size="16">mdi-dots-horizontal</v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-col>
+      </v-row>
+      <!-- <v-col cols="12">
           <v-card-actions class="justify-center">
             <v-btn outlined elevation="0" width="190" class="seeMoreBtn">
               المزيد
@@ -170,20 +191,19 @@
             </v-btn>
           </v-card-actions>
         </v-col> -->
-      </v-sheet>
     </v-container>
   </div>
 </template>
 
 <script>
-import Services from "../data-json/showroom.json";
+import Products from "../data-json/All-Car.json";
 import TheNavBar from "../NavBar/TheNavBar.vue";
 export default {
   name: "ServicesPage",
   components: { TheNavBar },
   data() {
     return {
-      Services,
+      Products,
       filterdialog: null,
       items: ["مقديشو", "كزبرا", "صلصة", "ثوم"],
     };
@@ -215,12 +235,6 @@ export default {
   width: 100%;
   min-height: 70vh;
   background-color: $color-background;
-  font-family: $fontfamliy;
-  .location {
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    color: $fontcolorlinks !important;
-  }
   .seeMoreBtn {
     letter-spacing: 0 !important;
     font-size: 16px;
@@ -230,32 +244,29 @@ export default {
 }
 .card-text {
   font-family: $fontfamliy3 !important;
-  color: $fontcolor !important;
+  color: $fontcolor;
+  letter-spacing: 0 !important;
+  font-size: 13px !important;
 }
-.customer-rating-text {
-  font-family: $fontfamliy3;
-  font-size: 14px;
-  color: $fontcolorlinks !important;
-  letter-spacing: 0px !important;
-  @media (max-width: 470px) {
-    font-size: 14px;
-  }
-  @media (max-width: 350px) {
-    font-size: 13px;
-  }
-  strong {
-    color: $color-2;
-  }
-  a {
-    font-size: 13px;
-    text-decoration: none !important;
-    font-weight: 600 !important;
+.sold-info {
+  font-family: $fontfamliy3 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: $fontcolorlinks;
+  span {
+    color: $color-2 !important;
+    margin-left: 5px;
+    font-size: 14px !important;
+    letter-spacing: 1.5px !important;
   }
 }
-.container {
-  @media (max-width: 600px) {
-    padding: 0 !important;
-  }
+.PriceBefore {
+  font-size: 14px !important;
+  text-decoration: line-through;
+}
+.PriceAfter {
+  font-size: 15px !important;
+  color: $color-2;
 }
 ::v-deep .v-dialog.v-dialog--active.v-dialog--persistent {
   margin: 5px;
@@ -275,6 +286,9 @@ export default {
   font-size: 14px !important;
   letter-spacing: 0;
 }
+::v-deep .v-menu__content.theme--light.menuable__content__active {
+  z-index: 15 !important;
+}
 .filtertion {
   position: fixed;
   z-index: 6;
@@ -291,5 +305,81 @@ export default {
   letter-spacing: 0 !important;
   font-size: 18px;
   font-family: $fontfamliy3;
+}
+.best-price-tag {
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  clip-path: polygon(
+    50% 0%,
+    100% 0,
+    100% 35%,
+    100% 70%,
+    100% 100%,
+    49% 70%,
+    0 100%,
+    0% 70%,
+    0% 35%,
+    0 0
+  );
+
+  background-color: $color-2;
+  width: 35px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  // transform: rotate(360deg);
+  z-index: 5;
+  border-radius: 0 !important;
+}
+.discountPercent {
+  color: white !important;
+  font-weight: 500;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.ribbon {
+  position: absolute;
+  top: 3px;
+  right: 0px;
+  z-index: 5;
+  padding: 0 5px;
+  width: 50px;
+  text-align: center;
+  font-size: 11px;
+  color: #ffffff;
+  font-family: $fontfamliy3 !important;
+  letter-spacing: 0 !important;
+  border-radius: 5px 0px 0px 5px !important;
+  background: $color-2;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+.ribbon:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0.5em;
+  height: 100%;
+  padding: 0 0 20px 0px !important;
+  top: 0;
+  right: -0.51em;
+  background: inherit;
+  border-radius: 0px 5px 5px 0px !important;
+}
+
+.ribbon:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 0.313em;
+  height: 0.313em;
+  background: rgba(0, 0, 0, 0.35);
+  bottom: -0.313em;
+  right: -0.3em;
+  border-radius: 0px 5px 5px 0px !important;
+  box-shadow: inset -1px 2px 2px rgba(0, 0, 0, 0.3);
 }
 </style>

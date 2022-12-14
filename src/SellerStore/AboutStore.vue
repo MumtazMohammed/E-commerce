@@ -1,9 +1,9 @@
 <template>
   <div class="AboutStore">
-    <v-card-title class="py-0 titel"> عن المتجر </v-card-title>
-    <v-row>
-      <v-col cols="12" md="6" sm="6">
-        <v-card-text class="pa-2 text">
+    <v-card-title class="pa-2 titel"> عن المتجر </v-card-title>
+    <v-row no-gutters>
+      <v-col cols="12">
+        <v-card-text class="text">
           حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم
           الموقع. ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر
           للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث
@@ -11,38 +11,41 @@
           يليق.
         </v-card-text>
       </v-col>
-      <v-col>
-        <v-sheet color="grey lighten-3" height="100%" tile>
-          <v-row
-            no-gutters
-            style="justify-content: space-evenly"
-            class="fill-height"
-            align="center"
-          >
-            <v-col class="pa-1" cols="6" v-for="i in 6" :key="i">
+      <v-col cols="12">
+        <v-carousel
+          height="auto"
+          show-arrows-on-hover
+          delimiter-icon="mdi-minus"
+        >
+          <v-carousel-item v-for="(slide, i) in slides" :key="i">
+            <v-sheet :color="colors[i]" height="100%">
               <v-img
                 src="https://picsum.photos/510/300?random"
-                aspect-ratio="1.7"
+                contain
+                max-height="400"
               ></v-img>
-            </v-col>
-          </v-row>
-        </v-sheet>
+            </v-sheet>
+          </v-carousel-item>
+        </v-carousel>
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
-import Services from "../data-json/showroom.json";
 export default {
   name: "ServicesPage",
   components: {},
   data() {
     return {
-      Services,
-      model: null,
-      filterdialog: null,
-      items: ["مقديشو", "كزبرا", "صلصة", "ثوم"],
+      colors: [
+        "indigo",
+        "warning",
+        "pink darken-2",
+        "red lighten-1",
+        "deep-purple accent-4",
+      ],
+      slides: ["First", "Second", "Third", "Fourth", "Fifth"],
     };
   },
   methods: {
@@ -86,5 +89,13 @@ export default {
     text-align: justify;
     line-height: 1.7;
   }
+}
+::v-deep
+  button.v-carousel__controls__item.v-btn.v-item--active.v-btn--active.v-btn--icon.v-btn--round.theme--dark.v-size--small {
+  width: 20px !important;
+  height: 20px !important;
+}
+::v-deep .v-carousel__controls {
+  height: 30px !important;
 }
 </style>

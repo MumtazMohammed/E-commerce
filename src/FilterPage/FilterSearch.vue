@@ -134,7 +134,7 @@
       </v-dialog>
     </div>
     <div class="hidden-sm-and-down">
-      <v-card-title class=" text">
+      <v-card-title class="text">
         <v-icon right color="primary" size="16">mdi-filter-outline</v-icon>
         تصفية البحث
       </v-card-title>

@@ -9,7 +9,7 @@
       </v-col>
       <v-row no-gutters class="">
         <v-col class="pa-2" v-for="i in 6" :key="i">
-          <v-card outlined height="" to="/contact">
+          <v-card to="/SellerStorePage" outlined height="">
             <v-card-actions class="justify-center pa-0">
               <v-img
                 height="125"

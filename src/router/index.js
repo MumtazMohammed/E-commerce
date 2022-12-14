@@ -77,7 +77,7 @@ const routes = [
     name: "ShowTheProduct",
     component: ShowTheProduct,
   },
-  // show Products
+  // show Services Page
   {
     path: "/ServicesPage",
     name: "ServicesPage",
