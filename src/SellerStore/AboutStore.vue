@@ -22,7 +22,7 @@
               <v-img
                 src="https://picsum.photos/510/300?random"
                 contain
-                max-height="400"
+                height="350"
               ></v-img>
             </v-sheet>
           </v-carousel-item>
@@ -97,5 +97,10 @@ export default {
 }
 ::v-deep .v-carousel__controls {
   height: 30px !important;
+}
+::v-deep .v-image.v-responsive.theme--light {
+  @media (max-width: 600px) {
+    height: 250px !important;
+  }
 }
 </style>

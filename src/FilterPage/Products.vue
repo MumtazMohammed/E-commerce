@@ -322,8 +322,9 @@ export default {
 .seeMoreBtn {
   letter-spacing: 0 !important;
   font-size: 16px;
-  font-family: $fontfamliy2;
+  font-family: $fontfamliy3;
   color: $color-2;
+  background-color: #ffffff !important;
 }
 
 //

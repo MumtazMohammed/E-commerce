@@ -109,13 +109,13 @@
           </v-card>
         </v-dialog>
       </div>
-      <v-row no-gutters class="fill-height">
+      <v-row no-gutters class="mt-2">
         <v-col
           cols="6"
-          md="4"
+          md="2"
           sm="6"
-          lg="3"
-          xl="1"
+          lg="2"
+          xl="2"
           class="pa-1"
           v-for="(Product, i) in Products"
           :key="i"
@@ -183,14 +183,6 @@
           </v-card-actions>
         </v-col>
       </v-row>
-      <!-- <v-col cols="12">
-          <v-card-actions class="justify-center">
-            <v-btn outlined elevation="0" width="190" class="seeMoreBtn">
-              المزيد
-              <v-icon right>mdi-dots-horizontal</v-icon>
-            </v-btn>
-          </v-card-actions>
-        </v-col> -->
     </v-container>
   </div>
 </template>
@@ -238,8 +230,9 @@ export default {
   .seeMoreBtn {
     letter-spacing: 0 !important;
     font-size: 16px;
-    font-family: $fontfamliy2;
+    font-family: $fontfamliy3;
     color: $color-2;
+    background-color: #ffffff !important;
   }
 }
 .card-text {
