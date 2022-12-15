@@ -1,6 +1,6 @@
 <template>
   <div class="AboutStore">
-    <v-row no-gutters>
+    <v-row no-gutters align="center">
       <v-menu
         v-model="menu"
         style="z-index: 16"
@@ -153,6 +153,9 @@ export default {
     letter-spacing: 0 !important;
     color: $fontcolorlinks;
     font-size: 16px;
+    @media (max-width: 600px) {
+      font-size: 13px;
+    }
   }
 }
 ::v-deep .v-banner__wrapper {
