@@ -269,6 +269,10 @@ ul {
   font-weight: 600 !important;
   font-family: $fontfamliy3 !important;
   color: $fontcolorlinks;
+  letter-spacing: 0 !important;
+  @media (max-width: 600px) {
+    font-size: 15px !important;
+  }
   .v-icon {
     color: $color-2 !important;
   }

@@ -2,9 +2,7 @@
   <!-- search for showroom -->
   <div class="search-wrapping">
     <v-container class="search-container">
-      <v-card-actions
-        class="mt-4 mt-lg-1 mt-xl-1 mt-md-1 mt-sm-1 mb-1 mb-md-3 mb-sm-3 mb-lg-3 mb-xl-3 py-0"
-      >
+      <v-card-actions class="px-0">
         <router-link router to="/">
           <div class="NavTitle">ثــقـة</div>
         </router-link>
@@ -20,10 +18,11 @@
               v-bind="attrs"
               v-on="on"
               flat
-              width="350px"
+              tile
+              width="100%"
               height="30px"
-              color="#f7f7f7"
-              class="search-small-screen hidden-sm-and-up ml-3"
+              color="#eee"
+              class="search-small-screen hidden-sm-and-up mr-1 ml-3"
             >
               <v-card-actions class="pa-0">
                 <v-icon class="mr-1 icon-small-screen">mdi-magnify</v-icon>
@@ -101,14 +100,7 @@
         </v-dialog>
         <v-spacer></v-spacer>
         <!-- cart shopping  -->
-        <v-badge
-          bordered
-          offset-x="45"
-          offset-y="12"
-          overlap
-          content="5"
-          class="mx-2"
-        >
+        <v-badge bordered left overlap content="425" class="mx-2">
           <v-btn
             :to="{
               name: 'TheClientCartPage',
@@ -305,6 +297,12 @@ a {
   font-family: $fontfamliy;
   letter-spacing: 0px;
 }
+::v-deep .v-btn--icon.v-size--default {
+  @media (max-width: 600px) {
+    height: 30px;
+    width: 30px;
+  }
+}
 .search {
   height: auto;
   width: 100%;
@@ -376,21 +374,23 @@ a {
   @media (max-width: 600px) {
     border: none !important;
     color: $color-2 !important;
+    font-size: 17px !important;
   }
 }
 ::v-deep .theme--light.v-badge .v-badge__badge:after {
   border-width: 0;
 }
 ::v-deep span.v-badge__badge {
-  background-color: #eee !important;
+  background-color: transparent !important;
   color: $color-2 !important;
-  font-weight: 500;
   @media (max-width: 600px) {
-    inset: auto calc(100% - 45px) calc(100% - 10px) auto !important;
   }
 }
 .btn-noti-cart-icon {
   font-size: 20px !important;
+  @media (max-width: 600px) {
+    font-size: 17px !important;
+  }
 }
 .icon-small-screen {
   font-size: 19px !important;

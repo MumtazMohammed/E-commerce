@@ -15,7 +15,7 @@
               max-width="190px"
               height="auto"
               color="transparent"
-              class="overflow-hidden"
+              class="overflow-hidden py-2"
             >
               <v-row
                 no-gutters
@@ -214,7 +214,7 @@ export default {
     color: $color-2;
   }
   .swiper {
-    height: 350px !important;
+    height: 380px !important;
     padding: 10px;
 
     .swiper-pagination::v-deep .swiper-pagination-bullet {
@@ -303,7 +303,7 @@ export default {
     top: 50%;
     left: 0;
     opacity: 0.9;
-    background-color: $color-3;
+    background-color: #eee;
     width: 40%;
     height: 2.2px;
     @media (max-width: 850px) {
@@ -322,7 +322,7 @@ export default {
     top: 50%;
     right: 0;
     opacity: 0.9;
-    background-color: $color-3;
+    background-color: #eee;
     width: 40%;
     height: 2.2px;
     @media (max-width: 850px) {

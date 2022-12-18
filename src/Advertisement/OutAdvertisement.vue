@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <!-- advertisement  -->
     <v-container fluid class="pa-0">
       <swiper class="swiper" :options="swiperOption">

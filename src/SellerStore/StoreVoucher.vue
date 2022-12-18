@@ -38,7 +38,6 @@
     </swiper>
   </div>
 </template>
-
 <script>
 import Services from "../data-json/showroom.json";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
@@ -108,17 +107,7 @@ export default {
       return image("./" + FolderName + "/" + ImageName);
     },
   },
-  // computed: {
-  //   getCarInfo() {
-  //     let GetShowroomfeatured = [];
-  //     for (let i = 0; i < this.featuredshowrooms.length; i++) {
-  //       if (this.featuredshowrooms[i].featured == true) {
-  //         GetShowroomfeatured.push(this.featuredshowrooms[i]);
-  //       }
-  //     }
-  //     return GetShowroomfeatured;
-  //   },
-  // },
+
 };
 </script>
 
@@ -153,12 +142,10 @@ export default {
 
     @media (max-width: 600px) {
       font-size: 13px !important;
-      // width: ;
-      min-width: 35px !important;
+      min-width: 25px !important;
     }
     @media (max-width: 400px) {
       font-size: 12px !important;
-      // width: ;
       min-width: 22px !important;
     }
   }

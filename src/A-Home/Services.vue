@@ -32,8 +32,7 @@
         </v-sheet>
       </div>
       <div class="card-box-small pb-3">
-        <v-sheet rounded="lg" class="mx-auto my-3 info-card" max-width="95%">
-          <div style="position: relative; z-index: 5">
+        <v-card class="mx-auto my-3 info-card" max-width="95%">
             <v-row no-gutters>
               <v-col style="border-left: 2px solid #fff" cols="6" class="pa-0">
                 <v-card-title class="pa-1 text">
@@ -44,7 +43,6 @@
                   نقطة
                 </v-card-title>
               </v-col>
-
               <v-col cols="6" class="pa-0">
                 <v-card-title class="pa-1 text">
                   <v-icon color="amber darken-2" class="info-icon" size="22">
@@ -55,8 +53,7 @@
                 </v-card-title>
               </v-col>
             </v-row>
-          </div>
-        </v-sheet>
+        </v-card>
         <div class="pt-2 d-flex font-weight-bold tital">
           فئة
           <strong class="mx-1">الخدمات</strong>

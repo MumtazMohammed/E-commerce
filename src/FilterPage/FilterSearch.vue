@@ -21,34 +21,50 @@
         <v-card class="pa-2" tile flat>
           <div>
             <v-card-text class="pa-2 text"> المناطق </v-card-text>
-            <v-checkbox
-              v-for="i in 10"
-              :key="i"
-              v-model="ex4"
-              label="تعز"
-              color="primary"
-              value="primary"
-              class="ma-0"
-              multiple
-              hide-details
-            ></v-checkbox>
+            <v-row no-gutters>
+              <v-col v-for="i in 10" :key="i" class="pa-1">
+                <v-card class="pa-1">
+                  <v-checkbox
+                    v-model="ex4"
+                    label="تعز"
+                    color="primary"
+                    value="primary"
+                    class="ma-0 pa-0"
+                    multiple
+                    dense
+                    hide-details
+                  ></v-checkbox>
+                </v-card>
+              </v-col>
+            </v-row>
           </div>
           <v-divider class="mt-3"></v-divider>
           <div>
             <v-card-text class="pa-2 text"> ألوان </v-card-text>
-            <v-card-actions
-              class="grey lighten-2 justify-center"
-              style="flex-wrap: wrap"
-            >
-              <v-avatar
+            <v-row no-gutters class="justify-space-between">
+              <v-col
+                cols="1.5"
                 v-for="PerColor in Colors"
                 :key="PerColor"
-                size="15"
-                :color="PerColor"
-                class="ma-1"
+                class="pa-1"
               >
-              </v-avatar>
-            </v-card-actions>
+                <v-card
+                width="32px"
+                height="32px"
+                  rounded="pill"
+                  :class="PerColor"
+                  class="pa-1 overflow--hidden"
+                >
+                  <v-checkbox
+                    class="ma-0 pa-0"
+                    multiple
+                    dense
+                    color="white"
+                    hide-details
+                  ></v-checkbox>
+                </v-card>
+              </v-col>
+            </v-row>
           </div>
           <v-divider class="mt-3"></v-divider>
           <div>
@@ -74,62 +90,77 @@
           <v-divider class="mt-3"></v-divider>
           <div>
             <v-card-text class="pa-2 text"> الفئات </v-card-text>
-            <v-checkbox
-              v-model="ex4"
-              label="تعز"
-              color="primary"
-              value="primary"
-              class="ma-0"
-              hide-details
-            ></v-checkbox>
+            <v-row no-gutters>
+              <v-col v-for="i in 3" :key="i" class="pa-1">
+                <v-card class="pa-1">
+                  <v-checkbox
+                    v-model="ex4"
+                    label="تعز"
+                    color="primary"
+                    value="primary"
+                    class="ma-0 pa-0"
+                    multiple
+                    dense
+                    hide-details
+                  ></v-checkbox>
+                </v-card>
+              </v-col>
+            </v-row>
           </div>
           <v-divider class="mt-3"></v-divider>
           <div>
             <v-card-text class="pa-2 text"> العلامة التجارية </v-card-text>
-            <v-checkbox
-              v-model="ex4"
-              label="تعز"
-              color="primary"
-              value="primary"
-              class="ma-0"
-              hide-details
-            ></v-checkbox>
+            <v-row no-gutters>
+              <v-col v-for="i in 3" :key="i" class="pa-1">
+                <v-card class="pa-1">
+                  <v-checkbox
+                    v-model="ex4"
+                    label="تعز"
+                    color="primary"
+                    value="primary"
+                    class="ma-0 pa-0"
+                    multiple
+                    dense
+                    hide-details
+                  ></v-checkbox>
+                </v-card>
+              </v-col>
+            </v-row>
           </div>
           <v-divider class="mt-3"></v-divider>
           <div class="mb-4">
             <v-card-text class="pa-2 text"> الحالة </v-card-text>
-            <v-checkbox
-              v-model="ex4"
-              label="تعز"
-              color="primary"
-              value="primary"
-              class="ma-0"
-              hide-details
-            ></v-checkbox>
+            <v-row no-gutters>
+              <v-col v-for="i in 3" :key="i" class="pa-1">
+                <v-card class="pa-1">
+                  <v-checkbox
+                    v-model="ex4"
+                    label="تعز"
+                    color="primary"
+                    value="primary"
+                    class="ma-0 pa-0"
+                    multiple
+                    dense
+                    hide-details
+                  ></v-checkbox>
+                </v-card>
+              </v-col>
+            </v-row>
           </div>
           <v-divider class="my-3"></v-divider>
 
-          <v-card-actions class="">
-            <v-btn
-              rounded
-              elevation="0"
-              color="green "
-              class="btn"
-              @click="filterdialog = false"
-            >
-              عرض
-            </v-btn>
-            <v-spacer></v-spacer>
-            <v-btn
-              rounded
-              elevation="0"
-              color="red darken-1 "
-              class="btn"
-              @click="filterdialog = false"
-            >
-              إلغاء
-            </v-btn>
-          </v-card-actions>
+          <v-row no-gutters>
+            <v-col cols="6" class="pa-2">
+              <v-btn block class="btn" @click="filterdialog = false">
+                عرض
+              </v-btn>
+            </v-col>
+            <v-col cols="6" class="pa-2">
+              <v-btn block class="btn" @click="filterdialog = false">
+                إلغاء
+              </v-btn>
+            </v-col>
+          </v-row>
         </v-card>
       </v-dialog>
     </div>
@@ -327,8 +358,10 @@ export default {
   letter-spacing: 0 !important;
   font-size: 18px;
   font-family: $fontfamliy3;
-  color: #fff !important;
-  font-weight: 600;
+  color: $fontcolorlinks !important;
+  @media (max-width: 600px) {
+    font-size: 15px !important;
+  }
 }
 // ::v-deep .v-dialog.v-dialog--active.v-dialog--persistent {
 //   margin: 5px;
@@ -364,19 +397,20 @@ export default {
   font-family: $fontfamliy3;
   letter-spacing: 0 !important;
   font-size: 14px !important;
-  color: $fontcolorlinks;
+  color: $color-2;
+  font-weight: 600;
 }
-::v-deep .v-input--selection-controls__ripple {
-  border-radius: 50%;
-  cursor: pointer;
-  height: 25px;
-  position: absolute;
-  transition: inherit;
-  width: 24px;
-  left: 0px;
-  top: calc(0% - 0px);
-  margin: 0px !important;
-}
+// ::v-deep .v-input--selection-controls__ripple {
+//   border-radius: 50%;
+//   cursor: pointer;
+//   height: 25px;
+//   position: absolute;
+//   transition: inherit;
+//   width: 24px;
+//   left: 0px;
+//   top: calc(0% - 0px);
+//   margin: 0px !important;
+// }
 ::v-deep .v-input--selection-controls__input {
   margin-right: 3px;
   @media (max-width: 600px) {
@@ -396,6 +430,7 @@ export default {
 /* Firefox */
 ::v-deep .v-input__slot {
   min-height: 25px !important;
+  justify-content: center;
 }
 ::v-deep .v-input__slot input {
   text-align: center;
@@ -415,5 +450,9 @@ export default {
 }
 ::v-deep .v-expansion-panel-content__wrap {
   padding: 0px 10px 10px;
+}
+::v-deep label.v-label.theme--light {
+  font-family: $fontfamliy3;
+  letter-spacing: 0 !important;
 }
 </style>
