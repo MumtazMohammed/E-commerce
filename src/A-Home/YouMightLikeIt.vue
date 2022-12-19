@@ -122,8 +122,11 @@ export default {
     color: $fontcolorlinks;
     font-weight: 600;
     pointer-events: none;
-    @media (max-width: 400px) {
+    @media (max-width: 600px) {
       font-size: 16px;
+    }
+    @media (max-width: 350px) {
+      font-size: 14px;
     }
     strong {
       color: $color-2;

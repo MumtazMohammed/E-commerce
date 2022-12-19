@@ -97,7 +97,7 @@
       </v-col>
       <!-- big devices image -->
       <v-col xs="12" sm="12" md="6" class="big-screen-img white">
-        <div class="text-center">
+        <v-sheet class="overflow-hidden">
           <v-img
             v-if="
               ActiveImage.length < 1
@@ -111,12 +111,13 @@
             :lazy-src="ActiveImage"
             v-bind="attrs"
             v-on="on"
-            class="ma-sm-auto white"
+            class="ma-sm-auto white image"
             max-height="600px"
             height="400px"
             contain
           >
           </v-img>
+
           <!--clickable images changer-->
           <v-sheet class="mx-auto" elevation="0" max-width="800">
             <v-slide-group
@@ -153,7 +154,7 @@
               </v-slide-item>
             </v-slide-group>
           </v-sheet>
-        </div>
+        </v-sheet>
       </v-col>
       <v-col
         cols="12"
@@ -442,6 +443,7 @@
 <script>
 import CarData from "../data-json/All-Car.json";
 import productInformation from "./productInformation.vue";
+
 // import Share from "./ShareSaveReport.vue";
 export default {
   name: "ProductImages",
@@ -486,6 +488,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/virables";
 @import "@/scss/mixin";
+// @import "vue-inner-image-zoom/lib/vue-inner-image-zoom.css";
 
 ::v-deep .v-image.v-responsive.theme--light {
   align-items: center;

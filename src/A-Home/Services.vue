@@ -33,26 +33,26 @@
       </div>
       <div class="card-box-small pb-3">
         <v-card class="mx-auto my-3 info-card" max-width="95%">
-            <v-row no-gutters>
-              <v-col style="border-left: 2px solid #fff" cols="6" class="pa-0">
-                <v-card-title class="pa-1 text">
-                  <v-icon color="yellow accent-4" class="info-icon" size="22">
-                    mdi-alpha-s-circle-outline
-                  </v-icon>
-                  <span class="">0</span>
-                  نقطة
-                </v-card-title>
-              </v-col>
-              <v-col cols="6" class="pa-0">
-                <v-card-title class="pa-1 text">
-                  <v-icon color="amber darken-2" class="info-icon" size="22">
-                    mdi-ticket-percent-outline
-                  </v-icon>
-                  <span class="">0</span>
-                  قسائم
-                </v-card-title>
-              </v-col>
-            </v-row>
+          <v-row no-gutters>
+            <v-col style="border-left: 2px solid #fff" cols="6" class="pa-0">
+              <v-card-title class="pa-1 text">
+                <v-icon color="yellow accent-4" class="info-icon" size="22">
+                  mdi-alpha-s-circle-outline
+                </v-icon>
+                <span class="">0</span>
+                نقطة
+              </v-card-title>
+            </v-col>
+            <v-col cols="6" class="pa-0">
+              <v-card-title class="pa-1 text">
+                <v-icon color="amber darken-2" class="info-icon" size="22">
+                  mdi-ticket-percent-outline
+                </v-icon>
+                <span class="">0</span>
+                قسائم
+              </v-card-title>
+            </v-col>
+          </v-row>
         </v-card>
         <div class="pt-2 d-flex font-weight-bold tital">
           فئة
@@ -242,8 +242,7 @@ export default {
     color: $fontcolorlinks;
     letter-spacing: 0px !important;
     justify-content: center;
-
-    @media (max-width: 470px) {
+    @media (max-width: 600px) {
       font-size: 16px;
     }
     @media (max-width: 350px) {

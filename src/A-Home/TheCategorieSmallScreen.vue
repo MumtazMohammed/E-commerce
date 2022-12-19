@@ -290,11 +290,11 @@ export default {
     font-size: 20px;
     color: $fontcolorlinks;
     font-weight: 600;
-    @media (max-width: 400px) {
-      font-size: 18px;
+    @media (max-width: 600px) {
+      font-size: 16px;
     }
-    store {
-      color: $color-2;
+    @media (max-width: 350px) {
+      font-size: 14px;
     }
   }
   .tital::before {

@@ -49,8 +49,8 @@
                 class="pa-1"
               >
                 <v-card
-                width="32px"
-                height="32px"
+                  width="32px"
+                  height="32px"
                   rounded="pill"
                   :class="PerColor"
                   class="pa-1 overflow--hidden"

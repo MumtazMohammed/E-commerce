@@ -107,7 +107,6 @@ export default {
       return image("./" + FolderName + "/" + ImageName);
     },
   },
-
 };
 </script>
 
