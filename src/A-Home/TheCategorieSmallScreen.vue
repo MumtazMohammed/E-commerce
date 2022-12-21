@@ -11,55 +11,61 @@
         <!-- <span class="line my-3 mx-auto"></span> -->
         <swiper class="swiper" :options="swiperOption">
           <swiper-slide v-for="(Categorie, index) in Categories" :key="index">
-            <v-card
-              max-width="190px"
-              height="auto"
-              color="transparent"
-              class="overflow-hidden py-2"
+            <v-row
+              no-gutters
+              class="flex-column justify-center align-center pa-0"
             >
-              <v-row
-                no-gutters
-                class="flex-column justify-center align-center pa-0"
+              <v-card
+                min-width="150px"
+                max-width="180px"
+                outlined
+                class="pa-2 my-1"
+                to="/Products"
+                router
               >
-                <v-card flat color="transparent" to="/Products" router>
-                  <v-card-actions
-                    class="flex-column justify-center align-center pa-0"
-                  >
-                    <v-avatar size="85px" color="grey lighten-3">
-                      <v-img
-                        contain
-                        :src="getimageUrl(Categorie.folder, Categorie.imgOne)"
-                      ></v-img>
-                    </v-avatar>
+                <v-card-actions
+                  class="flex-column justify-center align-center pa-0"
+                >
+                  <v-avatar size="90px" tile>
+                    <v-img
+                      contain
+                      :src="getimageUrl(Categorie.folder, Categorie.imgOne)"
+                    ></v-img>
+                  </v-avatar>
 
-                    <v-card-text
-                      class="px-0 pb-0 text-center card-text"
-                      v-text="Categorie.titalOne"
-                    >
-                    </v-card-text>
-                  </v-card-actions>
-                </v-card>
-                <v-card flat color="transparent" to="/Products" router>
-                  <v-card-actions
-                    class="flex-column justify-center align-center pa-0"
+                  <v-card-text
+                    class="px-0 py-2 text-center card-text"
+                    v-text="Categorie.titalOne"
                   >
-                    <v-avatar size="85px" color="grey lighten-3">
-                      <v-img
-                        contain
-                        :src="getimageUrl(Categorie.folder, Categorie.imgTow)"
-                      ></v-img>
-                    </v-avatar>
-                    <v-card-text
-                      class="px-0 text-center card-text"
-                      v-text="Categorie.titalTow"
-                    >
-                    </v-card-text>
-                  </v-card-actions>
-                </v-card>
-              </v-row>
-            </v-card>
+                  </v-card-text>
+                </v-card-actions>
+              </v-card>
+              <v-card
+                min-width="150px"
+                max-width="180px"
+                outlined
+                class="pa-2 my-1"
+                to="/Products"
+                router
+              >
+                <v-card-actions
+                  class="flex-column justify-center align-center pa-0"
+                >
+                  <v-avatar size="90px" tile>
+                    <v-img
+                      contain
+                      :src="getimageUrl(Categorie.folder, Categorie.imgTow)"
+                    ></v-img>
+                  </v-avatar>
+                  <v-card-text
+                    class="px-0 text-center card-text"
+                    v-text="Categorie.titalTow"
+                  >
+                  </v-card-text>
+                </v-card-actions>
+              </v-card>
+            </v-row>
           </swiper-slide>
-
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
       </v-card>
@@ -214,7 +220,7 @@ export default {
     color: $color-2;
   }
   .swiper {
-    height: 380px !important;
+    height: 405px !important;
     padding: 10px;
 
     .swiper-pagination::v-deep .swiper-pagination-bullet {
@@ -237,35 +243,6 @@ export default {
     .swiper-button-next::after {
       transform: scale(0);
       display: none;
-    }
-    .swiper-button-prev {
-      background-color: $color-2;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      transition: all 0.5s ease;
-      // box-shadow: 0 0 1px 2px rgba(128, 128, 128, 0.449);
-    }
-    .swiper-button-next {
-      background-color: $color-2;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      transition: all 0.5s ease;
-      // box-shadow: 0 0 1px 2px rgba(128, 128, 128, 0.449);
-    }
-    .icon {
-      font-size: 27px !important;
-      color: rgb(255, 255, 255);
-      font-weight: bold;
-    }
-    ::v-deep.swiper-button-next.swiper-button-disabled {
-      opacity: 0;
-      transform: translatex(-50px);
-    }
-    ::v-deep.swiper-button-prev.swiper-button-disabled {
-      opacity: 0;
-      transform: translatex(50px);
     }
   }
 
@@ -335,53 +312,5 @@ export default {
       width: 26%;
     }
   }
-}
-.best-price-tag {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 5;
-}
-::v-deep .v-responsive__content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.discountPercent {
-  color: white !important;
-  font-weight: 500;
-  font-size: 15px;
-}
-::v-deep .v-slide-group__next {
-  align-items: center;
-  display: flex;
-  flex: 0 1 30px;
-  justify-content: flex-end;
-  min-width: 30px;
-  @media (max-width: 950px) {
-    display: none;
-  }
-}
-::v-deep .v-slide-group__prev {
-  align-items: center;
-  display: flex;
-  flex: 0 1 30px;
-  justify-content: flex-start;
-  min-width: 30px;
-  @media (max-width: 950px) {
-    display: none;
-  }
-}
-::v-deep i.v-icon.notranslate.material-icons.theme--light {
-  color: $color-2;
-  font-size: 28px;
-  font-weight: 600;
-}
-.price-befor {
-  text-decoration: line-through;
-  font-size: 15px !important;
-}
-.new-price {
-  font-size: 15px !important;
 }
 </style>

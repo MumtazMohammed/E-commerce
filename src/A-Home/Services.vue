@@ -1,6 +1,6 @@
 <template>
   <div class="Shape_box">
-    <v-container class="pa-0">
+    <v-container class="">
       <div class="Card-box">
         <v-sheet rounded=" ">
           <div class="pa-3 d-flex font-weight-bold tital">
@@ -15,6 +15,7 @@
                 :key="Servic.ServicId"
               >
                 <v-card
+                  flat
                   to="/ServicesPage"
                   color="#eee"
                   class="d-flex ServiceCard align-center justify-space-between flex-column"
@@ -22,7 +23,7 @@
                   <v-icon class="icon">
                     {{ Servic.ServicIcon }}
                   </v-icon>
-                  <span class="grey--text ServiceText py-3 text-center">
+                  <span class="grey--text ServiceText py-1 text-center">
                     {{ Servic.ServicText }}
                   </span>
                 </v-card>
@@ -31,12 +32,12 @@
           </v-card>
         </v-sheet>
       </div>
-      <div class="card-box-small pb-3">
-        <v-card class="mx-auto my-3 info-card" max-width="95%">
+      <div class="card-box-small">
+        <v-card flat rounded="0" class="mx-auto info-card">
           <v-row no-gutters>
             <v-col style="border-left: 2px solid #fff" cols="6" class="pa-0">
-              <v-card-title class="pa-1 text">
-                <v-icon color="yellow accent-4" class="info-icon" size="22">
+              <v-card-title class="pa-0 text">
+                <v-icon class="info-icon" size="22">
                   mdi-alpha-s-circle-outline
                 </v-icon>
                 <span class="">0</span>
@@ -44,8 +45,8 @@
               </v-card-title>
             </v-col>
             <v-col cols="6" class="pa-0">
-              <v-card-title class="pa-1 text">
-                <v-icon color="amber darken-2" class="info-icon" size="22">
+              <v-card-title class="pa-0 text">
+                <v-icon class="info-icon" size="22">
                   mdi-ticket-percent-outline
                 </v-icon>
                 <span class="">0</span>
@@ -58,28 +59,27 @@
           فئة
           <strong class="mx-1">الخدمات</strong>
         </div>
-        <v-card flat tile class="px-1">
-          <swiper class="swiper" :options="swiperOption">
-            <swiper-slide
-              class="mt-5"
-              v-for="Servic in Services"
-              :key="Servic.ServicId"
+        <swiper class="swiper" :options="swiperOption">
+          <swiper-slide
+            class="mt-5"
+            v-for="Servic in Services"
+            :key="Servic.ServicId"
+          >
+            <v-card
+              to="/ServicesPage"
+              color="#eee"
+              flat
+              class="d-flex ServiceCard align-center justify-space-between flex-column"
             >
-              <v-card
-                to="/ServicesPage"
-                color="#eee"
-                class="d-flex ServiceCard align-center justify-space-between flex-column"
-              >
-                <v-icon class="icon">
-                  {{ Servic.ServicIcon }}
-                </v-icon>
-                <span class="grey--text ServiceText py-3 text-center">
-                  {{ Servic.ServicText }}
-                </span>
-              </v-card>
-            </swiper-slide>
-          </swiper>
-        </v-card>
+              <v-icon class="icon">
+                {{ Servic.ServicIcon }}
+              </v-icon>
+              <span class="grey--text ServiceText py-1 text-center">
+                {{ Servic.ServicText }}
+              </span>
+            </v-card>
+          </swiper-slide>
+        </swiper>
       </div>
     </v-container>
   </div>
@@ -254,35 +254,38 @@ export default {
   }
   .ServiceText {
     font-family: $fontfamliy3;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: 0;
-    color: #474747a3 !important;
+    color: $fontcolorlinks !important;
     @media (max-width: 750px) {
       font-size: 13px;
     }
+    @media (max-width: 600px) {
+      font-size: 12px;
+    }
   }
   .icon {
-    font-size: 20px;
-    background-color: #eee;
+    font-size: 18px;
+    background-color: #fc614dea;
     padding: 6px;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50% !important;
-    color: #fc614dea;
+    color: #fff;
     position: relative;
     z-index: 2;
-    box-shadow: 0px 0px 0px 6px rgb(255, 255, 255);
+    box-shadow: 0px 0px 0px 2px rgb(255, 255, 255);
     // border: 1px solid ;
     margin-top: -16px !important;
 
     // box-shadow: 0px 0px 5px 0px $fontcolorlinks;
     @media (max-width: 750px) {
-      font-size: 17px;
-      width: 17px;
-      height: 17px;
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
       margin-top: -14.5px !important;
-      box-shadow: 0px 0px 0px 4px rgb(255, 255, 255);
+      box-shadow: 0px 0px 0px 2px rgb(255, 255, 255);
     }
   }
   .text {
@@ -290,10 +293,10 @@ export default {
     font-size: 13.5px !important;
     letter-spacing: 0 !important;
     justify-content: space-evenly;
-    color: $color-2;
+    color: #fff;
     font-weight: 600;
     span {
-      color: $fontcolorlinks;
+      color: #fff;
     }
   }
   .ServiceCard {
@@ -324,6 +327,7 @@ export default {
   padding: 10px 0 !important;
   @media (max-width: 600px) {
     padding-top: 17.5px !important;
+    padding-bottom: 5px !important;
   }
 }
 ::v-deep .container.pt-0 {
@@ -343,11 +347,14 @@ export default {
   }
 }
 .info-card {
-  background-color: #f5f5f5 !important;
+  background-color: $color-2 !important;
+  // margin-top: -50px;
   .info-icon {
     background-color: #fff;
     border-radius: 50%;
-    padding: 2px;
+    padding: 3px;
+    color: $color-2;
+    box-shadow: 0px 0px 0px 5px rgb(255, 255, 255);
   }
 }
 </style>
