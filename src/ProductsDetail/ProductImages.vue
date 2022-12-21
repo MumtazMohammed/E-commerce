@@ -12,17 +12,25 @@
             transition="dialog-bottom-transition"
           >
             <template v-slot:activator="{ on, attrs }">
-              <v-img
-                v-bind="attrs"
-                v-on="on"
-                contain
-                max-height="400px"
-                :src="getimageUrl(getCarInfo.folder, getCarInfo.image)"
-              >
-                <span class="how-many-imag">
-                  <span> + {{ getCarInfo.images.length - 1 }} </span>
-                </span>
-              </v-img>
+              <swiper class="swiper" :options="swiperOption">
+                <swiper-slide
+                  v-for="(singleImage, x) in getCarInfo.images"
+                  :key="x"
+                >
+                  <v-img
+                    v-bind="attrs"
+                    v-on="on"
+                    height="400px"
+                    contain
+                    :src="getimageUrl(getCarInfo.folder, singleImage)"
+                  >
+                  </v-img>
+                </swiper-slide>
+                <div
+                  class="swiper-pagination swiper-pagination-white"
+                  slot="pagination"
+                ></div>
+              </swiper>
             </template>
             <v-card color="grey darken-4" class="overflow--hidden">
               <v-toolbar tile dark flat color="grey darken-3">
@@ -443,11 +451,12 @@
 <script>
 import CarData from "../data-json/All-Car.json";
 import productInformation from "./productInformation.vue";
-
+import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+import "swiper/css/swiper.css";
 // import Share from "./ShareSaveReport.vue";
 export default {
   name: "ProductImages",
-  components: { productInformation },
+  components: { productInformation, SwiperSlide, Swiper },
   data() {
     return {
       items: ["Foo", "Bar", "Fizz", "Buzz"],
@@ -461,6 +470,12 @@ export default {
       model: null,
       carName: this.$route.params.carName,
       carId: this.$route.params.carId,
+      swiperOption: {
+        zoom: false,
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      },
     };
   },
   // this is help full to call the image inside folder and inject to the src
@@ -580,19 +595,20 @@ export default {
 }
 
 .how-many-imag {
-  position: absolute;
-  top: 0px;
-  right: 0px;
+  position: relative;
+  bottom: 28px;
+  right: 50%;
+  transform: translateX(50%);
   min-width: 45px;
   background-color: rgb(53, 53, 53);
   display: flex;
   align-items: center;
-  padding: 3px 6px;
+  padding: 2px;
   justify-content: center;
-  border-radius: 0 0 0 2px !important;
+  border-radius: 2px !important;
   color: rgb(255, 255, 255);
   pointer-events: none;
-
+  z-index: 5000;
   span {
     font-size: 16px;
   }
@@ -688,5 +704,12 @@ export default {
 .select {
   background-color: $color-2;
   color: #fff !important;
+}
+.swiper {
+  height: 428px;
+
+  .swiper-slide {
+    background: #444;
+  }
 }
 </style>
