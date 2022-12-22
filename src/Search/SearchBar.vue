@@ -370,7 +370,7 @@ a {
 }
 .btn-noti-cart {
   color: $color-2 !important;
-  background-color: #eee;
+  // background-color: #eee;
   @media (max-width: 600px) {
     border: none !important;
     color: $color-2 !important;
@@ -381,9 +381,20 @@ a {
   border-width: 0;
 }
 ::v-deep span.v-badge__badge {
-  background-color: transparent !important;
-  color: $color-2 !important;
+  background-color: $color-2 !important;
+  color: #fff !important;
+  background-color: $color-2 !important;
+  min-width: 15px;
+  height: 15px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-size: 13px !important;
+
   @media (max-width: 600px) {
+    font-size: 11px !important;
   }
 }
 .btn-noti-cart-icon {

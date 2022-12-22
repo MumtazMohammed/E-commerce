@@ -12,27 +12,41 @@
             transition="dialog-bottom-transition"
           >
             <template v-slot:activator="{ on, attrs }">
-              <swiper class="swiper" :options="swiperOption">
-                <swiper-slide
-                  v-for="(singleImage, x) in getCarInfo.images"
-                  :key="x"
+              <v-banner
+                style="overflow: hidden; position: relative"
+                color="grey darken-2"
+              >
+                <v-carousel
+                  v-model="customerIMageNo"
+                  height="400"
+                  hide-delimiter-background
+                  delimiter-icon="mdi-minus"
+                  touch
+                  :show-arrows="false"
                 >
-                  <v-img
-                    v-bind="attrs"
-                    v-on="on"
-                    height="400px"
-                    contain
-                    :src="getimageUrl(getCarInfo.folder, singleImage)"
+                  <v-carousel-item
+                    v-for="(singleImage, x) in getCarInfo.images"
+                    :key="x"
                   >
-                  </v-img>
-                </swiper-slide>
-                <div
-                  class="swiper-pagination swiper-pagination-white"
-                  slot="pagination"
-                ></div>
-              </swiper>
+                    <v-img
+                      v-bind="attrs"
+                      v-on="on"
+                      contain
+                      max-height="400px"
+                      :src="getimageUrl(getCarInfo.folder, singleImage)"
+                    >
+                    </v-img>
+                  </v-carousel-item>
+                </v-carousel>
+                <v-row no-gutters justify="center" class="py-1">
+                  <v-chip dark small class="elevation-0">
+                    {{ customerIMageNo + 1 }} /
+                    {{ getCarInfo.images.length }}
+                  </v-chip>
+                </v-row>
+              </v-banner>
             </template>
-            <v-card color="grey darken-4" class="overflow--hidden">
+            <v-card flat tile color="grey darken-4" class="overflow--hidden">
               <v-toolbar tile dark flat color="grey darken-3">
                 <v-btn icon dark @click="dialog = false">
                   <v-icon>mdi-close</v-icon>
@@ -43,28 +57,27 @@
                   {{ getCarInfo.images.length }}
                 </v-toolbar-title>
               </v-toolbar>
-              <v-carousel
-                v-model="customerIMageNo"
-                height="620px"
-                width="100%"
-                touch
-                hide-delimiters
-                class="overflow--hidden"
-              >
-                <v-carousel-item
-                  v-for="(singleImage, x) in getCarInfo.images"
-                  :key="x"
+              <v-sheet style="height: calc(100vh - 112px)">
+                <v-carousel
+                  v-model="customerIMageNo"
+                  height="100%"
+                  width="100%"
+                  touch
+                  hide-delimiters
+                  :show-arrows="false"
+                  class="overflow--hidden"
                 >
-                  <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
-                  </v-img>
-                </v-carousel-item>
-              </v-carousel>
+                  <v-carousel-item
+                    v-for="(singleImage, x) in getCarInfo.images"
+                    :key="x"
+                  >
+                    <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
+                    </v-img>
+                  </v-carousel-item>
+                </v-carousel>
+              </v-sheet>
               <v-spacer></v-spacer>
-              <v-sheet
-                color="grey darken-3"
-                class="overflow--hidden"
-                elevation="0"
-              >
+              <div>
                 <v-slide-group
                   v-model="customerIMageNo"
                   class="pa-0"
@@ -98,7 +111,7 @@
                     </v-avatar>
                   </v-slide-item>
                 </v-slide-group>
-              </v-sheet>
+              </div>
             </v-card>
           </v-dialog>
         </div>
@@ -451,16 +464,17 @@
 <script>
 import CarData from "../data-json/All-Car.json";
 import productInformation from "./productInformation.vue";
-import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-import "swiper/css/swiper.css";
+
 // import Share from "./ShareSaveReport.vue";
 export default {
   name: "ProductImages",
-  components: { productInformation, SwiperSlide, Swiper },
+  components: { productInformation },
   data() {
     return {
       items: ["Foo", "Bar", "Fizz", "Buzz"],
       customerIMageNo: 0,
+      slidesPerView: 1,
+
       ActiveImage: "",
       width: 300,
       sheet: false,
@@ -471,9 +485,18 @@ export default {
       carName: this.$route.params.carName,
       carId: this.$route.params.carId,
       swiperOption: {
-        zoom: false,
+        initialSlide: 0,
+        freeMode: false,
+        spaceBetween: 0,
+        slidesPerView: 1,
+
         pagination: {
           el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         },
       },
     };
@@ -508,49 +531,15 @@ export default {
 ::v-deep .v-image.v-responsive.theme--light {
   align-items: center;
 }
-::v-deep .v-image.v-responsive.v-carousel__item.theme--light {
-  // min-height: 300px !important;
-  height: 83vh !important;
-  @media (max-height: 600px) {
-  }
-}
-::v-deep .v-window.v-item-group.theme--dark.v-carousel {
-  height: 83vh !important;
-}
 ::v-deep .v-image.v-responsive.img.theme--light {
   align-items: center !important;
-}
-::v-deep i.v-icon.notranslate.mdi.mdi-minus.theme--dark {
-  display: none;
 }
 ::v-deep .v-carousel__controls {
   height: 30px;
 }
-::v-deep
-  button.v-carousel__controls__item.v-btn.v-btn--icon.v-btn--round.theme--dark.v-size--small {
-  background-color: #d3d3d3;
-  margin: 0 2px;
-  width: 12px;
-  height: 3px;
-  border-radius: 2px;
+::v-deep .v-carousel__controls__item {
+  margin: 0 !important;
 }
-::v-deep
-  button.v-carousel__controls__item.v-btn.v-btn--icon.v-btn--round.theme--dark.v-size--small.v-btn--active {
-  background-color: $color-2 !important;
-  width: 16px;
-  border-radius: 2px;
-}
-::v-deep button.theme--dark.v-btn--active:before {
-  opacity: 0;
-}
-::v-deep i.v-icon.notranslate.material-icons.theme--dark {
-  opacity: 1;
-}
-::v-deep .v-carousel__controls {
-  height: 20px;
-  background: #f9f9f9;
-}
-
 .img-box {
   width: 100%;
   min-height: 100%;
@@ -701,15 +690,19 @@ export default {
 ::v-deep .theme--light.v-chip--active:before {
   opacity: 0 !important;
 }
+::v-deep .v-banner__wrapper {
+  padding: 1px !important;
+}
+::v-deep .v-banner__content {
+  padding: 0px !important;
+}
+::v-deep
+  .theme--light.v-banner.v-sheet:not(.v-sheet--outlined):not(.v-sheet--shaped)
+  .v-banner__wrapper {
+  border: 0 !important;
+}
 .select {
   background-color: $color-2;
   color: #fff !important;
-}
-.swiper {
-  height: 428px;
-
-  .swiper-slide {
-    background: #444;
-  }
 }
 </style>
