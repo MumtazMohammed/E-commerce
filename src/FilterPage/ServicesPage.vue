@@ -1,7 +1,7 @@
 <template>
   <div class="Products">
     <TheNavBar />
-    <v-container>
+    <v-container class="px-0">
       <!-- fillter big screen from 600px and up -->
       <v-card flat class="grey lighten-2 hidden-xs-only">
         <v-card-actions class="pa-2">
@@ -116,7 +116,7 @@
           sm="6"
           lg="2"
           xl="2"
-          class="pa-1"
+          class="pa-2"
           v-for="(Product, i) in Products"
           :key="i"
         >
@@ -134,7 +134,9 @@
               }"
               min-height="220px"
               width="100%"
-              style="overflow: hidden"
+              flat
+              tile
+              color="transparent"
             >
               <div v-if="Product.discountPercent" class="best-price-tag">
                 <small class="discountPercent">
@@ -142,7 +144,7 @@
                 </small>
               </div>
               <v-img
-                height="150"
+                height="170"
                 full-width
                 :src="getimageUrl(Product.folder, Product.image)"
               ></v-img>

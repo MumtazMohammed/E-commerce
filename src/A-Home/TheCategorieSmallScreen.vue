@@ -1,6 +1,6 @@
 <template>
   <div class="Registration">
-    <v-container class="container">
+    <v-container class="px-0">
       <v-card color="transparent" flat class="card-wrapping pt-2">
         <v-col>
           <div class="mb-2 ont-weight-bold tital">
@@ -16,10 +16,10 @@
               class="flex-column justify-center align-center pa-0"
             >
               <v-card
-                min-width="150px"
+              min-width="100%"
                 max-width="180px"
                 outlined
-                class="pa-2 my-1"
+                class="my-1"
                 to="/Products"
                 router
               >
@@ -41,10 +41,9 @@
                 </v-card-actions>
               </v-card>
               <v-card
-                min-width="150px"
-                max-width="180px"
+                min-width="100%"
                 outlined
-                class="pa-2 my-1"
+                class="my-1"
                 to="/Products"
                 router
               >
@@ -246,12 +245,6 @@ export default {
     }
   }
 
-  .container {
-    @media (max-width: 950px) {
-      padding-left: 0px !important;
-      padding-right: 0px !important;
-    }
-  }
   .card-text {
     font-family: $fontfamliy3;
     letter-spacing: 0;

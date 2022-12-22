@@ -86,33 +86,31 @@ export default {
 }
 .btn-up {
   position: fixed;
-  bottom: -100px;
+  bottom: 40px;
   right: 8px;
   overflow: hidden;
   z-index: 5000;
-  background: $color-2;
-  transition: all 0.4s 0s linear !important;
+  transform: scale(0);
+  background: rgba(255, 255, 255, 0.738);
+  transition: all 0.2s 0s linear !important;
   // opacity: 0;
   pointer-events: none;
   @media (max-width: 600px) {
-    bottom: -100px;
-    transform: scale(0.8);
+    bottom: 46px;
+    transform: scale(0);
     z-index: 1;
   }
   .btn-up-icon {
     font-size: 18px !important;
-    transition: all 0.4s 0s linear !important;
-    position: relative;
-    // z-index: ;
+    color: $color-2 !important;
   }
 }
 .is-hidden {
-  z-index: 5000;
-
-  bottom: 40px;
+  z-index: 18;
   pointer-events: auto;
+  transform: scale(1);
   @media (max-width: 600px) {
-    bottom: 46px;
+    transform: scale(0.8);
   }
 }
 </style>

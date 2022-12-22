@@ -26,6 +26,9 @@
                 width="100%"
                 min-height="220"
                 style="overflow: hidden"
+                flat
+                tile
+                color="transparent"
               >
                 <div v-if="Product.discountPercent" class="best-price-tag">
                   <small class="discountPercent">
@@ -33,8 +36,7 @@
                   </small>
                 </div>
                 <v-img
-                  height="150"
-                  full-width
+                  height="170"
                   :src="getimageUrl(Product.folder, Product.image)"
                 ></v-img>
                 <v-card-text
@@ -69,14 +71,17 @@
             <v-card
               flat
               max-width="190px"
-              height="230px"
+              height="240px"
+              color="transparent"
               router
               class="overflow-hidden d-flex flex-column justify-center align-center"
             >
               <v-card-text class="text-center py-1 card-text-seeMore">
                 الكل
               </v-card-text>
-              <v-icon class="deep-orange--text text--darken-1">mdi-plus</v-icon>
+              <v-icon size="17" class="deep-orange--text text--darken-1">
+                mdi-plus
+              </v-icon>
             </v-card>
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
@@ -296,7 +301,6 @@ export default {
   font-family: $fontfamliy3;
   letter-spacing: 0;
   font-size: 16px;
-  font-weight: 600;
   color: $fontcolorlinks !important;
 }
 // Products

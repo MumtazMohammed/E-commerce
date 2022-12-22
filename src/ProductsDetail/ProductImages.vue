@@ -12,16 +12,13 @@
             transition="dialog-bottom-transition"
           >
             <template v-slot:activator="{ on, attrs }">
-              <v-banner
-                style="overflow: hidden; position: relative"
-                color="grey darken-2"
-              >
+              <v-banner style="overflow: hidden; position: relative">
                 <v-carousel
                   v-model="customerIMageNo"
-                  height="400"
-                  hide-delimiter-background
+                  height="420px"
                   delimiter-icon="mdi-minus"
                   touch
+                  hide-delimiter-background
                   :show-arrows="false"
                 >
                   <v-carousel-item
@@ -31,16 +28,19 @@
                     <v-img
                       v-bind="attrs"
                       v-on="on"
-                      contain
-                      max-height="400px"
+                      max-height="420px"
                       :src="getimageUrl(getCarInfo.folder, singleImage)"
                     >
                     </v-img>
                   </v-carousel-item>
                 </v-carousel>
                 <v-row no-gutters justify="center" class="py-1">
-                  <v-chip dark small class="elevation-0">
-                    {{ customerIMageNo + 1 }} /
+                  <v-chip
+                    color="grey lighten-1"
+                    small
+                    class="elevation-0 grey--text text--darken-1"
+                  >
+                    {{ customerIMageNo + 1 }} |
                     {{ getCarInfo.images.length }}
                   </v-chip>
                 </v-row>
@@ -57,15 +57,14 @@
                   {{ getCarInfo.images.length }}
                 </v-toolbar-title>
               </v-toolbar>
-              <v-sheet style="height: calc(100vh - 112px)">
                 <v-carousel
                   v-model="customerIMageNo"
-                  height="100%"
+                  height="85vh"
                   width="100%"
                   touch
                   hide-delimiters
                   :show-arrows="false"
-                  class="overflow--hidden"
+                  class="overflow--hidden px-1"
                 >
                   <v-carousel-item
                     v-for="(singleImage, x) in getCarInfo.images"
@@ -75,9 +74,9 @@
                     </v-img>
                   </v-carousel-item>
                 </v-carousel>
-              </v-sheet>
+
               <v-spacer></v-spacer>
-              <div>
+              <!-- <div>
                 <v-slide-group
                   v-model="customerIMageNo"
                   class="pa-0"
@@ -111,7 +110,7 @@
                     </v-avatar>
                   </v-slide-item>
                 </v-slide-group>
-              </div>
+              </div> -->
             </v-card>
           </v-dialog>
         </div>
@@ -485,14 +484,9 @@ export default {
       carName: this.$route.params.carName,
       carId: this.$route.params.carId,
       swiperOption: {
-        initialSlide: 0,
-        freeMode: false,
-        spaceBetween: 0,
-        slidesPerView: 1,
-
+        zoom: true,
         pagination: {
           el: ".swiper-pagination",
-          clickable: true,
         },
         navigation: {
           nextEl: ".swiper-button-next",
@@ -695,6 +689,9 @@ export default {
 }
 ::v-deep .v-banner__content {
   padding: 0px !important;
+}
+::v-deep .theme--dark.v-btn.v-btn--icon {
+  color: #bbb;
 }
 ::v-deep
   .theme--light.v-banner.v-sheet:not(.v-sheet--outlined):not(.v-sheet--shaped)

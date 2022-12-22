@@ -1,6 +1,6 @@
 <template>
   <div class="SpicalShowRoom">
-    <v-container class="py-0">
+    <v-container class="px-0">
       <v-col>
         <div class="mb-2 tital">
           الشركات
@@ -8,7 +8,7 @@
         </div>
       </v-col>
       <v-row no-gutters class="">
-        <v-col class="pa-2" v-for="i in 6" :key="i">
+        <v-col class="pa-1" v-for="i in 6" :key="i">
           <v-card to="/SellerStorePage" outlined height="">
             <v-card-actions class="justify-center pa-0">
               <v-img

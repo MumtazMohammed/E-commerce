@@ -118,15 +118,16 @@ export default {
 
   .swiper-pagination::v-deep .swiper-pagination-bullet {
     width: 13px !important;
-    border-radius: 30px;
-    height: 4px;
+    border-radius: 20px;
+    height: 3px;
     opacity: 0.3;
-    margin: 0 2px;
-    background-color: $color-3;
+    margin: 0 3px;
+    background-color: #fff;
+    @media (max-width: 600px) {
+      height: 2px;
+    }
   }
   .swiper-pagination::v-deep .swiper-pagination-bullet-active {
-    width: 20px !important;
-    height: 4px;
     opacity: 1;
     background-color: #fff;
   }

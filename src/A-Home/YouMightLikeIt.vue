@@ -1,6 +1,6 @@
 <template>
   <div class="SpicalShowRoom">
-    <v-container>
+    <v-container class="px-0">
       <v-col>
         <div class="ont-weight-bold tital">
           قد تنال على
@@ -33,6 +33,9 @@
                 min-height="220px"
                 width="100%"
                 style="overflow: hidden"
+                color="transparent"
+                flat
+                tile
               >
                 <div v-if="Product.discountPercent" class="best-price-tag">
                   <small class="discountPercent">
@@ -40,8 +43,7 @@
                   </small>
                 </div>
                 <v-img
-                  height="150"
-                  full-width
+                  height="170"
                   :src="getimageUrl(Product.folder, Product.image)"
                 ></v-img>
                 <v-card-text

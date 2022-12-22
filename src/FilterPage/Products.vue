@@ -29,6 +29,9 @@
                 }"
                 width="100%"
                 min-height="220"
+                tile
+                flat
+                color="transparent"
                 style="overflow: hidden"
               >
                 <div v-if="Product.discountPercent" class="best-price-tag">
@@ -37,7 +40,7 @@
                   </small>
                 </div>
                 <v-img
-                  height="150"
+                  height="170"
                   full-width
                   :src="getimageUrl(Product.folder, Product.image)"
                 ></v-img>
@@ -109,7 +112,9 @@
                     }"
                     width="100%"
                     min-height="220"
-                    style="overflow: hidden"
+                    flat
+                    tile
+                    color="transparent"
                   >
                     <div v-if="Product.discountPercent" class="best-price-tag">
                       <small class="discountPercent">
@@ -117,7 +122,7 @@
                       </small>
                     </div>
                     <v-img
-                      height="150"
+                      height="170"
                       full-width
                       :src="getimageUrl(Product.folder, Product.image)"
                     ></v-img>
