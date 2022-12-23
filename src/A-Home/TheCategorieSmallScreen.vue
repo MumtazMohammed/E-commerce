@@ -16,7 +16,7 @@
               class="flex-column justify-center align-center pa-0"
             >
               <v-card
-              min-width="100%"
+                min-width="100%"
                 max-width="180px"
                 outlined
                 class="my-1"
@@ -149,6 +149,7 @@ export default {
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
+          dynamicBullets: true,
         },
         navigation: {
           nextEl: ".swiper-button-next",
@@ -223,25 +224,16 @@ export default {
     padding: 10px;
 
     .swiper-pagination::v-deep .swiper-pagination-bullet {
-      width: 13px !important;
-      border-radius: 30px;
-      height: 4px;
-      opacity: 0.3;
-      margin: 0 2px;
-      background-color: $color-3;
+      width: 10px !important;
+      border-radius: 50%;
+      height: 10px;
+      opacity: 1;
+      margin: 0 4px;
+      background-color: #e0e0e0;
     }
     .swiper-pagination::v-deep .swiper-pagination-bullet-active {
-      width: 20px !important;
-      height: 4px;
-      opacity: 1;
+      // opacity: 1;
       background-color: $color-2;
-    }
-    .swiper-button-prev::after {
-      display: none;
-    }
-    .swiper-button-next::after {
-      transform: scale(0);
-      display: none;
     }
   }
 

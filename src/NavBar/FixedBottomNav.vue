@@ -13,9 +13,18 @@
     >
       <v-btn to="/">
         <span class="text">الرئيسية</span>
-        <v-icon>mdi-home-variant </v-icon>
+        <v-icon size="22">mdi-home-variant </v-icon>
       </v-btn>
 
+      <v-btn>
+        <span class="text">الفئات</span>
+        <v-icon size="22">mdi-text-search-variant </v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span class="text">الإشعارات</span>
+        <v-icon size="22">mdi-email-outline </v-icon>
+      </v-btn>
       <v-menu
         nudge-bottom="-5px"
         nudge-left="11px"
@@ -27,7 +36,7 @@
         <template v-slot:activator="{ on, attrs }">
           <v-btn v-bind="attrs" v-on="on">
             <span class="text">حسابي</span>
-            <v-icon>mdi-account-outline </v-icon>
+            <v-icon size="22">mdi-account-outline </v-icon>
           </v-btn>
         </template>
 
@@ -43,16 +52,6 @@
           </v-list-item>
         </v-list>
       </v-menu>
-
-      <v-btn>
-        <span class="text">البحث</span>
-        <v-icon>mdi-magnify </v-icon>
-      </v-btn>
-
-      <v-btn>
-        <span class="text">الإشعارات</span>
-        <v-icon>mdi-bell-outline </v-icon>
-      </v-btn>
     </v-bottom-navigation>
   </div>
 </template>

@@ -23,6 +23,9 @@
               width="100%"
               min-height="220"
               style="overflow: hidden"
+              flat
+              tile
+              color="transparent"
             >
               <div v-if="Product.discountPercent" class="best-price-tag">
                 <small class="discountPercent">
@@ -30,7 +33,7 @@
                 </small>
               </div>
               <v-img
-                height="150"
+                height="170"
                 full-width
                 :src="getimageUrl(Product.folder, Product.image)"
               ></v-img>
@@ -116,6 +119,7 @@ export default {
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
+          dynamicBullets: true,
         },
         navigation: {
           nextEl: ".swiper-button-next",
@@ -185,17 +189,15 @@ export default {
     height: 290px !important;
     padding: 0 10px;
     .swiper-pagination::v-deep .swiper-pagination-bullet {
-      width: 13px !important;
-      border-radius: 30px;
-      height: 4px;
-      opacity: 0.3;
-      margin: 0 2px;
-      background-color: $color-3;
+      width: 9px !important;
+      border-radius: 50%;
+      height: 10px;
+      opacity: 1;
+      margin: 0 4px;
+      background-color: #e0e0e0;
     }
     .swiper-pagination::v-deep .swiper-pagination-bullet-active {
-      width: 20px !important;
-      height: 4px;
-      opacity: 1;
+      // opacity: 1;
       background-color: $color-2;
     }
   }

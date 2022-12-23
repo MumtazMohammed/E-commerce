@@ -113,7 +113,7 @@ export default {
 .swiper {
   height: 330px !important;
   @media (max-width: 600px) {
-    height: 180px !important;
+    height: 200px !important;
   }
 
   .swiper-pagination::v-deep .swiper-pagination-bullet {
@@ -177,14 +177,14 @@ export default {
 ::v-deep .v-image.v-responsive.theme--light {
   height: 330px !important;
   @media (max-width: 600px) {
-    height: 180px !important;
+    height: 200px !important;
   }
 }
 .AdvertisementTow {
   height: 330px !important;
   @media (max-width: 600px) {
     border-radius: 0px !important;
-    height: 180px !important;
+    height: 200px !important;
   }
 }
 ::v-deep.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {

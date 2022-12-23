@@ -95,7 +95,9 @@
               <v-card-text class="text-center py-1 card-text-seeMore">
                 الكل
               </v-card-text>
-              <v-icon size="17" class="deep-orange--text text--darken-1">mdi-plus</v-icon>
+              <v-icon size="17" class="deep-orange--text text--darken-1"
+                >mdi-plus</v-icon
+              >
             </v-card>
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
@@ -124,7 +126,7 @@ export default {
       Company: this.$route.params.Company,
       swiperOption: {
         initialSlide: 0,
-        freeMode: true,
+        freeMode: false,
         effect: "cards",
         spaceBetween: 10,
         autoplay: {
@@ -137,6 +139,7 @@ export default {
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
+          dynamicBullets: true,
         },
         navigation: {
           nextEl: ".swiper-button-next",
@@ -211,55 +214,18 @@ export default {
     padding: 0 8px;
 
     .swiper-pagination::v-deep .swiper-pagination-bullet {
-      width: 13px !important;
-      border-radius: 30px;
-      height: 4px;
-      opacity: 0.3;
-      margin: 0 2px;
-      background-color: $color-3;
+      width: 9px !important;
+      border-radius: 50%;
+      height: 9px;
+      opacity: 1;
+      margin: 0 4px;
+      background-color: #e0e0e0;
     }
     .swiper-pagination::v-deep .swiper-pagination-bullet-active {
-      width: 20px !important;
-      height: 4px;
-      opacity: 1;
+      // opacity: 1;
       background-color: $color-2;
     }
-    .swiper-button-prev::after {
-      display: none;
-    }
-    .swiper-button-next::after {
-      transform: scale(0);
-      display: none;
-    }
-    .swiper-button-prev {
-      background-color: $color-2;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      transition: all 0.5s ease;
-      // box-shadow: 0 0 1px 2px rgba(128, 128, 128, 0.449);
-    }
-    .swiper-button-next {
-      background-color: $color-2;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      transition: all 0.5s ease;
-      // box-shadow: 0 0 1px 2px rgba(128, 128, 128, 0.449);
-    }
-    .icon {
-      font-size: 27px !important;
-      color: rgb(255, 255, 255);
-      font-weight: bold;
-    }
-    ::v-deep.swiper-button-next.swiper-button-disabled {
-      opacity: 0;
-      transform: translatex(-50px);
-    }
-    ::v-deep.swiper-button-prev.swiper-button-disabled {
-      opacity: 0;
-      transform: translatex(50px);
-    }
+
     ::v-deep.swiper-container {
       @media (max-width: 600px) {
         padding-right: 5px;

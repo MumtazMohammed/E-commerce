@@ -18,7 +18,7 @@
                   flat
                   to="/ServicesPage"
                   color="#eee"
-                  class="d-flex ServiceCard align-center justify-space-between flex-column"
+                  class="d-flex py-2 ServiceCard align-center justify-space-between flex-column"
                 >
                   <v-icon class="icon">
                     {{ Servic.ServicIcon }}
@@ -33,7 +33,7 @@
         </v-sheet>
       </div>
       <div class="card-box-small">
-        <v-card flat rounded="0" class="mx-auto info-card">
+        <v-card flat color="#eee" class="mx-auto py-1 info-card">
           <v-row no-gutters>
             <v-col style="border-left: 2px solid #fff" cols="6" class="pa-0">
               <v-card-title class="pa-0 text">
@@ -55,7 +55,7 @@
             </v-col>
           </v-row>
         </v-card>
-        <div class="pt-2 d-flex font-weight-bold tital">
+        <div class="py-3 pt-5 d-flex font-weight-bold tital">
           فئة
           <strong class="mx-1">الخدمات</strong>
         </div>
@@ -69,7 +69,7 @@
               to="/ServicesPage"
               color="#eee"
               flat
-              class="d-flex ServiceCard align-center justify-space-between flex-column"
+              class="d-flex py-2 ServiceCard align-center justify-space-between flex-column"
             >
               <v-icon class="icon">
                 {{ Servic.ServicIcon }}
@@ -141,13 +141,13 @@ export default {
             slidesPerGroup: 5,
           },
           498: {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
           },
 
           381: {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
           },
           380: {
             slidesPerView: 3,
@@ -290,13 +290,13 @@ export default {
   }
   .text {
     font-family: $fontfamliy3 !important;
-    font-size: 13.5px !important;
+    font-size: 14px !important;
     letter-spacing: 0 !important;
     justify-content: space-evenly;
-    color: #fff;
+    color: $fontcolorlinks;
     font-weight: 600;
     span {
-      color: #fff;
+      // color: #fff;
     }
   }
   .ServiceCard {
@@ -324,7 +324,7 @@ export default {
 // swiper
 .swiper {
   // height: 100px !important;
-  padding: 10px 0 !important;
+  // padding: 10px 0 !important;
   @media (max-width: 600px) {
     padding-top: 17.5px !important;
     padding-bottom: 5px !important;
@@ -347,14 +347,14 @@ export default {
   }
 }
 .info-card {
-  background-color: $color-2 !important;
+  // background-color: $color-3 !important;
   // margin-top: -50px;
   .info-icon {
-    background-color: #fff;
-    border-radius: 50%;
-    padding: 3px;
-    color: $color-2;
-    box-shadow: 0px 0px 0px 5px rgb(255, 255, 255);
+    background-color: $color-2;
+    border-radius: 5px;
+    padding: 2px;
+    color: #fff;
+    // box-shadow: 0 -4px 0 3px $color-2, 0 4px 0 3px $color-2;
   }
 }
 </style>

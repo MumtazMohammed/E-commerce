@@ -400,7 +400,7 @@ a {
 .btn-noti-cart-icon {
   font-size: 20px !important;
   @media (max-width: 600px) {
-    font-size: 17px !important;
+    font-size: 19px !important;
   }
 }
 .icon-small-screen {
