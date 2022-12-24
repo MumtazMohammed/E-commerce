@@ -106,14 +106,8 @@ export default {
       Company: this.$route.params.Company,
       swiperOption: {
         initialSlide: 0,
-        freeMode: true,
         effect: "cards",
         spaceBetween: 10,
-        autoplay: {
-          delay: 20000,
-          disableOnInteraction: false,
-          stopOnLastSlide: false,
-        },
         loop: false,
         loopFillGroupWithBlank: false,
         pagination: {
@@ -181,7 +175,7 @@ export default {
 .DailyOffer {
   width: 100%;
   min-height: 40vh;
-
+background-color: transparent;
   strong {
     color: $color-2;
   }

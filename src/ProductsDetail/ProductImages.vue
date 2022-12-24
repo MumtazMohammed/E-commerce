@@ -57,23 +57,23 @@
                   {{ getCarInfo.images.length }}
                 </v-toolbar-title>
               </v-toolbar>
-                <v-carousel
-                  v-model="customerIMageNo"
-                  height="85vh"
-                  width="100%"
-                  touch
-                  hide-delimiters
-                  :show-arrows="false"
-                  class="overflow--hidden px-1"
+              <v-carousel
+                v-model="customerIMageNo"
+                height="85vh"
+                width="100%"
+                touch
+                hide-delimiters
+                :show-arrows="false"
+                class="overflow--hidden px-1"
+              >
+                <v-carousel-item
+                  v-for="(singleImage, x) in getCarInfo.images"
+                  :key="x"
                 >
-                  <v-carousel-item
-                    v-for="(singleImage, x) in getCarInfo.images"
-                    :key="x"
-                  >
-                    <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
-                    </v-img>
-                  </v-carousel-item>
-                </v-carousel>
+                  <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
+                  </v-img>
+                </v-carousel-item>
+              </v-carousel>
 
               <v-spacer></v-spacer>
               <!-- <div>

@@ -3,10 +3,10 @@
     <NavBar />
     <OutAdvertisement />
     <Services />
+    <TheCategorieSmallScreen />
     <BestOffer />
     <DailyOffer />
     <PremiumCategories />
-    <TheCategorieSmallScreen />
     <YouMightLikeIt />
     <!-- <CarBrands :AllDateCar="AllDateCar" />
     <CarShape :AllDateCar="AllDateCar" /> -->

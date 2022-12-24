@@ -68,7 +68,6 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap");
 @import "./scss/virables";
 #app {
-  background: white;
   width: 100%;
   position: relative;
   overflow: hidden;

@@ -113,11 +113,7 @@ export default {
         freeMode: false,
         effect: "cards",
         spaceBetween: 10,
-        autoplay: {
-          delay: 20000,
-          disableOnInteraction: false,
-          stopOnLastSlide: false,
-        },
+        autoplay: false,
         loop: false,
         loopFillGroupWithBlank: false,
         pagination: {

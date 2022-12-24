@@ -90,6 +90,7 @@
               max-width="190px"
               height="240px"
               router
+              color="transparent"
               class="overflow-hidden d-flex flex-column justify-center align-center"
             >
               <v-card-text class="text-center py-1 card-text-seeMore">
@@ -129,11 +130,7 @@ export default {
         freeMode: false,
         effect: "cards",
         spaceBetween: 10,
-        autoplay: {
-          delay: 50000,
-          disableOnInteraction: false,
-          stopOnLastSlide: false,
-        },
+        autoplay: false,
         loop: false,
         loopFillGroupWithBlank: false,
         pagination: {

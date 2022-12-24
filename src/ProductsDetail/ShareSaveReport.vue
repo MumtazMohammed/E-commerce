@@ -5,8 +5,8 @@
       <v-dialog class="dialog" transition="slide-y-transition" max-width="300">
         <template v-slot:activator="{ on, attrs }">
           <a class="btn" v-bind="attrs" v-on="on">
-            <v-icon right color="green" class="icon">
-              mdi-share-variant-outline
+            <v-icon right color="black" class="icon">
+              mdi-share-variant
             </v-icon>
             مشاركة
           </a>
@@ -51,7 +51,7 @@
         </template>
       </v-dialog>
       <!-- report add  -->
-      <v-divider vertical class="mx-2"></v-divider>
+      <!-- <v-divider vertical class="mx-2"></v-divider>
       <v-dialog
         class="dialog"
         persistent
@@ -149,7 +149,7 @@
             </div>
           </v-card>
         </template>
-      </v-dialog>
+      </v-dialog> -->
       <!--  -->
     </v-card-actions>
   </div>
@@ -251,14 +251,10 @@ export default {
   color: $fontcolor;
   letter-spacing: 0;
   font-family: $fontfamliy3;
-  font-size: 14px !important;
-  padding: 0px 5px;
-  border-radius: 5px;
+  font-size: 15px !important;
+  font-weight: 600;
   @media (max-width: 600px) {
     font-size: 14px !important;
-  }
-  @media (max-width: 400px) {
-    font-size: 12px !important;
   }
 }
 .btn-copy-link {
@@ -269,7 +265,7 @@ export default {
   transition: transform 0.3s ease;
 }
 .icon {
-  font-size: 14px !important;
+  font-size: 17px !important;
 }
 a {
   text-align: center !important;

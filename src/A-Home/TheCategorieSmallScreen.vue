@@ -1,9 +1,9 @@
 <template>
   <div class="Registration">
-    <v-container class="px-0">
+    <v-container class="pa-0">
       <v-card color="transparent" flat class="card-wrapping pt-2">
-        <v-col>
-          <div class="mb-2 ont-weight-bold tital">
+        <v-col class="py-1">
+          <div class="tital">
             جميع
             <strong class="mx-1">الفئات</strong>
           </div>
@@ -11,59 +11,77 @@
         <!-- <span class="line my-3 mx-auto"></span> -->
         <swiper class="swiper" :options="swiperOption">
           <swiper-slide v-for="(Categorie, index) in Categories" :key="index">
-            <v-row
-              no-gutters
-              class="flex-column justify-center align-center pa-0"
+            <v-card
+              min-width="100%"
+              max-width="180px"
+              color="#eee"
+              class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
+              to="/Products"
+              router
+              flat
             >
-              <v-card
-                min-width="100%"
-                max-width="180px"
-                outlined
-                class="my-1"
-                to="/Products"
-                router
-              >
-                <v-card-actions
-                  class="flex-column justify-center align-center pa-0"
-                >
-                  <v-avatar size="90px" tile>
-                    <v-img
-                      contain
-                      :src="getimageUrl(Categorie.folder, Categorie.imgOne)"
-                    ></v-img>
-                  </v-avatar>
+              <v-avatar class="icon" size="60px" tile>
+                <v-img
+                  contain
+                  :src="getimageUrl(Categorie.folder, Categorie.imgOne)"
+                ></v-img>
+              </v-avatar>
 
-                  <v-card-text
-                    class="px-0 py-2 text-center card-text"
-                    v-text="Categorie.titalOne"
-                  >
-                  </v-card-text>
-                </v-card-actions>
-              </v-card>
-              <v-card
-                min-width="100%"
-                outlined
-                class="my-1"
-                to="/Products"
-                router
+              <v-card-text
+                class="pa-0 px-1 pt-2 text-center card-text"
+                v-text="Categorie.titalOne"
               >
-                <v-card-actions
-                  class="flex-column justify-center align-center pa-0"
-                >
-                  <v-avatar size="90px" tile>
-                    <v-img
-                      contain
-                      :src="getimageUrl(Categorie.folder, Categorie.imgTow)"
-                    ></v-img>
-                  </v-avatar>
-                  <v-card-text
-                    class="px-0 text-center card-text"
-                    v-text="Categorie.titalTow"
-                  >
-                  </v-card-text>
-                </v-card-actions>
-              </v-card>
-            </v-row>
+              </v-card-text>
+            </v-card>
+            <v-card
+              min-width="100%"
+              class="d-flex mt-5 ServiceCard align-center justify-space-between flex-column"
+              to="/Products"
+              router
+              flat
+              color="#eee"
+            >
+              <v-avatar class="icon" size="60px" tile>
+                <v-img
+                  contain
+                  :src="getimageUrl(Categorie.folder, Categorie.imgTow)"
+                ></v-img>
+              </v-avatar>
+              <v-card-text
+                class="pa-0 px-1 pt-2 text-center card-text"
+                v-text="Categorie.titalTow"
+              >
+              </v-card-text>
+            </v-card>
+          </swiper-slide>
+          <div class="swiper-pagination" slot="pagination"></div>
+        </swiper>
+
+        <v-col class="py-1">
+          <div class="tital">
+            فئة
+            <strong class="mx-1">الخدمات</strong>
+          </div>
+        </v-col>
+        <swiper class="swiper" :options="swiperOption">
+          <swiper-slide v-for="Servic in Services" :key="Servic.ServicId">
+            <v-card
+              color="#eee"
+              class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
+              to="/Products"
+              router
+              flat
+            >
+              <v-icon class="icon">
+                {{ Servic.ServicIcon }}
+              </v-icon>
+
+              <v-card-text
+                class="pa-0 px-1 py-2 text-center ser-text"
+                v-text="Servic.ServicText"
+              >
+              </v-card-text>
+            </v-card>
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
@@ -134,16 +152,68 @@ export default {
           titalTow: " عقارات",
         },
       ],
+      Services: [
+        {
+          ServicId: 1,
+          ServicText: "خدمة هندسية",
+          ServicIcon: "mdi-wrench-cog-outline",
+          ServicColor: "red--text text--darken-1",
+        },
+        {
+          ServicId: 2,
+          ServicText: "خدمة برمجية",
+          ServicIcon: "mdi-blender-software",
+          ServicColor: "blue--text text--darken-2",
+        },
+        {
+          ServicId: 3,
+          ServicText: "خدمة عقارية",
+          ServicIcon: "mdi-home-group",
+          ServicColor: "",
+        },
+        {
+          ServicId: 3,
+          ServicText: "خدمة توصيل",
+          ServicIcon: "mdi-moped",
+          ServicColor: "",
+        },
+        {
+          ServicId: 5,
+          ServicText: " شقق وفنادق",
+          ServicIcon: "mdi-home-city-outline",
+          ServicColor: "cyan--text text--accent-4",
+        },
+        {
+          ServicId: 6,
+          ServicText: " السفر والسياحة",
+          ServicIcon: "mdi-plane-train",
+          ServicColor: "deep-orange--text",
+        },
+        {
+          ServicId: 7,
+          ServicText: "تأجير مركبات",
+          ServicIcon: "mdi-car-key",
+          ServicColor: "yellow--text text--darken-4",
+        },
+        {
+          ServicId: 8,
+          ServicText: "الصيانة",
+          ServicIcon: "mdi-tools",
+          ServicColor: "grey--text text--accent-3",
+        },
+        {
+          ServicId: 9,
+          ServicText: " خدمات اخرى",
+          ServicIcon: "mdi-filter-variant",
+          ServicColor: "amber--text text--accent-3",
+        },
+      ],
       swiperOption: {
         initialSlide: 0,
         freeMode: false,
         effect: "cards",
         spaceBetween: 8,
-        autoplay: {
-          delay: 20000,
-          disableOnInteraction: false,
-          stopOnLastSlide: false,
-        },
+        autoplay: false,
         loop: false,
         loopFillGroupWithBlank: false,
         pagination: {
@@ -169,16 +239,16 @@ export default {
             slidesPerGroup: 4,
           },
           471: {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
+            slidesPerView: 4,
+            slidesPerGroup: 4,
           },
           470: {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
+            slidesPerView: 4,
+            slidesPerGroup: 4,
           },
           250: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
+            slidesPerView: 4,
+            slidesPerGroup: 4,
           },
         },
       },
@@ -219,14 +289,41 @@ export default {
   strong {
     color: $color-2;
   }
+  .ServiceCard {
+    position: relative;
+  }
+  .icon {
+    font-size: 18px;
+    background-color: #eee;
+    padding: 6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50% !important;
+    color: #fc624de8;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0px 0px 0px 2px rgb(255, 255, 255);
+    // border: 1px solid ;
+    margin-top: -16px !important;
+
+    // box-shadow: 0px 0px 5px 0px $fontcolorlinks;
+    @media (max-width: 750px) {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      margin-top: -10px !important;
+      box-shadow: 0px 0px 0px 2px rgb(255, 255, 255);
+    }
+  }
   .swiper {
-    height: 405px !important;
+    height: auto !important;
     padding: 10px;
+    padding-bottom: 40px !important;
 
     .swiper-pagination::v-deep .swiper-pagination-bullet {
-      width: 10px !important;
+      width: 9px !important;
       border-radius: 50%;
-      height: 10px;
+      height: 9px;
       opacity: 1;
       margin: 0 4px;
       background-color: #e0e0e0;
@@ -244,6 +341,22 @@ export default {
     font-weight: 600;
     color: $fontcolorlinks !important;
     height: 40px !important;
+
+    @media (max-width: 600px) {
+      font-size: 12px;
+      height: 45px !important;
+    }
+  }
+  .ser-text {
+    font-family: $fontfamliy3;
+    letter-spacing: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: $fontcolorlinks !important;
+
+    @media (max-width: 600px) {
+      font-size: 12px;
+    }
   }
   .tital {
     position: relative;
@@ -296,6 +409,22 @@ export default {
     @media (max-width: 430px) {
       width: 26%;
     }
+  }
+}
+::v-deep .v-avatar.rounded-0 {
+  @media (max-width: 600px) {
+    height: 50px !important;
+    min-width: 50px !important;
+    width: 50px !important;
+  }
+}
+.swiperr {
+  height: 430px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .swiper-slide {
+    height: 75px;
   }
 }
 </style>

@@ -87,7 +87,6 @@
     </v-container>
   </div>
 </template>
-
 <script>
 import Products from "../data-json/All-Car.json";
 export default {

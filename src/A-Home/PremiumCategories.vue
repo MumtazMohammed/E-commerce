@@ -8,7 +8,7 @@
         </div>
       </v-col>
       <v-row no-gutters class="">
-        <v-col class="pa-1" v-for="i in 6" :key="i">
+        <v-col md="3" sm="3" lg="3" cols="4" class="pa-1" v-for="i in 6" :key="i">
           <v-card to="/SellerStorePage" outlined height="">
             <v-card-actions class="justify-center pa-0">
               <v-img
@@ -221,8 +221,15 @@ export default {
 p {
   // margin: 0 !important;
   text-align: center !important;
-  font-family: $fontfamliy2;
+  font-family: $fontfamliy3;
   letter-spacing: 0 !important;
   color: $fontcolorlinks;
+  font-weight: 600;
+}
+::v-deep .v-image.v-responsive.theme--light {
+  @media (max-width: 600px) {
+    height: 70px !important;
+    max-width: 70px !important;
+  }
 }
 </style>

@@ -1,16 +1,16 @@
 <template>
   <!-- this component will be under the image  -->
   <div class="ContactSeller">
-    <v-card-actions class="py-0 pt-1">
+    <v-card-actions class="py-1">
       <ShareSaveReport />
       <v-spacer></v-spacer>
-      <div class="discount-tag ml-1">
+      <v-chip small class="discount-tag mx-1 justify-center">
         <span>متميز</span>
-      </div>
-      <div class="discount-tag">
+      </v-chip>
+      <v-chip small class="discount-tag mx-1 justify-center">
         <span>9%</span>
         <span>خصم</span>
-      </div>
+      </v-chip>
     </v-card-actions>
 
     <!-- product name  -->
@@ -54,6 +54,7 @@
       </p>
       <v-spacer></v-spacer>
     </v-card-actions>
+    <!-- vouchers -->
     <v-menu max-width="600" open-on-hover bottom left>
       <template v-slot:activator="{ on, attrs }">
         <v-card-actions v-bind="attrs" v-on="on">
@@ -86,7 +87,7 @@
               class=""
             >
               <v-row no-gutters>
-                <v-col>
+                <v-col cols="12">
                   <v-card-subtitle class="text py-0 px-1">
                     خصم <span class="mx-1"><span>20</span>%</span>
                   </v-card-subtitle>
@@ -102,9 +103,10 @@
                     <span>10/2/2020</span>
                   </v-card-text>
                 </v-col>
-                <v-col style="margin: auto 0; text-align: center" cols="3">
+                <v-col style="margin: auto 0; text-align: center" cols="12">
                   <v-btn
                     small
+                    block
                     dark
                     class="deep-orange btn lighten-1"
                     elevation="0"
@@ -219,17 +221,10 @@ p {
   padding: 1px !important;
 }
 .discount-tag {
-  width: 80px;
-  display: block;
-  height: 25px;
-  background-color: $color-2;
+  background-color: $color-2 !important;
   color: #fff !important;
   font-size: 14px;
   font-weight: 500;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 2px;
   @media (max-width: 500px) {
     font-size: 13px;
   }
@@ -292,7 +287,8 @@ p {
     font-weight: 600 !important;
     padding: 0 6px !important ;
     height: 25px !important;
-    min-width: 37px !important;
+    border-radius: 0 !important;
+    margin-top: 3px;
     @media (max-width: 600px) {
       font-size: 13px !important;
     }
