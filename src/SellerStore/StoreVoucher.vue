@@ -7,33 +7,45 @@
         <v-card
           flat
           style="border: 2px dashed #ffd54f !important"
-          color="amber lighten-5"
+          color="amber mx-1 lighten-5"
         >
-          <v-card-subtitle class="text pa-0 pr-1">
-            خصم <span class="mx-1"><span>20</span>%</span>
-          </v-card-subtitle>
-          <v-card-text class="pa-0 pr-1 text">
-            أنفق
-            <span class="mx-1">
-              52<v-icon size="17">mdi-currency-rial</v-icon>
-            </span>
-            كحد أدنى
-          </v-card-text>
-          <v-card-text class="pa-0 pr-1 text">
-            متاح حتى
-            <span>10/2/2020</span>
-          </v-card-text>
-          <v-btn
-            width="100%"
-            small
-            dark
-            class="deep-orange rounded-0 mt-1 btn lighten-1"
-            elevation="0"
-          >
-            أخذ
-          </v-btn>
+          <v-row no-gutters>
+            <v-col cols="12">
+              <v-card-subtitle class="text pa-0 pr-1">
+                خصم <span class="mx-1"><span>20</span>%</span>
+              </v-card-subtitle>
+              <v-card-text class="pa-0 pr-1 text">
+                أنفق
+                <span class="mx-1">
+                  52<v-icon size="17">mdi-currency-rial</v-icon>
+                </span>
+                كحد أدنى
+              </v-card-text>
+              <v-card-text class="pa-0 pr-1 text">
+                متاح حتى
+                <span>10/2/2020</span>
+              </v-card-text>
+            </v-col>
+            <v-col cols="12">
+              <v-row no-gutters justify="center">
+                <v-btn
+                  width="90%"
+                  small
+                  dark
+                  class="deep-orange rounded-0 mt-1 btn lighten-1"
+                  elevation="0"
+                >
+                  أخذ القسيمة
+                </v-btn>
+              </v-row>
+            </v-col>
+          </v-row>
         </v-card>
       </swiper-slide>
+      <div
+        class="swiper-pagination swiper-pagination-bullets"
+        slot="pagination"
+      ></div>
     </swiper>
   </div>
 </template>
@@ -53,23 +65,20 @@ export default {
       Services,
       swiperOption: {
         initialSlide: 0,
-        freeMode: true,
+        freeMode: false,
         effect: "cards",
-        spaceBetween: 10,
-        autoplay: {
-          delay: 20000,
-          disableOnInteraction: false,
-          stopOnLastSlide: false,
-        },
+        spaceBetween: 0,
+        autoplay: false,
         loop: false,
         loopFillGroupWithBlank: false,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          renderBullet(index, className) {
+            return `<span class="${className} swiper-pagination-bullet-custom">${
+              index + 1
+            }</span>`;
+          },
         },
         breakpoints: {
           1024: {
@@ -133,7 +142,33 @@ export default {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;
     color: #fff !important;
-    font-size: 15px !important;
+    font-size: 13px !important;
+    margin: 0 auto !important;
+    font-weight: 600;
+  }
+}
+.swiper {
+  height: auto;
+  padding-bottom: 45px;
+  ::v-deep.swiper-pagination-bullet {
+    font-size: 13px;
+    width: 20px !important;
+    height: 20px !important;
+    line-height: 1.6;
+    opacity: 0.5;
+    background: rgb(223, 223, 223);
+    transition: all 0.2s 0s linear;
+    color: rgb(82, 82, 82);
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.swiper-pagination-bullet-active {
+      opacity: 1;
+      color: #fff;
+      background: $color-2;
+    }
   }
 }
 </style>

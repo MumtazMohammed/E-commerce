@@ -1,6 +1,6 @@
 <template>
   <div class="AboutStore">
-    <v-row no-gutters align="center">
+    <v-btn-toggle dense v-model="text" tile color="primary" group>
       <v-menu
         v-model="menu"
         style="z-index: 16"
@@ -31,13 +31,10 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-spacer></v-spacer>
-      <v-btn-toggle dense v-model="text" tile color="primary" group>
-        <v-btn class="btn-categories" value="TopSales"> أعلى المبيعات </v-btn>
-        <v-btn class="btn-categories" value="latest"> الأجدد </v-btn>
-        <v-btn class="btn-categories" value="all"> الكل </v-btn>
-      </v-btn-toggle>
-    </v-row>
+      <v-btn class="btn-categories" value="TopSales"> أعلى المبيعات </v-btn>
+      <v-btn class="btn-categories" value="latest"> الأجدد </v-btn>
+      <v-btn class="btn-categories" value="all"> الكل </v-btn>
+    </v-btn-toggle>
     <v-row no-gutters>
       <v-col
         cols="6"
@@ -63,6 +60,9 @@
             min-height="220px"
             width="100%"
             style="overflow: hidden"
+            flat
+            tile
+            color="transparent"
           >
             <div v-if="Product.discountPercent" class="best-price-tag">
               <small class="discountPercent">
@@ -70,7 +70,7 @@
               </small>
             </div>
             <v-img
-              height="150"
+              height="170"
               full-width
               :src="getimageUrl(Product.folder, Product.image)"
             ></v-img>

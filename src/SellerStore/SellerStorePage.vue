@@ -164,7 +164,6 @@ export default {
 }
 ::v-deep .container-info {
   @media (max-width: 600px) {
-    padding: 0px;
   }
 }
 ::v-deep label.v-label.theme--light {
