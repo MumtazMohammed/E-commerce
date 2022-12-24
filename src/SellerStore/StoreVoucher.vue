@@ -26,13 +26,13 @@
                 <span>10/2/2020</span>
               </v-card-text>
             </v-col>
-            <v-col cols="12">
+            <v-col cols="12" class="py-1">
               <v-row no-gutters justify="center">
                 <v-btn
                   width="83%"
                   small
                   dark
-                  class="deep-orange rounded-0 mt-1 btn lighten-1"
+                  class="deep-orange btn lighten-1"
                   elevation="0"
                 >
                   أخذ القسيمة
@@ -145,6 +145,9 @@ export default {
     font-size: 13px !important;
     margin: 0 auto !important;
     font-weight: 600;
+    @media (max-width: 600px) {
+      font-size: 13px !important;
+    }
   }
 }
 .swiper {
