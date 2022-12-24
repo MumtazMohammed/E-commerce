@@ -29,7 +29,7 @@
             <v-col cols="12">
               <v-row no-gutters justify="center">
                 <v-btn
-                  width="90%"
+                  width="83%"
                   small
                   dark
                   class="deep-orange rounded-0 mt-1 btn lighten-1"
