@@ -101,7 +101,10 @@
               >
             </v-card>
           </swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
+          <div
+            class="swiper-pagination swiper-pagination-bullets"
+            slot="pagination"
+          ></div>
         </swiper>
       </v-card>
     </v-container>
@@ -137,6 +140,11 @@ export default {
           el: ".swiper-pagination",
           clickable: true,
           dynamicBullets: true,
+          renderBullet(index, className) {
+            return `<span class="${className} swiper-pagination-bullet-custom">${
+              index + 1
+            }</span>`;
+          },
         },
         navigation: {
           nextEl: ".swiper-button-next",
@@ -207,27 +215,40 @@ export default {
     color: $color-2;
   }
   .swiper {
-    height: 325px !important;
-    padding: 0 8px;
+    height: auto;
+    padding-bottom: 45px;
+    padding-right: 5px !important;
+    ::v-deep.swiper-pagination-bullet {
+      font-size: 10px;
+      width: 15px !important;
+      height: 15px !important;
+      line-height: 1.5;
+      opacity: 0.5;
+      background: rgb(223, 223, 223);
+      transition: all 0.2s 0s linear;
+      color: rgb(82, 82, 82);
 
-    .swiper-pagination::v-deep .swiper-pagination-bullet {
-      width: 9px !important;
-      border-radius: 50%;
-      height: 9px;
-      opacity: 1;
-      margin: 0 4px;
-      background-color: #e0e0e0;
-    }
-    .swiper-pagination::v-deep .swiper-pagination-bullet-active {
-      // opacity: 1;
-      background-color: $color-2;
-    }
-
-    ::v-deep.swiper-container {
-      @media (max-width: 600px) {
-        padding-right: 5px;
-        padding-left: 5px;
+      &:hover {
+        opacity: 1;
       }
+
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+        color: #fff;
+        background: $color-2;
+      }
+    }
+  }
+  ::v-deep.swiper-container {
+    @media (max-width: 600px) {
+      padding-right: 5px !important;
+      padding-left: 5px !important;
+    }
+  }
+  .v-sheet {
+    @media (max-width: 950px) {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
     }
   }
 

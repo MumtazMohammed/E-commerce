@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- advertisement  -->
-    <v-container fluid class="pa-0">
+    <v-container fluid class="py-0 px-1">
       <v-card
         flat
         rounded="md"
@@ -126,48 +126,26 @@ export default {
   @media (max-width: 600px) {
     height: 180px !important;
   }
-
   .swiper-pagination::v-deep .swiper-pagination-bullet {
-    width: 13px !important;
-    border-radius: 30px;
-    height: 4px;
-    opacity: 0.3;
-    margin: 0 2px;
-    background-color: $color-3;
+    width: 9px !important;
+    border-radius: 50%;
+    height: 9px;
+    margin: 0 4px;
+    background-color: #eee;
   }
   .swiper-pagination::v-deep .swiper-pagination-bullet-active {
-    width: 20px !important;
-    height: 4px;
     opacity: 1;
-    background-color: #fff;
-  }
-  .swiper-button-prev::after {
-    display: none;
-  }
-  .swiper-button-next::after {
-    transform: scale(0);
-    display: none;
   }
 
-  .icon {
-    font-size: 27px !important;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-  }
-  ::v-deep.swiper-button-next.swiper-button-disabled {
-    opacity: 0;
-    transform: translatex(-50px);
-  }
-  ::v-deep.swiper-button-prev.swiper-button-disabled {
-    opacity: 0;
-    transform: translatex(50px);
-  }
   ::v-deep.swiper-container {
     @media (max-width: 600px) {
       padding-right: 5px;
       padding-left: 5px;
     }
   }
+}
+::v-deep .swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 0 !important;
 }
 ::v-deep .v-image.v-responsive.theme--light {
   height: 220px !important;

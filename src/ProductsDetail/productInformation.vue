@@ -103,15 +103,19 @@
                     <span>10/2/2020</span>
                   </v-card-text>
                 </v-col>
-                <v-col style="margin: auto 0; text-align: center" cols="12">
+                <v-col
+                  class="py-1"
+                  style="margin: auto 0; text-align: center"
+                  cols="12"
+                >
                   <v-btn
                     small
-                    block
+                    width="95%"
                     dark
                     class="deep-orange btn lighten-1"
                     elevation="0"
                   >
-                    أخذ
+                    أخذ القسيمة
                   </v-btn>
                 </v-col>
               </v-row>
@@ -283,12 +287,9 @@ p {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;
     color: #fff !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    padding: 0 6px !important ;
-    height: 25px !important;
-    border-radius: 0 !important;
-    margin-top: 3px;
+    font-size: 13px !important;
+    margin: 0 auto !important;
+    font-weight: 600;
     @media (max-width: 600px) {
       font-size: 13px !important;
     }

@@ -1,17 +1,31 @@
 <template>
-  <div class="Shape_box">
+  <div class="Shape_box hidden-sm-and-up">
     <v-container>
       <v-row no-gutters>
         <v-col cols="6" class="pa-1" style="position: relative">
-          <v-card rounded="lg" flat color="#eee">
-            <v-card-text class="text pa-1 pb-0">نقاط</v-card-text>
-            <span class="Number pa-1 pt-0"> 0 </span>
+          <v-card
+            class="pa-0"
+            rounded="lg"
+            style="position: relative"
+            flat
+            color="#eee"
+          >
+            <v-card-text class="text pa-1"> نقاط </v-card-text>
+            <span class="icon"> 34 </span>
+            <!-- <v-icon class="icon" size="17">mdi-cash-plus</v-icon> -->
           </v-card>
         </v-col>
-        <v-col cols="6" class="pa-1" style="position: relative">
-          <v-card rounded="lg" flat color="#eee">
-            <v-card-text class="text pa-1 pb-0">قسائم</v-card-text>
-            <span class="Number pa-1 pt-0"> 0 </span>
+        <v-col cols="6" class="pa-1" style="overflow: hidden">
+          <v-card
+            style="position: relative"
+            rounded="lg"
+            flat
+            class=""
+            color="#eee"
+          >
+            <v-card-text class="text pa-1">قسائم</v-card-text>
+            <span class="icon"> 480 </span>
+            <!-- <v-icon class="icon" size="17">mdi-ticket-percent</v-icon> -->
           </v-card>
         </v-col>
       </v-row>
@@ -43,10 +57,9 @@ export default {
 
   .text {
     font-family: $fontfamliy3 !important;
-    font-size: 14px !important;
+    font-size: 13px !important;
     letter-spacing: 0 !important;
-    justify-content: space-evenly;
-    color: $fontcolorlinks;
+    color: #757575;
     font-weight: 600;
     text-align: center;
   }
@@ -54,12 +67,27 @@ export default {
     color: $color-2 !important;
     display: block;
     text-align: center;
-    font-size: 16px !important;
+    font-size: 15px !important;
     font-weight: 600;
   }
 }
 
-.info-icon {
+.icon {
+  position: absolute !important;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0px;
+  background-color: #eee;
+  box-shadow: 0 0 0 3px #f8f9fa !important;
+  border-radius: 50% !important;
   color: $color-2 !important;
+  display: block;
+  width: 33px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px !important;
+  font-weight: 600;
 }
 </style>

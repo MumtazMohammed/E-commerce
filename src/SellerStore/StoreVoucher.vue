@@ -74,6 +74,8 @@ export default {
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
+          dynamicBullets: true,
+
           renderBullet(index, className) {
             return `<span class="${className} swiper-pagination-bullet-custom">${
               index + 1
@@ -154,10 +156,10 @@ export default {
   height: auto;
   padding-bottom: 45px;
   ::v-deep.swiper-pagination-bullet {
-    font-size: 13px;
-    width: 20px !important;
-    height: 20px !important;
-    line-height: 1.6;
+    font-size: 10px;
+    width: 15px !important;
+    height: 15px !important;
+    line-height: 1.5;
     opacity: 0.5;
     background: rgb(223, 223, 223);
     transition: all 0.2s 0s linear;

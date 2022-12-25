@@ -38,7 +38,7 @@
                   <v-chip
                     color="grey lighten-1"
                     small
-                    class="elevation-0 grey--text text--darken-1"
+                    class="elevation-0 white--text "
                   >
                     {{ customerIMageNo + 1 }} |
                     {{ getCarInfo.images.length }}

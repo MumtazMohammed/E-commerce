@@ -1,8 +1,8 @@
 <template>
   <div class="Registration">
-    <v-container class="pa-0">
+    <v-container class="py-0">
       <v-card color="transparent" flat class="card-wrapping pt-2">
-        <v-col class="py-1">
+        <v-col class="py-1 pb-2">
           <div class="tital">
             جميع
             <strong class="mx-1">الفئات</strong>
@@ -15,7 +15,7 @@
               min-width="100%"
               max-width="180px"
               color="#eee"
-              class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
+              class="d-flex mt-4 ServiceCard align-center justify-space-between flex-column"
               to="/Products"
               router
               flat
@@ -35,7 +35,7 @@
             </v-card>
             <v-card
               min-width="100%"
-              class="d-flex mt-5 ServiceCard align-center justify-space-between flex-column"
+              class="d-flex mt-7 ServiceCard align-center justify-space-between flex-column"
               to="/Products"
               router
               flat
@@ -54,10 +54,13 @@
               </v-card-text>
             </v-card>
           </swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
+          <div
+            class="swiper-pagination swiper-pagination-bullets"
+            slot="pagination"
+          ></div>
         </swiper>
 
-        <v-col class="py-1">
+        <v-col class="py-1 pb-2">
           <div class="tital">
             فئة
             <strong class="mx-1">الخدمات</strong>
@@ -67,7 +70,7 @@
           <swiper-slide v-for="Servic in Services" :key="Servic.ServicId">
             <v-card
               color="#eee"
-              class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
+              class="d-flex mt-4 ServiceCard align-center justify-space-between flex-column"
               to="/Products"
               router
               flat
@@ -83,7 +86,10 @@
               </v-card-text>
             </v-card>
           </swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
+          <div
+            class="swiper-pagination swiper-pagination-bullets"
+            slot="pagination"
+          ></div>
         </swiper>
       </v-card>
     </v-container>
@@ -220,6 +226,11 @@ export default {
           el: ".swiper-pagination",
           clickable: true,
           dynamicBullets: true,
+          renderBullet(index, className) {
+            return `<span class="${className} swiper-pagination-bullet-custom">${
+              index + 1
+            }</span>`;
+          },
         },
         navigation: {
           nextEl: ".swiper-button-next",
@@ -316,21 +327,27 @@ export default {
     }
   }
   .swiper {
-    height: auto !important;
-    padding: 10px;
-    padding-bottom: 40px !important;
+    height: auto;
+    padding-bottom: 45px;
+    ::v-deep.swiper-pagination-bullet {
+      font-size: 10px;
+      width: 15px !important;
+      height: 15px !important;
+      line-height: 1.5;
+      opacity: 0.5;
+      background: rgb(223, 223, 223);
+      transition: all 0.2s 0s linear;
+      color: rgb(82, 82, 82);
 
-    .swiper-pagination::v-deep .swiper-pagination-bullet {
-      width: 9px !important;
-      border-radius: 50%;
-      height: 9px;
-      opacity: 1;
-      margin: 0 4px;
-      background-color: #e0e0e0;
-    }
-    .swiper-pagination::v-deep .swiper-pagination-bullet-active {
-      // opacity: 1;
-      background-color: $color-2;
+      &:hover {
+        opacity: 1;
+      }
+
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+        color: #fff;
+        background: $color-2;
+      }
     }
   }
 

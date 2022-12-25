@@ -117,55 +117,14 @@ export default {
   }
 
   .swiper-pagination::v-deep .swiper-pagination-bullet {
-    width: 13px !important;
-    border-radius: 20px;
-    height: 3px;
-    opacity: 0.3;
-    margin: 0 3px;
-    background-color: #fff;
-    @media (max-width: 600px) {
-      height: 2px;
-    }
+    width: 9px !important;
+    border-radius: 50%;
+    height: 9px;
+    margin: 0 4px;
+    background-color: #eee;
   }
   .swiper-pagination::v-deep .swiper-pagination-bullet-active {
     opacity: 1;
-    background-color: #fff;
-  }
-  .swiper-button-prev::after {
-    display: none;
-  }
-  .swiper-button-next::after {
-    transform: scale(0);
-    display: none;
-  }
-  .swiper-button-prev {
-    background-color: $color-2;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    transition: all 0.5s ease;
-    // box-shadow: 0 0 1px 2px rgba(128, 128, 128, 0.449);
-  }
-  .swiper-button-next {
-    background-color: $color-2;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    transition: all 0.5s ease;
-    // box-shadow: 0 0 1px 2px rgba(128, 128, 128, 0.449);
-  }
-  .icon {
-    font-size: 27px !important;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-  }
-  ::v-deep.swiper-button-next.swiper-button-disabled {
-    opacity: 0;
-    transform: translatex(-50px);
-  }
-  ::v-deep.swiper-button-prev.swiper-button-disabled {
-    opacity: 0;
-    transform: translatex(50px);
   }
   ::v-deep.swiper-container {
     @media (max-width: 600px) {
@@ -173,6 +132,9 @@ export default {
       padding-left: 5px;
     }
   }
+}
+::v-deep .swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 0 !important;
 }
 ::v-deep .v-image.v-responsive.theme--light {
   height: 330px !important;
