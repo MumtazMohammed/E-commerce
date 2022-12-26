@@ -22,19 +22,12 @@
           <div>
             <v-card-text class="pa-2 text"> المناطق </v-card-text>
             <v-row no-gutters>
-              <v-col v-for="i in 10" :key="i" class="pa-1">
-                <v-card class="pa-1">
-                  <v-checkbox
-                    v-model="ex4"
-                    label="تعز"
-                    color="primary"
-                    value="primary"
-                    class="ma-0 pa-0"
-                    multiple
-                    dense
-                    hide-details
-                  ></v-checkbox>
-                </v-card>
+              <v-col class="" cols="12">
+                <v-chip-group column>
+                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
+                    تعز
+                  </v-chip>
+                </v-chip-group>
               </v-col>
             </v-row>
           </div>
@@ -42,27 +35,21 @@
           <div>
             <v-card-text class="pa-2 text"> ألوان </v-card-text>
             <v-row no-gutters class="justify-space-between">
-              <v-col
-                cols="1.5"
-                v-for="PerColor in Colors"
-                :key="PerColor"
-                class="pa-1"
-              >
-                <v-card
-                  width="32px"
-                  height="32px"
-                  rounded="pill"
-                  :class="PerColor"
-                  class="pa-1 overflow--hidden"
-                >
-                  <v-checkbox
-                    class="ma-0 pa-0"
-                    multiple
-                    dense
-                    color="white"
-                    hide-details
-                  ></v-checkbox>
-                </v-card>
+              <v-col>
+                <v-chip-group column>
+                  <v-chip
+                    v-for="PerColor in Colors"
+                    :key="PerColor"
+                    color=""
+                    class="chip"
+                    :class="PerColor.Colors"
+                    small
+                    filter
+                    outlined
+                  >
+                    {{ PerColor.ColorText }}
+                  </v-chip>
+                </v-chip-group>
               </v-col>
             </v-row>
           </div>
@@ -91,19 +78,12 @@
           <div>
             <v-card-text class="pa-2 text"> الفئات </v-card-text>
             <v-row no-gutters>
-              <v-col v-for="i in 3" :key="i" class="pa-1">
-                <v-card class="pa-1">
-                  <v-checkbox
-                    v-model="ex4"
-                    label="تعز"
-                    color="primary"
-                    value="primary"
-                    class="ma-0 pa-0"
-                    multiple
-                    dense
-                    hide-details
-                  ></v-checkbox>
-                </v-card>
+              <v-col class="" cols="12">
+                <v-chip-group column>
+                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
+                    تعز
+                  </v-chip>
+                </v-chip-group>
               </v-col>
             </v-row>
           </div>
@@ -111,19 +91,12 @@
           <div>
             <v-card-text class="pa-2 text"> العلامة التجارية </v-card-text>
             <v-row no-gutters>
-              <v-col v-for="i in 3" :key="i" class="pa-1">
-                <v-card class="pa-1">
-                  <v-checkbox
-                    v-model="ex4"
-                    label="تعز"
-                    color="primary"
-                    value="primary"
-                    class="ma-0 pa-0"
-                    multiple
-                    dense
-                    hide-details
-                  ></v-checkbox>
-                </v-card>
+              <v-col class="" cols="12">
+                <v-chip-group column>
+                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
+                    تعز
+                  </v-chip>
+                </v-chip-group>
               </v-col>
             </v-row>
           </div>
@@ -131,19 +104,12 @@
           <div class="mb-4">
             <v-card-text class="pa-2 text"> الحالة </v-card-text>
             <v-row no-gutters>
-              <v-col v-for="i in 3" :key="i" class="pa-1">
-                <v-card class="pa-1">
-                  <v-checkbox
-                    v-model="ex4"
-                    label="تعز"
-                    color="primary"
-                    value="primary"
-                    class="ma-0 pa-0"
-                    multiple
-                    dense
-                    hide-details
-                  ></v-checkbox>
-                </v-card>
+              <v-col class="" cols="12">
+                <v-chip-group column>
+                  <v-chip filter class="chip" small v-for="i in 3" :key="i">
+                    تعز
+                  </v-chip>
+                </v-chip-group>
               </v-col>
             </v-row>
           </div>
@@ -321,17 +287,17 @@ export default {
         ["Delete", "mdi-delete"],
       ],
       Colors: [
-        "red",
-        "orange",
-        "yellow",
-        "green",
-        "blue",
-        "purple",
-        "pink",
-        "brown",
-        "grey",
-        "black",
-        "white",
+        { ColorText: "أحمر", Colors: "red" },
+        { ColorText: "برتقالي", Colors: "orange" },
+        { ColorText: "أصفر", Colors: "yellow" },
+        { ColorText: "أخضر", Colors: "green" },
+        { ColorText: "أزرق", Colors: "blue" },
+        { ColorText: "بنفسجي", Colors: "purple" },
+        { ColorText: "زهري", Colors: "pink" },
+        { ColorText: "بنى", Colors: "brown" },
+        { ColorText: "رمادي", Colors: "grey" },
+        { ColorText: "أسود", Colors: "black" },
+        { ColorText: "أبيض", Colors: "white" },
       ],
     };
   },
@@ -366,33 +332,13 @@ export default {
 // ::v-deep .v-dialog.v-dialog--active.v-dialog--persistent {
 //   margin: 5px;
 // }
-::v-deep .v-select__selection.v-select__selection--comma {
-  font-family: $fontfamliy3;
-  font-size: 14px;
-  letter-spacing: 0;
-}
-::v-deep .v-list-item__title {
-  font-family: $fontfamliy3;
-  font-size: 14px !important;
-  letter-spacing: 0;
-}
+
 ::v-deep input {
   font-family: $fontfamliy3;
   font-size: 14px !important;
   letter-spacing: 0;
 }
-::v-deep .v-list-group__header.v-list-item.v-list-item--link.theme--light {
-  color: $fontcolorlinks;
-  font-family: $fontfamliy3;
-}
-::v-deep .v-list--dense .v-list-item .v-list-item__title {
-  font-family: $fontfamliy3;
-  letter-spacing: 0 !important;
-  font-size: 14px !important;
-}
-::v-deep i.v-icon.notranslate.material-icons.theme--light {
-  font-size: 16px !important;
-}
+
 .text {
   font-family: $fontfamliy3;
   letter-spacing: 0 !important;
@@ -400,27 +346,28 @@ export default {
   color: $color-2;
   font-weight: 600;
 }
-// ::v-deep .v-input--selection-controls__ripple {
-//   border-radius: 50%;
-//   cursor: pointer;
-//   height: 25px;
-//   position: absolute;
-//   transition: inherit;
-//   width: 24px;
-//   left: 0px;
-//   top: calc(0% - 0px);
-//   margin: 0px !important;
+.ac {
+  background-color: $color-2;
+  color: #fff !important;
+}
+.chip {
+  font-family: $fontfamliy3 !important;
+  letter-spacing: 0 !important;
+  font-size: 14px !important;
+}
+::v-deep .theme--light.v-chip--active:before {
+  opacity: 0 !important;
+}
+// ::v-deep .v-input--selection-controls__input {
+//   margin-right: 3px;
+//   @media (max-width: 600px) {
+//     margin-right: 7px;
+//   }
 // }
-::v-deep .v-input--selection-controls__input {
-  margin-right: 3px;
-  @media (max-width: 600px) {
-    margin-right: 7px;
-  }
-}
-::v-deep .v-chip.v-size--default {
-  height: 30px;
-  border-radius: 2px !important;
-}
+// ::v-deep .v-chip.v-size--default {
+//   height: 30px;
+//   border-radius: 2px !important;
+// }
 /* Chrome, Safari, Edge, Opera */
 ::v-deep input::-webkit-outer-spin-button,
 ::v-deep input::-webkit-inner-spin-button {
@@ -431,15 +378,6 @@ export default {
 ::v-deep .v-input__slot {
   min-height: 25px !important;
   justify-content: center;
-}
-::v-deep .v-input__slot input {
-  text-align: center;
-  font-family: $fontfamliy3;
-  letter-spacing: 0 !important;
-  font-size: 11px !important;
-  @media (max-width: 600px) {
-    font-size: 15px !important;
-  }
 }
 ::v-deep .v-avatar {
   @media (max-width: 600px) {

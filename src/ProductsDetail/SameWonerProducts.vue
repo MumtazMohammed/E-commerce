@@ -65,23 +65,27 @@
             </v-card>
           </div>
         </swiper-slide>
-
         <swiper-slide>
           <v-card
             flat
             max-width="190px"
             height="230px"
             router
+            color="transparent"
             class="overflow-hidden d-flex flex-column justify-center align-center"
           >
             <v-card-text class="text-center py-1 card-text-seeMore">
               الكل
             </v-card-text>
-            <v-icon class="deep-orange--text text--darken-1">mdi-plus</v-icon>
+            <v-icon size="17" class="deep-orange--text text--darken-1">
+              mdi-plus
+            </v-icon>
           </v-card>
         </swiper-slide>
-
-        <div class="swiper-pagination" slot="pagination"></div>
+        <div
+          class="swiper-pagination swiper-pagination-bullets"
+          slot="pagination"
+        ></div>
       </swiper>
     </v-container>
   </div>
@@ -114,10 +118,11 @@ export default {
           el: ".swiper-pagination",
           clickable: true,
           dynamicBullets: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          renderBullet(index, className) {
+            return `<span class="${className} swiper-pagination-bullet-custom">${
+              index + 1
+            }</span>`;
+          },
         },
         breakpoints: {
           1024: {
@@ -175,7 +180,7 @@ export default {
 .DailyOffer {
   width: 100%;
   min-height: 40vh;
-background-color: transparent;
+  background-color: transparent;
   strong {
     color: $color-2;
   }
@@ -191,12 +196,8 @@ background-color: transparent;
       background-color: #e0e0e0;
     }
     .swiper-pagination::v-deep .swiper-pagination-bullet-active {
-      // opacity: 1;
+      opacity: 1;
       background-color: $color-2;
-    }
-  }
-  ::v-deep.swiper-container {
-    @media (max-width: 600px) {
     }
   }
 
@@ -289,7 +290,6 @@ background-color: transparent;
   font-family: $fontfamliy3;
   letter-spacing: 0;
   font-size: 16px;
-  font-weight: 600;
   color: $fontcolorlinks !important;
 }
 .ribbon {

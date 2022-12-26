@@ -333,7 +333,7 @@ export default {
       font-size: 10px;
       width: 15px !important;
       height: 15px !important;
-      line-height: 1.5;
+      line-height: 1.6;
       opacity: 0.5;
       background: rgb(223, 223, 223);
       transition: all 0.2s 0s linear;

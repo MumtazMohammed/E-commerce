@@ -2,131 +2,133 @@
   <!-- search for showroom -->
   <div class="search-wrapping">
     <v-container class="search-container">
-      <v-card-actions class="px-0">
+      <v-row no-gutters class="justify-space-between" align="center">
+        <!-- customiza search for small screen -->
         <router-link router to="/">
           <div class="NavTitle">ثــقـة</div>
         </router-link>
-        <!-- customiza search for small screen -->
-        <v-dialog
-          v-model="dialog"
-          fullscreen
-          hide-overlay
-          transition="fade-transition"
-        >
-          <template v-slot:activator="{ on, attrs }">
-            <v-card
-              v-bind="attrs"
-              v-on="on"
-              flat
-              tile
-              width="100%"
-              height="30px"
-              color="#eee"
-              class="search-small-screen hidden-sm-and-up mr-1 ml-3"
-            >
-              <v-card-actions class="pa-0">
-                <v-icon class="mr-1 icon-small-screen">mdi-magnify</v-icon>
-                <v-card-text class="pa-1 icon-small-screen-text">
-                  على ماذا تبحث...
-                </v-card-text>
-              </v-card-actions>
-            </v-card>
-          </template>
-          <v-card>
-            <v-toolbar tile color="transparent">
-              <v-card width="400px" outlined>
+        <v-col class="hidden-sm-and-up">
+          <v-dialog
+            v-model="dialog"
+            fullscreen
+            hide-overlay
+            transition="fade-transition"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-card
+                v-bind="attrs"
+                v-on="on"
+                flat
+                tile
+                width="100%"
+                height="30px"
+                color="#eee"
+                class="search-small-screen mr-1 ml-3"
+              >
                 <v-card-actions class="pa-0">
-                  <v-text-field
-                    placeholder="على ماذا تبحث..."
-                    solo
-                    @focus="SearchClick"
-                    v-model="search"
-                    flat
-                    prepend-icon="mdi-magnify"
-                    hide-details
-                    dense
-                    class="px-0"
-                  ></v-text-field>
-                  <!-- delete text  -->
-                  <v-btn
-                    v-if="search.length > 0"
-                    small
-                    icon
-                    elevation="0"
-                    @click="reset()"
-                  >
-                    <v-icon class="red--text">mdi-close</v-icon>
-                  </v-btn>
+                  <v-icon class="mr-1 icon-small-screen">mdi-magnify</v-icon>
+                  <v-card-text class="pa-1 icon-small-screen-text">
+                    على ماذا تبحث...
+                  </v-card-text>
                 </v-card-actions>
               </v-card>
-              <v-spacer></v-spacer>
-              <v-btn icon dark @click="dialog = false">
-                <v-icon class="close-search-dig">mdi-arrow-left</v-icon>
+            </template>
+            <v-card>
+              <v-toolbar tile color="transparent">
+                <v-card width="400px" outlined>
+                  <v-card-actions class="pa-0">
+                    <v-text-field
+                      placeholder="على ماذا تبحث..."
+                      solo
+                      @focus="SearchClick"
+                      v-model="search"
+                      flat
+                      prepend-icon="mdi-magnify"
+                      hide-details
+                      dense
+                      class="px-0"
+                    ></v-text-field>
+                    <!-- delete text  -->
+                    <v-btn
+                      v-if="search.length > 0"
+                      small
+                      icon
+                      elevation="0"
+                      @click="reset()"
+                    >
+                      <v-icon class="red--text">mdi-close</v-icon>
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+                <v-spacer></v-spacer>
+                <v-btn icon dark @click="dialog = false">
+                  <v-icon class="close-search-dig">mdi-arrow-left</v-icon>
+                </v-btn>
+              </v-toolbar>
+              <v-expand-transition>
+                <div v-if="search.length > 0">
+                  <v-list-item
+                    class="search-list-dig"
+                    outlined
+                    router
+                    @click="dialog = false"
+                    :to="{
+                      name: 'ViewCar',
+                      params: {
+                        carName: CarData.name,
+                        carShape: CarData.Shape,
+                        carId: CarData.id,
+                        Company: CarData.folder,
+                      },
+                    }"
+                    v-for="CarData in filteredStore"
+                    :key="CarData.id"
+                  >
+                    <v-list-item-content>
+                      <v-list-item-title v-text="CarData.name">
+                      </v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-card-title
+                    class="not-found"
+                    v-if="filteredStore.length < 1"
+                  >
+                    لا يوجد (<span class="mx-2 red--text">
+                      {{ search }}
+                    </span>
+                    )
+                  </v-card-title>
+                </div>
+              </v-expand-transition>
+            </v-card>
+          </v-dialog>
+        </v-col>
+        <v-col cols="4">
+          <v-card-actions class="justify-end pa-0">
+            <!-- cart shopping  -->
+            <v-badge bordered left overlap content="425" class="mx-3">
+              <v-btn
+                :to="{
+                  name: 'TheClientCartPage',
+                  params: { SavedAd: 'سلة التسوق ' },
+                }"
+                depressed
+                class="btn-noti-cart"
+                icon
+              >
+                <v-icon class="btn-noti-cart-icon">mdi-cart-outline</v-icon>
               </v-btn>
-            </v-toolbar>
-            <v-expand-transition>
-              <div v-if="search.length > 0">
-                <v-list-item
-                  class="search-list-dig"
-                  outlined
-                  router
-                  @click="dialog = false"
-                  :to="{
-                    name: 'ViewCar',
-                    params: {
-                      carName: CarData.name,
-                      carShape: CarData.Shape,
-                      carId: CarData.id,
-                      Company: CarData.folder,
-                    },
-                  }"
-                  v-for="CarData in filteredStore"
-                  :key="CarData.id"
-                >
-                  <v-list-item-content>
-                    <v-list-item-title v-text="CarData.name">
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-                <v-card-title class="not-found" v-if="filteredStore.length < 1">
-                  لا يوجد (<span class="mx-2 red--text">
-                    {{ search }}
-                  </span>
-                  )
-                </v-card-title>
-              </div>
-            </v-expand-transition>
-          </v-card>
-        </v-dialog>
-        <v-spacer></v-spacer>
-        <!-- cart shopping  -->
-        <v-badge bordered left overlap content="425" class="mx-2">
-          <v-btn
-            :to="{
-              name: 'TheClientCartPage',
-              params: { SavedAd: 'سلة التسوق ' },
-            }"
-            depressed
-            class="btn-noti-cart"
-            icon
-          >
-            <v-icon class="btn-noti-cart-icon">mdi-cart-outline</v-icon>
-          </v-btn>
-        </v-badge>
-        <!-- notification btn -->
-        <v-badge
-          bordered
-          offset-x="45"
-          offset-y="12"
-          overlap
-          content="1"
-          class="mx-2"
-        >
-          <v-btn depressed class="btn-noti-cart" icon>
-            <v-icon class="btn-noti-cart-icon">mdi-bell-outline</v-icon>
-          </v-btn>
-        </v-badge>
-      </v-card-actions>
+            </v-badge>
+            <!-- notification btn -->
+            <v-badge bordered left overlap content="445" class="mx-3">
+              <v-btn depressed class="btn-noti-cart" icon>
+                <v-icon class="btn-noti-cart-icon">mdi-bell-outline</v-icon>
+              </v-btn>
+            </v-badge>
+          </v-card-actions>
+        </v-col>
+      </v-row>
+
       <v-card-actions class="pa-0">
         <v-spacer></v-spacer>
         <v-card
@@ -213,19 +215,19 @@
         <v-spacer></v-spacer>
       </v-card-actions>
     </v-container>
-    <div class="TheCategories">
+    <!-- <div class="TheCategories">
       <TheCategories />
-    </div>
+    </div> -->
   </div>
   <!--end search  -->
 </template>
 <script>
 import CarData from "../data-json/All-Car.json";
-import TheCategories from "../Search/TheCategories.vue";
+// import TheCategories from "../Search/TheCategories.vue";
 
 export default {
   name: "showroom",
-  components: { TheCategories },
+  components: {  },
   data() {
     return {
       CarData,
@@ -327,7 +329,7 @@ a {
 }
 .search-container {
   @media (max-width: 600px) {
-    padding: 3px;
+    padding: 8px 7px;
   }
 }
 .Featured-card {
@@ -402,6 +404,10 @@ a {
   @media (max-width: 600px) {
     font-size: 19px !important;
   }
+}
+::v-deep .v-toolbar__content .v-btn.v-btn--icon.v-size--default {
+  width: 37px !important;
+  height: 37px !important;
 }
 .icon-small-screen {
   font-size: 19px !important;
