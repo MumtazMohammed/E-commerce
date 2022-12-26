@@ -135,23 +135,19 @@
         <v-icon right color="primary" size="16">mdi-filter-outline</v-icon>
         تصفية البحث
       </v-card-title>
-      <v-expansion-panels light focusable tile popout flat multiple>
+      <v-expansion-panels light focusable tile accordion flat multiple>
         <v-expansion-panel>
           <v-expansion-panel-header color="transparent" class="text">
             المناطق
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-row no-gutters>
-              <v-col cols="6" v-for="i in 10" :key="i">
-                <v-checkbox
-                  v-model="ex4"
-                  label="تعز"
-                  color="primary"
-                  value="primary"
-                  class="ma-0"
-                  multiple
-                  hide-details
-                ></v-checkbox>
+              <v-col>
+                <v-chip-group multiple column>
+                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
+                    تعز
+                  </v-chip>
+                </v-chip-group>
               </v-col>
             </v-row>
           </v-expansion-panel-content>
@@ -162,8 +158,21 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-row no-gutters>
-              <v-col v-for="PerColor in Colors" :key="PerColor">
-                <v-avatar size="15" :color="PerColor" class="ma-1"> </v-avatar>
+              <v-col>
+                <v-chip-group column>
+                  <v-chip
+                    v-for="PerColor in Colors"
+                    :key="PerColor"
+                    color=""
+                    class="chip"
+                    :class="PerColor.Colors"
+                    small
+                    filter
+                    outlined
+                  >
+                    {{ PerColor.ColorText }}
+                  </v-chip>
+                </v-chip-group>
               </v-col>
             </v-row>
           </v-expansion-panel-content>
@@ -174,16 +183,12 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-row no-gutters>
-              <v-col cols="6" v-for="i in 10" :key="i">
-                <v-checkbox
-                  v-model="ex4"
-                  label="تعز"
-                  color="primary"
-                  value="primary"
-                  class="ma-0"
-                  multiple
-                  hide-details
-                ></v-checkbox>
+              <v-col>
+                <v-chip-group multiple column>
+                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
+                    تعز
+                  </v-chip>
+                </v-chip-group>
               </v-col>
             </v-row>
           </v-expansion-panel-content>
@@ -229,16 +234,12 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-row no-gutters>
-              <v-col cols="6" v-for="i in 10" :key="i">
-                <v-checkbox
-                  v-model="ex4"
-                  label="تعز"
-                  color="primary"
-                  value="primary"
-                  class="ma-0"
-                  multiple
-                  hide-details
-                ></v-checkbox>
+              <v-col>
+                <v-chip-group multiple column>
+                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
+                    تعز
+                  </v-chip>
+                </v-chip-group>
               </v-col>
             </v-row>
           </v-expansion-panel-content>
@@ -249,16 +250,12 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-row no-gutters>
-              <v-col cols="6" v-for="i in 10" :key="i">
-                <v-checkbox
-                  v-model="ex4"
-                  label="تعز"
-                  color="primary"
-                  value="primary"
-                  class="ma-0"
-                  multiple
-                  hide-details
-                ></v-checkbox>
+              <v-col>
+                <v-chip-group multiple column>
+                  <v-chip filter class="chip" small v-for="i in 3" :key="i">
+                    تعز
+                  </v-chip>
+                </v-chip-group>
               </v-col>
             </v-row>
           </v-expansion-panel-content>
