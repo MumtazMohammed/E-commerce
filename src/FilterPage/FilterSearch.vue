@@ -18,116 +18,135 @@
             <v-icon>mdi-filter</v-icon>
           </v-btn>
         </template>
-        <v-card class="pa-2" tile flat>
-          <div>
-            <v-card-text class="pa-2 text"> المناطق </v-card-text>
+        <v-sheet color="white" style="height: 100vh; overflow-y: scroll">
+          <v-card
+            class="pa-2"
+            tile
+            flat
+            style="height: calc(100vh - 50px); overflow-y: scroll"
+          >
+            <div>
+              <v-card-text class="pa-2 text"> المناطق </v-card-text>
+              <v-row no-gutters>
+                <v-col class="" cols="12">
+                  <v-chip-group column multiple>
+                    <v-chip filter class="chip" small v-for="i in 10" :key="i">
+                      تعز
+                    </v-chip>
+                  </v-chip-group>
+                </v-col>
+              </v-row>
+            </div>
+            <v-divider class="mt-3"></v-divider>
+            <div>
+              <v-card-text class="pa-2 text"> ألوان </v-card-text>
+              <v-row no-gutters class="justify-space-between">
+                <v-col>
+                  <v-chip-group column multiple>
+                    <v-chip
+                      v-for="PerColor in Colors"
+                      :key="PerColor"
+                      color=""
+                      class="chip"
+                      :class="PerColor.Colors"
+                      small
+                      filter
+                      outlined
+                    >
+                      {{ PerColor.ColorText }}
+                    </v-chip>
+                  </v-chip-group>
+                </v-col>
+              </v-row>
+            </div>
+            <v-divider class="mt-3"></v-divider>
+            <div>
+              <v-card-text class="pa-2 text"> السعر </v-card-text>
+              <v-card-actions class="">
+                <v-text-field
+                  type="number"
+                  dense
+                  hide-details=""
+                  outlined
+                  placeholder="من"
+                ></v-text-field>
+                <v-icon class="mx-2" color="primary"
+                  >mdi-arrow-left-thin</v-icon
+                >
+                <v-text-field
+                  type="number"
+                  dense
+                  hide-details=""
+                  outlined
+                  placeholder="الى"
+                ></v-text-field>
+              </v-card-actions>
+            </div>
+            <v-divider class="mt-3"></v-divider>
+            <div>
+              <v-card-text class="pa-2 text"> الفئات </v-card-text>
+              <v-row no-gutters>
+                <v-col class="" cols="12">
+                  <v-chip-group column multiple>
+                    <v-chip filter class="chip" small v-for="i in 10" :key="i">
+                      تعز
+                    </v-chip>
+                  </v-chip-group>
+                </v-col>
+              </v-row>
+            </div>
+            <v-divider class="mt-3"></v-divider>
+            <div>
+              <v-card-text class="pa-2 text"> العلامة التجارية </v-card-text>
+              <v-row no-gutters>
+                <v-col class="" cols="12">
+                  <v-chip-group column multiple>
+                    <v-chip filter class="chip" small v-for="i in 10" :key="i">
+                      تعز
+                    </v-chip>
+                  </v-chip-group>
+                </v-col>
+              </v-row>
+            </div>
+            <v-divider class="mt-3"></v-divider>
+            <div class="mb-4">
+              <v-card-text class="pa-2 text"> الحالة </v-card-text>
+              <v-row no-gutters>
+                <v-col class="" cols="12">
+                  <v-chip-group column multiple>
+                    <v-chip filter class="chip" small v-for="i in 3" :key="i">
+                      تعز
+                    </v-chip>
+                  </v-chip-group>
+                </v-col>
+              </v-row>
+            </div>
+          </v-card>
+          <v-sheet color="white" height="50px">
             <v-row no-gutters>
-              <v-col class="" cols="12">
-                <v-chip-group column>
-                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
-                    تعز
-                  </v-chip>
-                </v-chip-group>
+              <v-col cols="6" class="pa-2">
+                <v-btn
+                  block
+                  elevation="0"
+                  class="btn"
+                  @click="filterdialog = false"
+                >
+                  عرض
+                </v-btn>
+              </v-col>
+              <v-col cols="6" class="pa-2">
+                <v-btn
+                  block
+                  elevation="0"
+                  class="btn"
+                  @click="filterdialog = false"
+                >
+                  إلغاء
+                </v-btn>
               </v-col>
             </v-row>
-          </div>
-          <v-divider class="mt-3"></v-divider>
-          <div>
-            <v-card-text class="pa-2 text"> ألوان </v-card-text>
-            <v-row no-gutters class="justify-space-between">
-              <v-col>
-                <v-chip-group column>
-                  <v-chip
-                    v-for="PerColor in Colors"
-                    :key="PerColor"
-                    color=""
-                    class="chip"
-                    :class="PerColor.Colors"
-                    small
-                    filter
-                    outlined
-                  >
-                    {{ PerColor.ColorText }}
-                  </v-chip>
-                </v-chip-group>
-              </v-col>
-            </v-row>
-          </div>
-          <v-divider class="mt-3"></v-divider>
-          <div>
-            <v-card-text class="pa-2 text"> السعر </v-card-text>
-            <v-card-actions class="">
-              <v-text-field
-                type="number"
-                dense
-                hide-details=""
-                outlined
-                placeholder="من"
-              ></v-text-field>
-              <v-icon class="mx-2" color="primary">mdi-arrow-left-thin</v-icon>
-              <v-text-field
-                type="number"
-                dense
-                hide-details=""
-                outlined
-                placeholder="الى"
-              ></v-text-field>
-            </v-card-actions>
-          </div>
-          <v-divider class="mt-3"></v-divider>
-          <div>
-            <v-card-text class="pa-2 text"> الفئات </v-card-text>
-            <v-row no-gutters>
-              <v-col class="" cols="12">
-                <v-chip-group column>
-                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
-                    تعز
-                  </v-chip>
-                </v-chip-group>
-              </v-col>
-            </v-row>
-          </div>
-          <v-divider class="mt-3"></v-divider>
-          <div>
-            <v-card-text class="pa-2 text"> العلامة التجارية </v-card-text>
-            <v-row no-gutters>
-              <v-col class="" cols="12">
-                <v-chip-group column>
-                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
-                    تعز
-                  </v-chip>
-                </v-chip-group>
-              </v-col>
-            </v-row>
-          </div>
-          <v-divider class="mt-3"></v-divider>
-          <div class="mb-4">
-            <v-card-text class="pa-2 text"> الحالة </v-card-text>
-            <v-row no-gutters>
-              <v-col class="" cols="12">
-                <v-chip-group column>
-                  <v-chip filter class="chip" small v-for="i in 3" :key="i">
-                    تعز
-                  </v-chip>
-                </v-chip-group>
-              </v-col>
-            </v-row>
-          </div>
-          <v-divider class="my-3"></v-divider>
-
-          <v-row no-gutters>
-            <v-col cols="6" class="pa-2">
-              <v-btn block class="btn" @click="filterdialog = false">
-                عرض
-              </v-btn>
-            </v-col>
-            <v-col cols="6" class="pa-2">
-              <v-btn block class="btn" @click="filterdialog = false">
-                إلغاء
-              </v-btn>
-            </v-col>
-          </v-row>
-        </v-card>
+          </v-sheet>
+        </v-sheet>
       </v-dialog>
     </div>
     <div class="hidden-sm-and-down">
@@ -326,10 +345,6 @@ export default {
     font-size: 15px !important;
   }
 }
-// ::v-deep .v-dialog.v-dialog--active.v-dialog--persistent {
-//   margin: 5px;
-// }
-
 ::v-deep input {
   font-family: $fontfamliy3;
   font-size: 14px !important;

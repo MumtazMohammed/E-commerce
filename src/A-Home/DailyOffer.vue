@@ -84,10 +84,7 @@
               </v-icon>
             </v-card>
           </swiper-slide>
-          <div
-            class="swiper-pagination swiper-pagination-bullets"
-            slot="pagination"
-          ></div>
+          <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
       </v-card>
     </v-container>
@@ -123,11 +120,6 @@ export default {
           el: ".swiper-pagination",
           clickable: true,
           dynamicBullets: true,
-          renderBullet(index, className) {
-            return `<span class="${className} swiper-pagination-bullet-custom">${
-              index + 1
-            }</span>`;
-          },
         },
         navigation: {
           nextEl: ".swiper-button-next",
@@ -204,8 +196,8 @@ export default {
     padding-right: 5px !important;
     ::v-deep.swiper-pagination-bullet {
       font-size: 10px;
-      width: 15px !important;
-      height: 15px !important;
+      width: 9px !important;
+      height: 9px !important;
       line-height: 1.5;
       opacity: 0.5;
       background: rgb(223, 223, 223);
