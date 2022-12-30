@@ -15,7 +15,7 @@
               min-width="100%"
               max-width="180px"
               color="#eee"
-              class="d-flex mt-4 ServiceCard align-center justify-space-between flex-column"
+              class="d-flex ServiceCard align-center justify-space-between flex-column"
               to="/Products"
               router
               flat
@@ -35,7 +35,7 @@
             </v-card>
             <v-card
               min-width="100%"
-              class="d-flex mt-7 ServiceCard align-center justify-space-between flex-column"
+              class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
               to="/Products"
               router
               flat
@@ -70,7 +70,7 @@
           <swiper-slide v-for="Servic in Services" :key="Servic.ServicId">
             <v-card
               color="#eee"
-              class="d-flex mt-4 ServiceCard align-center justify-space-between flex-column"
+              class="d-flex ServiceCard align-center justify-space-between flex-column"
               to="/Products"
               router
               flat
@@ -86,10 +86,7 @@
               </v-card-text>
             </v-card>
           </swiper-slide>
-          <div
-            class="swiper-pagination"
-            slot="pagination"
-          ></div>
+          <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
       </v-card>
     </v-container>
@@ -226,7 +223,6 @@ export default {
           el: ".swiper-pagination",
           clickable: true,
           dynamicBullets: true,
-      
         },
         navigation: {
           nextEl: ".swiper-button-next",
@@ -300,25 +296,25 @@ export default {
     position: relative;
   }
   .icon {
-    font-size: 18px;
+    font-size: 24px;
     background-color: #eee;
-    padding: 6px;
-    width: 20px;
-    height: 20px;
+    padding: 8px;
+    // width: 20px;
+    // height: 20px;
     border-radius: 50% !important;
     color: #fc624de8;
     position: relative;
     z-index: 2;
-    box-shadow: 0px 0px 0px 2px rgb(255, 255, 255);
+    box-shadow: 0px 0px 0px 2px $color-background !important;
     // border: 1px solid ;
-    margin-top: -16px !important;
+    margin-top: -3px !important;
 
     // box-shadow: 0px 0px 5px 0px $fontcolorlinks;
     @media (max-width: 750px) {
       font-size: 18px;
       width: 18px;
       height: 18px;
-      margin-top: -10px !important;
+      margin-top: -2px !important;
       box-shadow: 0px 0px 0px 2px rgb(255, 255, 255);
     }
   }

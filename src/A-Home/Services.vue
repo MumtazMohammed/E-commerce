@@ -1,34 +1,24 @@
 <template>
   <div class="Shape_box hidden-sm-and-up">
     <v-container>
-      <v-row no-gutters>
-        <v-col cols="6" class="pa-1" style="position: relative">
-          <v-card
-            class="pa-0"
-            rounded="lg"
-            style="position: relative"
-            flat
-            color="#eee"
-          >
-            <v-card-text class="text pa-1"> نقاط </v-card-text>
-            <span class="icon"> 34 </span>
-            <!-- <v-icon class="icon" size="17">mdi-cash-plus</v-icon> -->
-          </v-card>
-        </v-col>
-        <v-col cols="6" class="pa-1" style="overflow: hidden">
-          <v-card
-            style="position: relative"
-            rounded="lg"
-            flat
-            class=""
-            color="#eee"
-          >
-            <v-card-text class="text pa-1">قسائم</v-card-text>
-            <span class="icon"> 480 </span>
-            <!-- <v-icon class="icon" size="17">mdi-ticket-percent</v-icon> -->
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-card flat color="#eee">
+        <v-row no-gutters>
+          <v-col cols="6" style="position: relative">
+            <v-card flat tile color="transparent">
+              <v-card-text class="text pa-1"> نقاط </v-card-text>
+              <span class="icon"> 34 </span>
+              <!-- <v-icon class="icon" size="17">mdi-cash-plus</v-icon> -->
+            </v-card>
+          </v-col>
+          <v-col cols="6" style="overflow: hidden">
+            <v-card flat tile color="transparent">
+              <v-card-text class="text pa-1">قسائم</v-card-text>
+              <span class="icon"> 480 </span>
+              <!-- <v-icon class="icon" size="17">mdi-ticket-percent</v-icon> -->
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-card>
     </v-container>
   </div>
 </template>
@@ -73,21 +63,18 @@ export default {
 }
 
 .icon {
-  position: absolute !important;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0px;
+  // position: absolute !important;
+  margin: 0 auto !important;
   background-color: #eee;
-  box-shadow: 0 0 0 3px #f8f9fa !important;
+  box-shadow: 0 0 0 4px $color-background !important;
   border-radius: 50% !important;
   color: $color-2 !important;
-  display: block;
   width: 33px;
   height: 33px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px !important;
+  font-size: 14px !important;
   font-weight: 600;
 }
 </style>

@@ -227,7 +227,7 @@ import CarData from "../data-json/All-Car.json";
 
 export default {
   name: "showroom",
-  components: {  },
+  components: {},
   data() {
     return {
       CarData,
@@ -329,7 +329,8 @@ a {
 }
 .search-container {
   @media (max-width: 600px) {
-    padding: 8px 7px;
+    padding-right:  5px;
+    padding-left:  5px;
   }
 }
 .Featured-card {
