@@ -15,7 +15,7 @@
               min-width="100%"
               max-width="180px"
               color="#eee"
-              class="d-flex ServiceCard align-center justify-space-between flex-column"
+              class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
               to="/Products"
               router
               flat
@@ -70,7 +70,7 @@
           <swiper-slide v-for="Servic in Services" :key="Servic.ServicId">
             <v-card
               color="#eee"
-              class="d-flex ServiceCard align-center justify-space-between flex-column"
+              class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
               to="/Products"
               router
               flat

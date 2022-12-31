@@ -31,7 +31,7 @@
           <v-sheet
             v-scroll.self="onScroll"
             class="overflow-y-auto overflow-x-hidden pa-1"
-            height="600"
+            height="650"
             color="grey lighten-2"
           >
             <v-col class="pa-1" cols="12" v-for="n in 8" :key="n">

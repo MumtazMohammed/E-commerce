@@ -65,42 +65,8 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-        <!-- big screen menu -->
-        <!-- <v-menu offset-y max-width="330px">
-          <template v-slot:activator="{ attrs, on }">
-            <v-btn
-              icon
-              class="grey--text text--darken-2 hidden-xs-only"
-              v-bind="attrs"
-              v-on="on"
-            >
-              <v-icon>mdi-dots-grid</v-icon>
-            </v-btn>
-          </template>
-          <v-sheet class="py-3">
-            <v-card-actions class="flex-wrap card-actions mx-auto pa-0">
-              <v-card
-                rounded="lg"
-                class="ma-1 menu-card"
-                v-for="item in MenuLinks"
-                :key="item"
-                link
-                exact-path
-                :to="item.RouterName"
-              >
-                <v-card-actions class="pa-0 pt-1 justify-center">
-                  <v-icon
-                    :class="item.class"
-                    class="icon"
-                    v-text="item.icon"
-                  ></v-icon>
-                </v-card-actions>
-                <span class="link" v-text="item.link"></span>
-              </v-card>
-            </v-card-actions>
-          </v-sheet>
-        </v-menu> -->
         <v-divider vertical class="mx-2 hidden-sm-and-down"></v-divider>
+        <!-- store name and click to setting -->
         <v-card
           flat
           rounded="lg"
@@ -147,6 +113,7 @@
           <v-icon>mdi-arrow-left </v-icon>
         </v-btn>
       </v-app-bar>
+      <!-- navigation menu   -->
       <v-sheet class="py-2 px-1 hidden-xs-only">
         <v-chip-group mandatory active-class="blue--text text--accent-4">
           <v-chip

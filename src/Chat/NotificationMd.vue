@@ -1,6 +1,6 @@
 <template>
   <div class="Notification">
-    <v-card flat class="overflow-hidden my-2 mx-auto" width="95%">
+    <v-card flat class="overflow-hidden my-1 mx-auto" width="95%">
       <v-text-field
         placeholder="بحث"
         dense
@@ -10,9 +10,9 @@
       ></v-text-field>
     </v-card>
     <v-sheet
-      max-height="100vh"
+      max-height="100%"
       v-scroll.self="onScroll"
-      class="overflow-y-auto overflow-x-hidden"
+      class="overflow-y-auto pb-8 overflow-x-hidden"
     >
       <v-dialog
         v-model="dialog"
@@ -162,7 +162,7 @@ export default {
 @import "@/scss/mixin";
 .Notification {
   width: 100%;
-  min-height: 100vh;
+  height: calc(100vh - 150px);
   .users-card:hover {
     background-color: #eee;
   }

@@ -7,16 +7,18 @@
             v-bind="attrs"
             v-on="on"
             elevation="0"
-            small
             dark
+            icon
             class="btn blue darken-2 hidden-sm-and-up"
           >
-            الأعلانات
+            <v-icon>mdi-bullhorn</v-icon>
           </v-btn>
         </template>
-        <v-sheet height="100%" class="white">
-          <v-card-title class="text py-1 grey--text text--darken-2">
-            <v-icon color="green lighten-2" right>mdi-bullhorn-outline</v-icon>
+        <v-sheet height="100%" class="grey lighten-3">
+          <v-card-title class="text pa-1 grey--text text--darken-2">
+            <v-icon size="26" color="green lighten-2" right
+              >mdi-bullhorn-outline</v-icon
+            >
             إعلان
             <v-spacer></v-spacer>
             <v-btn icon color="red">
@@ -24,25 +26,35 @@
             </v-btn>
           </v-card-title>
           <v-row no-gutters>
-            <v-col cols="12" class="pa-2" sm="6" md="4" lg="4">
-              <div>
-                <v-subheader class="Adv-titel pl-0 grey--text text--darken-1">
-                  هل أستطيع التعديل على التنسيقات؟
-                  <v-spacer></v-spacer>
-                    <v-icon light right size="15" color="red"> mdi-email</v-icon>
+            <v-col cols="12" class="pa-2">
+              <!-- announcement (date) and announcement (number) -->
+              <v-row
+                justify="space-between"
+                align="center"
+                no-gutters
+                class="px-1"
+              >
+                <small class="pa-0 text--disabled">5645</small>
+                <small class="pa-0 text--disabled">5645</small>
+              </v-row>
+              <!-- announcement (title) -->
+              <v-card flat class="pa-2">
+                <v-row align="center" no-gutters style="flex-wrap: nowrap">
+                  <v-card-text
+                    class="Adv-titel py-0 pr-0 text-truncate text--secondary"
+                  >
+                    هل أستطيع التعديل على التنسيقات؟ هل أستطيع التعديل على
+                    التنسيقات؟ هل أستطيع التعديل على التنسيقات؟
+                    <v-spacer></v-spacer>
+                  </v-card-text>
+                  <!-- announcement (read or unread) -->
+                  <v-icon light right size="15" color="red"> mdi-email</v-icon>
+                  <!-- announcement (delete btn) -->
                   <v-btn icon>
                     <v-icon size="19" color=""> mdi-trash-can </v-icon>
                   </v-btn>
-                </v-subheader>
-
-                <!-- <v-card-text class="Adv-text py-0 grey--text text--darken-1">
-                    بلا شك، يمكنك تغيير النصوص والصور، اختيار ألوانك الخاصة،
-                    ترتيب مكونات الصفحة بطريقتك، تغيير تقسيم الأعمدة… وأكثر، كل
-                    ذلك بالسحب والإدراج وملء الخانات. ويمكنك أيضاً استخدام
-                    التنسيق الواحد في أكثر من صفحة والتعديل عليها حسب ذوقك.
-                  </v-card-text> -->
-              </div>
-              <v-divider></v-divider>
+                </v-row>
+              </v-card>
             </v-col>
           </v-row>
         </v-sheet>
@@ -50,7 +62,7 @@
 
       <!--  -->
       <v-row no-gutters>
-        <v-col cols="12" class="hidden-md-and-down pa-2">
+        <v-col cols="12" class="hidden-xs-only pa-2">
           <v-card max-height="500" flat>
             <v-card-title class="text py-1 grey--text text--darken-2">
               <v-icon color="green lighten-2" right
@@ -99,7 +111,7 @@
               <v-col
                 md="4"
                 lg="4"
-                sm="6"
+                sm="4"
                 cols="12"
                 v-for="(ToDo, i) in ToDoList"
                 :key="i"
@@ -343,8 +355,8 @@ export default {
 .Adv-titel {
   font-family: $fontfamliy3;
   letter-spacing: 0 !important;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 13px;
 }
 .Adv-text {
   font-family: $fontfamliy3;
@@ -359,11 +371,11 @@ export default {
   letter-spacing: 0 !important;
   font-weight: 500;
   font-size: 17px;
-  @media (max-width: 600px) {
-    font-size: 15px;
-  }
+
   .v-icon {
-    font-size: 18px !important;
+    @media (max-width: 600px) {
+      font-size: 22px !important;
+    }
   }
 }
 .ToDoList-box {
@@ -401,12 +413,13 @@ export default {
 }
 .btn {
   position: fixed;
-  right: 3px;
+  left: 3px;
+  bottom: 51px;
   font-family: $fontfamliy3 !important;
   letter-spacing: 0 !important;
   font-weight: 600;
   z-index: 5;
-  opacity: 0.7;
+  // opacity: 0.7;
 }
 .container {
   padding: 0px !important;

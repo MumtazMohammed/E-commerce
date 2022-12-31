@@ -6,7 +6,7 @@
           <v-sheet
             v-scroll.self="onScroll"
             class="overflow-y-auto overflow-x-hidden pa-1"
-            height="650"
+            height="600"
           >
             <v-card flat class="users-card my-1" v-for="n in 20" :key="n">
               <v-card-actions class="pa-0 px-1">

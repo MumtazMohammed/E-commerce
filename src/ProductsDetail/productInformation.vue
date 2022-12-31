@@ -1,28 +1,35 @@
 <template>
   <!-- this component will be under the image  -->
   <div class="ContactSeller">
-    <v-card-actions class="py-1">
-      <ShareSaveReport />
-      <v-spacer></v-spacer>
-      <v-chip small class="discount-tag mx-1 justify-center">
-        <span>متميز</span>
-      </v-chip>
-      <v-chip small class="discount-tag mx-1 justify-center">
-        <span>9%</span>
-        <span>خصم</span>
-      </v-chip>
-    </v-card-actions>
-
-    <!-- product name  -->
+    <!-- show if this product contain discount or featured or both -->
+    <ShareSaveReport />
+    <!-- here the product name  -->
     <v-col cols="12" class="py-1">
       <p class="ProductName d-inline-block text-truncate ma-0">
         {{ getCarInfo.company }} {{ getCarInfo.name }}
         {{ getCarInfo.modle }}
       </p>
     </v-col>
-    <!-- rating and sales Info   -->
+
+    <!-- here the Price Info   -->
+    <v-row no-gutters justify="space-between" class="pa-3">
+      <p class="ma-0 price">
+        {{ getCarInfo.payment }}
+        <span> ريال </span>
+      </p>
+      <p class="ma-0 if-discount mr-2 grey--text text--lighten-1">
+        {{ getCarInfo.payment }}
+        <span> ريال </span>
+      </p>
+      <v-spacer></v-spacer>
+      <v-chip small class="discount-tag mx-1 justify-center">
+        <span>9%</span>
+        <span>خصم</span>
+      </v-chip>
+    </v-row>
+    <!-- here are the rating and sales Info   -->
     <v-card flat color="transparent">
-      <v-card-actions class="py-0">
+      <v-row no-gutters class="pa-3 py-2">
         <p class="ma-0">التقيمات</p>
         <span class="grey--text number text--darken-1 mr-1"> 9 </span>
         <v-divider vertical class="mx-2"></v-divider>
@@ -40,24 +47,12 @@
         <v-divider vertical class="mx-2"></v-divider>
         <p class="ma-0">المبيعات</p>
         <span class="grey--text number text--darken-1 mr-1"> 33 </span>
-      </v-card-actions>
+      </v-row>
     </v-card>
-    <!-- Price Info   -->
-    <v-card-actions>
-      <p class="ma-0 if-discount grey--text text--lighten-1">
-        {{ getCarInfo.payment }}
-        <span> ريال </span>
-      </p>
-      <p class="ma-0 mr-2 price red--text">
-        {{ getCarInfo.payment }}
-        <span> ريال </span>
-      </p>
-      <v-spacer></v-spacer>
-    </v-card-actions>
-    <!-- vouchers -->
+    <!-- here are the vouchers -->
     <v-menu max-width="600" open-on-hover bottom left>
       <template v-slot:activator="{ on, attrs }">
-        <v-card-actions v-bind="attrs" v-on="on">
+        <v-card-actions class="pa-3" v-bind="attrs" v-on="on">
           <span class="see-more-coupons">القسائم</span>
           <v-sheet class="px-2 d-flex" width="100%">
             <span v-for="i in 3" :key="i" class="coupons">
@@ -182,7 +177,9 @@ export default {
   }
 }
 .price {
-  font-size: 18px;
+  font-size: 22px;
+  font-weight: 600 !important;
+  color: $color-2;
   @media (max-width: 500px) {
     font-size: 18px !important;
   }
@@ -193,10 +190,10 @@ export default {
 .if-discount {
   font-size: 16px;
   text-decoration: line-through;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   font-family: $fontfamliy3 !important;
-  @media (max-width: 500px) {
-    font-size: 14px;
+  @media (max-width: 600px) {
+    font-size: 15px !important;
   }
 }
 p {
@@ -228,7 +225,7 @@ p {
   background-color: $color-2 !important;
   color: #fff !important;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   @media (max-width: 500px) {
     font-size: 13px;
   }

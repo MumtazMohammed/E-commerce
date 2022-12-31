@@ -1,12 +1,12 @@
 <template>
   <div class="Notification">
     <v-container fluid>
-      <v-row class="hidden-sm-and-down">
+      <v-row no-gutters class="hidden-sm-and-down">
         <v-col cols="4" class="px-md-1 px-lg-1">
           <v-sheet
             v-scroll.self="onScroll"
             class="overflow-y-auto overflow-x-hidden pa-1"
-            height="650"
+            height="568"
           >
             <v-card flat class="users-card my-1" v-for="n in 20" :key="n">
               <v-card-actions class="pa-0 px-1">
@@ -31,7 +31,7 @@
           <v-sheet
             v-scroll.self="onScroll"
             class="overflow-y-auto overflow-x-hidden pa-1"
-            height="600"
+            height="520"
             color="grey lighten-2"
           >
             <v-col class="pa-1" cols="12" v-for="n in 8" :key="n">

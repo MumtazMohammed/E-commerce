@@ -1,6 +1,6 @@
 <template>
   <div class="Notification">
-    <v-card flat class="overflow-hidden my-2 mx-auto" width="95%">
+    <!-- <v-card flat class="overflow-hidden my-2 mx-auto" width="95%">
       <v-text-field
         placeholder="بحث"
         dense
@@ -8,9 +8,9 @@
         flat
         hide-details
       ></v-text-field>
-    </v-card>
+    </v-card> -->
     <v-sheet
-      max-height="100vh"
+      max-height="100%"
       v-scroll.self="onScroll"
       class="overflow-y-auto overflow-x-hidden"
     >

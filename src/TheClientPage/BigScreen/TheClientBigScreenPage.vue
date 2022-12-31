@@ -1,9 +1,9 @@
 <template>
   <v-main class="grey lighten-3">
     <SystemBar />
-    <v-container fluid>
+    <v-container fluid style="overflow: hidden">
       <v-row>
-        <v-card flat tile class="py-" color="transparent">
+        <v-card flat tile color="transparent">
           <v-navigation-drawer
             v-model="drawer"
             :mini-variant.sync="mini"
@@ -140,7 +140,7 @@
           </v-navigation-drawer>
         </v-card>
         <v-col class="pa-0 pr-2">
-          <v-sheet min-height="70vh" rounded="md">
+          <v-sheet min-height="40vh" rounded="md">
             <router-view />
           </v-sheet>
         </v-col>

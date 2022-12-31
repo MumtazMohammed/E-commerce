@@ -2,8 +2,8 @@
   <v-main>
     <NavBar />
     <div class="car-reviw">
-      <v-container>
-        <v-row class="mt-1">
+      <v-container class="pa-0">
+        <v-row no-gutters class="mt-1">
           <v-col cols="12" class="pa-0">
             <ProductImages />
           </v-col>

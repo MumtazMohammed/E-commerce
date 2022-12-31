@@ -18,7 +18,6 @@
                   height="420px"
                   delimiter-icon="mdi-minus"
                   touch
-                  hide-delimiter-background
                   :show-arrows="false"
                 >
                   <v-carousel-item
@@ -28,17 +27,30 @@
                     <v-img
                       v-bind="attrs"
                       v-on="on"
-                      max-height="420px"
+                      height="420"
                       :src="getimageUrl(getCarInfo.folder, singleImage)"
                     >
                     </v-img>
                   </v-carousel-item>
                 </v-carousel>
+                <v-chip
+                  large
+                  label
+                  class="discount-tag rounded-t-0 rounded-r-0"
+                >
+                  <v-row
+                    no-gutters
+                    style="flex-direction: column; justify-content: center"
+                  >
+                    <v-icon size="20" color="amber lighten-5">mdi-star</v-icon>
+                    <span>متميز</span>
+                  </v-row>
+                </v-chip>
                 <v-row no-gutters justify="center" class="py-1">
                   <v-chip
                     color="grey lighten-1"
                     small
-                    class="elevation-0 white--text "
+                    class="elevation-0 white--text"
                   >
                     {{ customerIMageNo + 1 }} |
                     {{ getCarInfo.images.length }}
@@ -74,43 +86,6 @@
                   </v-img>
                 </v-carousel-item>
               </v-carousel>
-
-              <v-spacer></v-spacer>
-              <!-- <div>
-                <v-slide-group
-                  v-model="customerIMageNo"
-                  class="pa-0"
-                  show-arrows
-                  mandatory
-                  dark
-                >
-                  <v-slide-item
-                    v-for="(singleImage, x) in getCarInfo.images"
-                    :key="x"
-                    v-slot="{ active, toggle }"
-                  >
-                    <v-avatar
-                      @click="toggle"
-                      tile
-                      width="80"
-                      height="60"
-                      color="transparent"
-                    >
-                      <v-img
-                        :class="active ? '' : 'not-active-img'"
-                        contain
-                        @mouseover="
-                          ActiveImage = getimageUrl(
-                            getCarInfo.folder,
-                            singleImage
-                          )
-                        "
-                        :src="getimageUrl(getCarInfo.folder, singleImage)"
-                      />
-                    </v-avatar>
-                  </v-slide-item>
-                </v-slide-group>
-              </div> -->
             </v-card>
           </v-dialog>
         </div>
@@ -136,16 +111,20 @@
             height="400px"
             contain
           >
+            <v-chip large label class="discount-tag">
+              <v-row
+                no-gutters
+                style="flex-direction: column; justify-content: center"
+              >
+                <v-icon size="20" color="amber lighten-5">mdi-star</v-icon>
+                <span>متميز</span>
+              </v-row>
+            </v-chip>
           </v-img>
 
           <!--clickable images changer-->
           <v-sheet class="mx-auto" elevation="0" max-width="800">
-            <v-slide-group
-              v-model="model"
-              class="pa-0 mt-1"
-              show-arrows
-              mandatory
-            >
+            <v-slide-group v-model="model" class="pa-0 mt-1" column mandatory>
               <v-slide-item
                 v-for="(singleImage, x) in getCarInfo.images"
                 :key="x"
@@ -154,11 +133,10 @@
                 <v-card
                   color="transparent"
                   class="ma-1 mt-3"
-                  width=""
                   flat
                   @mouseover="toggle"
                 >
-                  <v-avatar tile width="40" height="40" color="transparent">
+                  <v-avatar tile width="80" height="40" color="transparent">
                     <v-img
                       :class="active ? '' : 'not-active-img'"
                       @mouseover="
@@ -176,6 +154,7 @@
           </v-sheet>
         </v-sheet>
       </v-col>
+      <!-- big screen Products ordered Info  -->
       <v-col
         cols="12"
         sm="12"
@@ -671,7 +650,7 @@ export default {
   }
   .addToCartAndChat-SmallScreen-btn {
     background-color: transparent !important;
-    font-family: $fontfamliy !important;
+    font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;
     font-size: 14px !important;
     color: $fontcolorlinks;
@@ -693,13 +672,26 @@ export default {
 ::v-deep .theme--dark.v-btn.v-btn--icon {
   color: #bbb;
 }
-::v-deep
-  .theme--light.v-banner.v-sheet:not(.v-sheet--outlined):not(.v-sheet--shaped)
-  .v-banner__wrapper {
-  border: 0 !important;
-}
+// ::v-deep
+//   .theme--light.v-banner.v-sheet:not(.v-sheet--outlined):not(.v-sheet--shaped)
+//   .v-banner__wrapper {
+//   border: 0 !important;
+// }
 .select {
   background-color: $color-2;
   color: #fff !important;
+}
+.discount-tag {
+  background-color: $color-2 !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  // font-weight: 600;
+  position: absolute;
+  font-family: $fontfamliy3 !important;
+  top: 0;
+  right: 0;
+  @media (max-width: 500px) {
+    font-size: 13px;
+  }
 }
 </style>

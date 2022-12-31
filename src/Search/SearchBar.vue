@@ -152,9 +152,8 @@
             <!-- delete text  -->
             <v-btn
               v-if="search.length > 0 && ShowSerachCardvisble"
-              medium
               elevation="0"
-              class="close"
+              class="close ma-0"
               @click="reset()"
             >
               <v-icon class="">mdi-close</v-icon>
@@ -166,10 +165,10 @@
           <v-expand-transition>
             <v-card
               v-if="search.length > 0 && ShowSerachCardvisble"
-              elevation="2"
               max-width="100%"
               color="white"
-              class="mx-auto white Featured-card overflow-hidden rounded-t-0"
+              flat
+              class="mx-auto white Featured-card overflow-hidden"
             >
               <v-list-item
                 router
@@ -186,7 +185,7 @@
                 v-for="CarData in filteredStore"
                 :key="CarData.id"
               >
-                <v-list-item-avatar>
+                <!-- <v-list-item-avatar>
                   <v-avatar size="50" color="#424342">
                     <v-img
                       contain
@@ -195,19 +194,18 @@
                     >
                     </v-img>
                   </v-avatar>
-                </v-list-item-avatar>
+                </v-list-item-avatar> -->
                 <v-list-item-content>
                   <v-list-item-title v-text="CarData.name"> </v-list-item-title>
-                  <v-spacer></v-spacer>
-                  <v-list-item-subtitle v-text="CarData.payment">
-                  </v-list-item-subtitle>
+                  <!-- <v-spacer></v-spacer>
+                  <v-list-item-subtitle>
+                    {{ CarData.id }}
+                  </v-list-item-subtitle> -->
                 </v-list-item-content>
               </v-list-item>
               <v-card-title class="not-found" v-if="filteredStore.length < 1">
-                لا يوجد معرض بهذا الاسم (<span class="mx-2 red--text">{{
-                  search
-                }}</span>
-                )
+                نتأسف لا يوجد اي منتج بهذا الاسم
+                <span class="mx-2 red--text"> {{ search }} </span>
               </v-card-title>
             </v-card>
           </v-expand-transition>
@@ -329,18 +327,17 @@ a {
 }
 .search-container {
   @media (max-width: 600px) {
-    padding-right:  5px;
-    padding-left:  5px;
+    padding-right: 5px;
+    padding-left: 5px;
   }
 }
 .Featured-card {
   position: absolute;
-  top: calc(0px + 50px);
+  top: calc(0px + 40px);
   width: 100%;
   height: auto;
   right: 0;
   z-index: 5555;
-  background-color: $color-2;
   .Featured-text {
     font-family: $fontfamliy !important;
     font-size: 15px;
@@ -348,13 +345,12 @@ a {
   }
 }
 .close {
-  height: 43px !important;
+  height: 38px !important;
   min-width: 45px !important;
-  // background-color: $color-2 !important;
+  background-color: transparent !important;
   color: $color-2 !important;
   // color: $fontcolorsm !important;
-  border-radius: 5px;
-  margin-left: 3px;
+  border-radius: 0px;
 }
 .v-select {
   font-family: $fontfamliy !important;
@@ -366,7 +362,7 @@ a {
 }
 .not-found {
   font-size: 14px !important;
-  font-family: $fontfamliy2 !important;
+  font-family: $fontfamliy3 !important;
 }
 ::v-deep .v-image__image.v-image__image--cover {
   background-position: top !important;
@@ -428,17 +424,20 @@ a {
 ::v-deep .v-text-field.v-text-field--solo .v-input__control input::placeholder {
   font-size: 15px !important;
   color: $fontcolorlinks;
-  font-family: $fontfamliy2;
+  font-family: $fontfamliy3;
   letter-spacing: 0px !important;
 }
 ::v-deep .v-text-field.v-text-field--solo .v-input__control input {
   font-size: 15px;
   color: $fontcolorlinks;
-  font-family: $fontfamliy2;
+  font-family: $fontfamliy3;
   letter-spacing: 0px !important;
 }
 ::v-deep .v-input__slot {
-  background-color: #fff !important;
+  background-color: transparent !important;
+}
+::v-deep .v-list-item .v-list-item__title {
+  line-height: 1.6;
 }
 .close-search-dig {
   color: $color-2 !important;
@@ -446,7 +445,7 @@ a {
 .search-list-dig {
   font-size: 15px !important;
   color: $fontcolorlinks !important;
-  font-family: $fontfamliy2;
+  font-family: $fontfamliy3;
   letter-spacing: 0px !important;
   border-bottom: 1px solid $color-3;
   background-color: #fff;
