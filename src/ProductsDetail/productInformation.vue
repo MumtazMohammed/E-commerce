@@ -2,7 +2,9 @@
   <!-- this component will be under the image  -->
   <div class="ContactSeller">
     <!-- show if this product contain discount or featured or both -->
-    <ShareSaveReport />
+    <v-col cols="12" class="py-2">
+      <ShareSaveReport />
+    </v-col>
     <!-- here the product name  -->
     <v-col cols="12" class="py-1">
       <p class="ProductName d-inline-block text-truncate ma-0">

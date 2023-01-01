@@ -4,89 +4,178 @@
       style="overflow: hidden"
       class="overflow-hidden card-info"
       color="grey lighten-3"
+      flat
     >
-      <v-row no-gutters>
-        <div style="display: flex; flex-direction: column; justify-content: ">
+      <v-row class="row" no-gutters>
+        <div
+          style="display: flex; flex-direction: column; justify-content: center"
+        >
+          <!-- store image -->
           <v-avatar class="profile" color="grey" size="150" tile>
             <v-img
               src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
             ></v-img>
           </v-avatar>
-          <!-- store view -->
-          <v-dialog persistent v-model="dialog" max-width="300px">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                text
-                dark
-                tile
-                small
-                elevation="0"
-                v-bind="attrs"
-                v-on="on"
-                class="info-sm info"
-              >
-                <v-icon> mdi-information-variant </v-icon>
-              </v-btn>
-            </template>
-            <v-card>
-              <v-card-title class="store-view">
-                <v-icon right size="23"> mdi-information-outline </v-icon>
-                حول المتجر
-              </v-card-title>
-              <v-divider></v-divider>
-              <v-card-text style="height: 300px">
-                <ul class="pl-0 pr-0">
-                  <li>
-                    <v-icon color="grey  darken-1" right size="20">
-                      mdi-package
-                    </v-icon>
-                    المنتجات : <span class="deep-orange--text">44</span>
-                  </li>
-                  <li>
-                    <v-icon color="grey  darken-1" right size="20">
-                      mdi-account-group
-                    </v-icon>
-                    المتابعين : <span class="deep-orange--text">44</span>
-                  </li>
-                  <li>
-                    <v-icon color="grey  darken-1" right size="20">
-                      mdi-file-cancel
-                    </v-icon>
-                    معدل الإلغاء : <span class="deep-orange--text">44</span>
-                  </li>
-                  <li>
-                    <v-icon color="grey  darken-1" right size="20">
-                      mdi-star
-                    </v-icon>
-                    تقييم المتجر : <span class="deep-orange--text">44</span>
-                  </li>
-                  <li>
-                    <v-icon color="grey  darken-1" right size="20">
-                      mdi-account-clock
-                    </v-icon>
-                    انضم : <span class="deep-orange--text">44</span>
-                  </li>
-                  <li>
-                    <v-icon color="grey  darken-1" right size="20">
-                      mdi-forum-outline
-                    </v-icon>
-                    أداء الدردشة: : <span class="deep-orange--text">44</span>
-                  </li>
-                </ul>
-              </v-card-text>
-              <v-divider></v-divider>
-              <v-card-actions>
+          <v-row no-gutters>
+            <!-- store Info -->
+            <v-dialog
+              persistent
+              no-click-animation
+              v-model="dialog"
+              max-width="300px"
+            >
+              <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                  color="blue darken-1"
-                  class="btn"
-                  text
-                  @click="dialog = false"
+                  tile
+                  small
+                  width="50%"
+                  elevation="0"
+                  v-bind="attrs"
+                  v-on="on"
+                  class="info-sm btn-info-share"
                 >
-                  إغلاق
+                  <v-icon> mdi-information-variant </v-icon>
                 </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
+              </template>
+              <v-card>
+                <v-card-title class="store-view">
+                  <v-icon right size="23"> mdi-information-outline </v-icon>
+                  حول المتجر
+                </v-card-title>
+                <v-divider></v-divider>
+                <v-card-text style="height: 300px">
+                  <ul class="pl-0 pr-0">
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-package
+                      </v-icon>
+                      المنتجات : <span class="deep-orange--text">44</span>
+                    </li>
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-account-group
+                      </v-icon>
+                      المتابعين : <span class="deep-orange--text">44</span>
+                    </li>
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-file-cancel
+                      </v-icon>
+                      معدل الإلغاء : <span class="deep-orange--text">44</span>
+                    </li>
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-star
+                      </v-icon>
+                      تقييم المتجر : <span class="deep-orange--text">44</span>
+                    </li>
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-account-clock
+                      </v-icon>
+                      انضم : <span class="deep-orange--text">44</span>
+                    </li>
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-forum-outline
+                      </v-icon>
+                      أداء الدردشة: : <span class="deep-orange--text">44</span>
+                    </li>
+                  </ul>
+                </v-card-text>
+                <v-divider></v-divider>
+                <v-card-actions>
+                  <v-btn
+                    color="blue darken-1"
+                    class="btn"
+                    text
+                    @click="dialog = false"
+                  >
+                    إغلاق
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+            <!-- share store link -->
+            <v-dialog
+              no-click-animation
+              persistent
+              v-model="dialog"
+              max-width="300px"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  width="50%"
+                  tile
+                  small
+                  elevation="0"
+                  v-bind="attrs"
+                  v-on="on"
+                  class="info-sm btn-info-share"
+                >
+                  <v-icon size="20"> mdi-content-copy </v-icon>
+                </v-btn>
+              </template>
+              <v-card>
+                <v-card-title class="store-view">
+                  <v-icon right size="23"> mdi-information-outline </v-icon>
+                  حول المتجر
+                </v-card-title>
+                <v-divider></v-divider>
+                <v-card-text style="height: 300px">
+                  <ul class="pl-0 pr-0">
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-package
+                      </v-icon>
+                      المنتجات : <span class="deep-orange--text">44</span>
+                    </li>
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-account-group
+                      </v-icon>
+                      المتابعين : <span class="deep-orange--text">44</span>
+                    </li>
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-file-cancel
+                      </v-icon>
+                      معدل الإلغاء : <span class="deep-orange--text">44</span>
+                    </li>
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-star
+                      </v-icon>
+                      تقييم المتجر : <span class="deep-orange--text">44</span>
+                    </li>
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-account-clock
+                      </v-icon>
+                      انضم : <span class="deep-orange--text">44</span>
+                    </li>
+                    <li>
+                      <v-icon color="grey  darken-1" right size="20">
+                        mdi-forum-outline
+                      </v-icon>
+                      أداء الدردشة: : <span class="deep-orange--text">44</span>
+                    </li>
+                  </ul>
+                </v-card-text>
+                <v-divider></v-divider>
+                <v-card-actions>
+                  <v-btn
+                    color="blue darken-1"
+                    class="btn"
+                    text
+                    @click="dialog = false"
+                  >
+                    إغلاق
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-row>
         </div>
         <v-col class="info-lg" cols="3">
           <v-sheet
@@ -108,11 +197,11 @@
             >
               <v-btn color="transparent" width="50%">
                 <span class="btn">تابع</span>
-                <v-icon right> mdi-account </v-icon>
+                <v-icon right color="green"> mdi-account </v-icon>
               </v-btn>
               <v-btn color="transparent" width="50%">
                 <span class="btn">مراسلة</span>
-                <v-icon right> mdi-forum-outline </v-icon>
+                <v-icon right color="blue"> mdi-forum-outline </v-icon>
               </v-btn>
             </v-btn-toggle>
           </v-sheet>
@@ -225,8 +314,7 @@ export default {
 .SellerStore {
   .card-info {
     @media (max-width: 700px) {
-      box-shadow: none !important;
-      border-radius: 0 !important;
+      // box-shadow: none !important;
     }
   }
   .StoreName {
@@ -245,6 +333,9 @@ export default {
   font-family: $fontfamliy3 !important;
   color: $fontcolorlinks;
   // color: $fontcolor !important;
+  .v-icon {
+    color: $color-2 !important;
+  }
 }
 ul {
   list-style: none !important;
@@ -289,6 +380,13 @@ ul {
     margin: 0;
     border-radius: 0px !important;
   }
+  @media (max-width: 360px) {
+    height: 160px !important;
+    min-width: 180px !important;
+    width: 180px !important;
+    margin: 0;
+    border-radius: 0px !important;
+  }
 }
 .info-lg {
   @media (max-width: 700px) {
@@ -299,6 +397,16 @@ ul {
   display: none;
   @media (max-width: 700px) {
     display: block;
+  }
+}
+.btn-info-share {
+  background-color: $color-3 !important;
+  color: #fff !important;
+}
+.row {
+  @media (max-width: 360px) {
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

@@ -77,13 +77,12 @@
         </v-btn>
       </v-badge>
     </v-app-bar>
-    <v-sheet style="margin-top: 70px">
-      <v-container class="container-info">
-        <div class="">
+    <v-sheet style="margin-top: 78px">
+      <!-- <v-container class="container-info"> </v-container> -->
+      <v-container class="py-0">
+        <div class="mt-2">
           <seller-info />
         </div>
-      </v-container>
-      <v-container class="py-0">
         <div class="mt-2">
           <store-voucher />
         </div>
@@ -162,10 +161,7 @@ export default {
   header.v-sheet.theme--light.v-toolbar.v-app-bar.v-app-bar--elevate-on-scroll.v-app-bar--fixed.v-app-bar--is-scrolled.grey {
   z-index: 20;
 }
-::v-deep .container-info {
-  @media (max-width: 600px) {
-  }
-}
+
 ::v-deep label.v-label.theme--light {
   font-family: $fontfamliy3;
   font-size: 14px;

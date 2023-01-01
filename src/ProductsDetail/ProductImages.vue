@@ -12,7 +12,10 @@
             transition="dialog-bottom-transition"
           >
             <template v-slot:activator="{ on, attrs }">
-              <v-banner style="overflow: hidden; position: relative">
+              <v-banner
+                color="transparent"
+                style="overflow: hidden; position: relative"
+              >
                 <v-carousel
                   v-model="customerIMageNo"
                   height="420px"
@@ -24,28 +27,37 @@
                     v-for="(singleImage, x) in getCarInfo.images"
                     :key="x"
                   >
+                    <v-card
+                      width="420"
+                      height="100%"
+                      class="image-background-small-screen"
+                      style=""
+                      :img="getimageUrl(getCarInfo.folder, singleImage)"
+                    ></v-card>
                     <v-img
                       v-bind="attrs"
                       v-on="on"
-                      height="420"
+                      max-height="420"
                       :src="getimageUrl(getCarInfo.folder, singleImage)"
                     >
                     </v-img>
+                    <v-chip
+                      large
+                      label
+                      class="discount-tag rounded-t-0 rounded-r-0"
+                    >
+                      <v-row
+                        no-gutters
+                        style="flex-direction: column; justify-content: center"
+                      >
+                        <v-icon size="20" color="amber lighten-5"
+                          >mdi-star</v-icon
+                        >
+                        <span>متميز</span>
+                      </v-row>
+                    </v-chip>
                   </v-carousel-item>
                 </v-carousel>
-                <v-chip
-                  large
-                  label
-                  class="discount-tag rounded-t-0 rounded-r-0"
-                >
-                  <v-row
-                    no-gutters
-                    style="flex-direction: column; justify-content: center"
-                  >
-                    <v-icon size="20" color="amber lighten-5">mdi-star</v-icon>
-                    <span>متميز</span>
-                  </v-row>
-                </v-chip>
                 <v-row no-gutters justify="center" class="py-1">
                   <v-chip
                     color="grey lighten-1"
@@ -672,11 +684,11 @@ export default {
 ::v-deep .theme--dark.v-btn.v-btn--icon {
   color: #bbb;
 }
-// ::v-deep
-//   .theme--light.v-banner.v-sheet:not(.v-sheet--outlined):not(.v-sheet--shaped)
-//   .v-banner__wrapper {
-//   border: 0 !important;
-// }
+::v-deep
+  .theme--light.v-banner.v-sheet:not(.v-sheet--outlined):not(.v-sheet--shaped)
+  .v-banner__wrapper {
+  border: 0 !important;
+}
 .select {
   background-color: $color-2;
   color: #fff !important;
@@ -684,14 +696,34 @@ export default {
 .discount-tag {
   background-color: $color-2 !important;
   color: #fff !important;
-  font-size: 16px !important;
+  font-size: 15px !important;
   // font-weight: 600;
   position: absolute;
   font-family: $fontfamliy3 !important;
   top: 0;
   right: 0;
-  @media (max-width: 500px) {
-    font-size: 13px;
+  @media (max-width: 600px) {
+    font-size: 12px !important;
   }
+  .v-icon {
+    @media (max-width: 600px) {
+      font-size: 13px !important;
+    }
+  }
+}
+.image-background-small-screen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  backdrop-filter: blur(10px);
+}
+.image-background-small-screen::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="Product-Ratings mt-3">
+  <div class="Product-Ratings mt-3 ma-1">
     <!-- Product Ratings  -->
     <v-card color="transparent" class="detail-card overflow--hidden">
       <v-col cols="12" class="pa-0">
@@ -52,7 +52,7 @@
           </v-col>
           <!--  rating  -->
 
-          <v-col cols="12" class="pa-0 mt-1">
+          <v-col cols="12" class="pa-1 mt-1">
             <v-card color="#f7f7f7" tile outlined height="auto" class="comment">
               <v-card-actions class="pa-0">
                 <div class="mr-2">

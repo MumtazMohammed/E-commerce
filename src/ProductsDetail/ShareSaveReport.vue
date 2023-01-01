@@ -254,7 +254,7 @@ export default {
   font-size: 15px !important;
   font-weight: 600;
   @media (max-width: 600px) {
-    font-size: 14px !important;
+    font-size: 13px !important;
   }
 }
 .btn-copy-link {
@@ -266,6 +266,9 @@ export default {
 }
 .icon {
   font-size: 17px !important;
+  @media (max-width: 600px) {
+    font-size: 14px !important;
+  }
 }
 a {
   text-align: center !important;

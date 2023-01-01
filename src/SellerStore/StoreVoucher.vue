@@ -1,64 +1,70 @@
 <template>
-  <div class="StoreVoucher">
-    <v-card-title class="titel"> قسائم المتجر </v-card-title>
-
-    <swiper class="swiper" :options="swiperOption">
-      <swiper-slide v-for="n in 10" :key="n">
+  <div class="StoreVoucher pa-2" style="overflow: hidden">
+    <v-card-title class="titel pa-2"> قسائم المتجر </v-card-title>
+    <v-row no-gutters>
+      <v-col
+        class="pa-2"
+        md="4"
+        lg="4"
+        sm="6"
+        cols="12"
+        v-for="n in 3"
+        :key="n"
+      >
         <v-card
           flat
-          style="border: 2px dashed #ffd54f !important"
-          color="amber mx-1 lighten-5"
+          color="light-blue lighten-5"
+          class="card"
+          style="position: relative; border: 2px dashed #81d4fa !important"
         >
-          <v-row no-gutters>
-            <v-col cols="12">
-              <v-card-subtitle class="text pa-0 pr-1">
-                خصم <span class="mx-1"><span>20</span>%</span>
+          <v-row no-gutters justify="center" class="main">
+            <v-col class="pa-" cols="7" style="padding-right: 10px">
+              <v-card-subtitle class="text pa-1">
+                خصم <span class="mx-1 red--text"><span>20</span>%</span>
               </v-card-subtitle>
-              <v-card-text class="pa-0 pr-1 text">
+              <v-card-text class="pa-1 text">
                 أنفق
                 <span class="mx-1">
                   52<v-icon size="17">mdi-currency-rial</v-icon>
                 </span>
                 كحد أدنى
               </v-card-text>
-              <v-card-text class="pa-0 pr-1 text">
+              <v-card-text class="pa-1 text">
                 متاح حتى
                 <span>10/2/2020</span>
               </v-card-text>
             </v-col>
-            <v-col cols="12" class="py-1">
-              <v-row no-gutters justify="center">
+
+            <v-col cols="1">
+              <div class="vertical"></div>
+            </v-col>
+            <v-col class="ma-auto" cols="3">
+              <v-row justify="center" no-gutters>
                 <v-btn
-                  width="83%"
                   small
                   dark
-                  class="deep-orange btn lighten-1"
+                  class="light-blue lighten-1 mx-auto btn"
                   elevation="0"
                 >
-                  أخذ القسيمة
+                  أخذ
                 </v-btn>
               </v-row>
             </v-col>
           </v-row>
+          <!-- <div class="copy-button">
+        <input id="copyvalue" type="text" readonly value="GOFREE" />
+        <button onclick="copyIt()" class="copybtn">COPY</button>
+      </div> -->
         </v-card>
-      </swiper-slide>
-      <div
-        class="swiper-pagination swiper-pagination-bullets"
-        slot="pagination"
-      ></div>
-    </swiper>
+      </v-col>
+    </v-row>
   </div>
 </template>
 <script>
 import Services from "../data-json/showroom.json";
-import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-import "swiper/css/swiper.css";
 export default {
   name: "ServicesPage",
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
+  components: {},
   data() {
     return {
       current: null,
@@ -84,8 +90,8 @@ export default {
         },
         breakpoints: {
           1024: {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
           },
           768: {
             slidesPerView: 3,
@@ -100,12 +106,12 @@ export default {
             slidesPerGroup: 2,
           },
           470: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
           },
           250: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
           },
         },
       },
@@ -130,14 +136,14 @@ export default {
     font-size: 17px !important;
     font-weight: 500 !important;
     font-family: $fontfamliy3 !important;
-    color: $fontcolor !important;
+    color: $fontcolorlinks !important;
   }
   .text {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;
     color: $fontcolorlinks !important;
     @media (max-width: 600px) {
-      font-size: 13px !important;
+      font-size: 14px !important;
     }
   }
   .btn {
@@ -175,5 +181,45 @@ export default {
       background: $color-2;
     }
   }
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  height: 20px;
+  right: -10px;
+  border-radius: 40px;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #f8f9fa;
+  width: 20px;
+  // border-left-width: 3px !important;
+  // border-left-style: solid !important;
+  // border-left-color: #ff7043 !important;
+  box-shadow: inset 3px 0 0 0px #81d4fa;
+}
+
+.card::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  left: -10px;
+  border-radius: 40px;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #f8f9fa;
+  width: 20px;
+  // border: 2px dashed #ff7043 !important;
+  // border-right-width: 2px !important;
+  // border-left-style: dashed !important;
+  // border-left-color: #ff7043 !important;
+  box-shadow: inset -3px 0 0 0px #81d4fa;
+}
+
+.vertical {
+  border-left: 3px dashed #b3e5fc;
+  height: 100%;
 }
 </style>
