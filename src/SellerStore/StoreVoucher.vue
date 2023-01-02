@@ -14,7 +14,7 @@
         <v-card
           flat
           class="card"
-          style="position: relative; border: 2px solid #42A5F5 !important"
+          style="position: relative; border: 1px solid #42A5F5 !important"
         >
           <v-row no-gutters justify="center" class="main">
             <v-col style="border-left: 1px dashed #64B5F6" class="" cols="3">

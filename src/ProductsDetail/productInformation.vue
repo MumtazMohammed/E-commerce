@@ -95,7 +95,7 @@
             <v-card
               flat
               class="card"
-              style="position: relative; border: 2px solid #42a5f5 !important"
+              style="position: relative; border: 1px solid #42a5f5 !important"
             >
               <v-row no-gutters justify="center" class="main">
                 <v-col
