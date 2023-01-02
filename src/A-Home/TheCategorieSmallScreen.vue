@@ -302,7 +302,7 @@ export default {
     // width: 20px;
     // height: 20px;
     border-radius: 50% !important;
-    color: #40C4FF;
+    color: $color-2;
     position: relative;
     z-index: 2;
     box-shadow: 0px 0px 0px 3px $color-background !important;

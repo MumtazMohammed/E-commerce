@@ -13,12 +13,26 @@
       >
         <v-card
           flat
-          color="light-blue lighten-5"
           class="card"
-          style="position: relative; border: 2px dashed #81d4fa !important"
+          style="position: relative; border: 2px solid #42A5F5 !important"
         >
           <v-row no-gutters justify="center" class="main">
-            <v-col class="pa-" cols="7" style="padding-right: 10px">
+            <v-col style="border-left: 1px dashed #64B5F6" class="" cols="3">
+              <v-row
+                align="center"
+                style="height: 100%"
+                justify="center"
+                no-gutters
+              >
+                <v-avatar class="profile my-auto" color="grey" size="50">
+                  <v-img
+                    src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
+                  ></v-img>
+                </v-avatar>
+              </v-row>
+            </v-col>
+
+            <v-col class="pr-1" cols="6">
               <v-card-subtitle class="text pa-1">
                 خصم <span class="mx-1 red--text"><span>20</span>%</span>
               </v-card-subtitle>
@@ -34,18 +48,14 @@
                 <span>10/2/2020</span>
               </v-card-text>
             </v-col>
-
-            <v-col cols="1">
-              <div class="vertical"></div>
-            </v-col>
-            <v-col class="ma-auto" cols="3">
-              <v-row justify="center" no-gutters>
-                <v-btn
-                  small
-                  dark
-                  class="light-blue lighten-1 mx-auto btn"
-                  elevation="0"
-                >
+            <v-col cols="3">
+              <v-row
+                align="center"
+                style="height: 100%"
+                justify="center"
+                no-gutters
+              >
+                <v-btn small fab dark class="blue lighten-1 btn" elevation="0">
                   أخذ
                 </v-btn>
               </v-row>
@@ -55,6 +65,15 @@
         <input id="copyvalue" type="text" readonly value="GOFREE" />
         <button onclick="copyIt()" class="copybtn">COPY</button>
       </div> -->
+          <ul class="Voucher">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </v-card>
       </v-col>
     </v-row>
@@ -150,12 +169,9 @@ export default {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;
     color: #fff !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
     margin: 0 auto !important;
     font-weight: 600;
-    @media (max-width: 600px) {
-      font-size: 13px !important;
-    }
   }
 }
 .swiper {
@@ -183,43 +199,62 @@ export default {
   }
 }
 
-.card::after {
-  position: absolute;
-  content: "";
-  height: 20px;
-  right: -10px;
-  border-radius: 40px;
-  z-index: 1;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #f8f9fa;
-  width: 20px;
-  // border-left-width: 3px !important;
-  // border-left-style: solid !important;
-  // border-left-color: #ff7043 !important;
-  box-shadow: inset 3px 0 0 0px #81d4fa;
-}
+// .card::after {
+//   position: absolute;
+//   content: "";
+//   height: 20px;
+//   right: -10px;
+//   border-radius: 40px;
+//   z-index: 1;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   background-color: #f8f9fa;
+//   width: 20px;
+//   // border-left-width: 3px !important;
+//   // border-left-style: solid !important;
+//   // border-left-color: #ff7043 !important;
+//   box-shadow: inset 3px 0 0 0px #81d4fa;
+// }
 
-.card::before {
-  position: absolute;
-  content: "";
-  height: 20px;
-  left: -10px;
-  border-radius: 40px;
-  z-index: 1;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #f8f9fa;
-  width: 20px;
-  // border: 2px dashed #ff7043 !important;
-  // border-right-width: 2px !important;
-  // border-left-style: dashed !important;
-  // border-left-color: #ff7043 !important;
-  box-shadow: inset -3px 0 0 0px #81d4fa;
-}
+// .card::before {
+//   position: absolute;
+//   content: "";
+//   height: 20px;
+//   left: -10px;
+//   border-radius: 40px;
+//   z-index: 1;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   background-color: #f8f9fa;
+//   width: 20px;
+//   // border: 2px dashed #ff7043 !important;
+//   // border-right-width: 2px !important;
+//   // border-left-style: dashed !important;
+//   // border-left-color: #ff7043 !important;
+//   box-shadow: inset -3px 0 0 0px #81d4fa;
+// }
 
 .vertical {
-  border-left: 3px dashed #b3e5fc;
+  border-left: 2px dashed #81d4fa;
   height: 100%;
+}
+.Voucher {
+  position: absolute;
+  top: 0;
+  left: -4.5px;
+  padding: 5px 0;
+  z-index: 5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  li {
+    list-style: none;
+    width: 8px;
+    height: 8px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    border-right: 2px solid #42A5F5;
+  }
 }
 </style>
