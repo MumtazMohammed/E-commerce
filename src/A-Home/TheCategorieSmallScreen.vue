@@ -14,7 +14,7 @@
             <v-card
               min-width="100%"
               max-width="180px"
-              color="#eee"
+              color=""
               class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
               to="/Products"
               router
@@ -39,7 +39,7 @@
               to="/Products"
               router
               flat
-              color="#eee"
+              color=""
             >
               <v-avatar class="icon" size="60px" tile>
                 <v-img
@@ -69,7 +69,7 @@
         <swiper class="swiper" :options="swiperOption">
           <swiper-slide v-for="Servic in Services" :key="Servic.ServicId">
             <v-card
-              color="#eee"
+              color=""
               class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
               to="/Products"
               router
@@ -297,25 +297,23 @@ export default {
   }
   .icon {
     font-size: 24px;
-    background-color: #eee;
+    // background-color: #eee;
     padding: 8px;
     // width: 20px;
     // height: 20px;
     border-radius: 50% !important;
-    color: #fc624de8;
+    color: #40C4FF;
     position: relative;
     z-index: 2;
-    box-shadow: 0px 0px 0px 2px $color-background !important;
+    box-shadow: 0px 0px 0px 3px $color-background !important;
     // border: 1px solid ;
-    margin-top: -3px !important;
+    // margin-top: -10px !important;
 
     // box-shadow: 0px 0px 5px 0px $fontcolorlinks;
     @media (max-width: 750px) {
-      font-size: 18px;
+      font-size: 20px;
       width: 18px;
       height: 18px;
-      margin-top: -2px !important;
-      box-shadow: 0px 0px 0px 2px rgb(255, 255, 255);
     }
   }
   .swiper {
