@@ -1,94 +1,92 @@
 <template>
-  <div class="Registration">
+  <div class="Registration py-4">
     <v-container class="py-0">
-      <v-card color="transparent" flat class="card-wrapping pt-2">
-        <v-col class="py-1 pb-2">
-          <div class="tital">
-            جميع
-            <strong class="mx-1">الفئات</strong>
-          </div>
-        </v-col>
-        <!-- <span class="line my-3 mx-auto"></span> -->
-        <swiper class="swiper" :options="swiperOption">
-          <swiper-slide v-for="(Categorie, index) in Categories" :key="index">
-            <v-card
-              min-width="100%"
-              max-width="180px"
-              color=""
-              class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
-              to="/Products"
-              router
-              flat
-            >
-              <v-avatar class="icon" size="60px" tile>
-                <v-img
-                  contain
-                  :src="getimageUrl(Categorie.folder, Categorie.imgOne)"
-                ></v-img>
-              </v-avatar>
+      <v-col class="py-1 pb-2">
+        <div class="tital">
+          جميع
+          <strong class="mx-1">الفئات</strong>
+        </div>
+      </v-col>
+      <!-- <span class="line my-3 mx-auto"></span> -->
+      <swiper class="swiperR" :options="swiperOption">
+        <swiper-slide v-for="(Categorie, index) in Categories" :key="index">
+          <v-card
+            min-width="100%"
+            max-width="180px"
+            color=""
+            class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
+            to="/Products"
+            router
+            flat
+          >
+            <v-avatar class="icon" size="60px" tile>
+              <v-img
+                contain
+                :src="getimageUrl(Categorie.folder, Categorie.imgOne)"
+              ></v-img>
+            </v-avatar>
 
-              <v-card-text
-                class="pa-0 px-1 pt-2 text-center card-text"
-                v-text="Categorie.titalOne"
-              >
-              </v-card-text>
-            </v-card>
-            <v-card
-              min-width="100%"
-              class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
-              to="/Products"
-              router
-              flat
-              color=""
+            <v-card-text
+              class="pa-0 px-1 pt-2 text-center card-text"
+              v-text="Categorie.titalOne"
             >
-              <v-avatar class="icon" size="60px" tile>
-                <v-img
-                  contain
-                  :src="getimageUrl(Categorie.folder, Categorie.imgTow)"
-                ></v-img>
-              </v-avatar>
-              <v-card-text
-                class="pa-0 px-1 pt-2 text-center card-text"
-                v-text="Categorie.titalTow"
-              >
-              </v-card-text>
-            </v-card>
-          </swiper-slide>
-          <div
-            class="swiper-pagination swiper-pagination-bullets"
-            slot="pagination"
-          ></div>
-        </swiper>
-
-        <v-col class="py-1 pb-2">
-          <div class="tital">
-            فئة
-            <strong class="mx-1">الخدمات</strong>
-          </div>
-        </v-col>
-        <swiper class="swiper" :options="swiperOption">
-          <swiper-slide v-for="Servic in Services" :key="Servic.ServicId">
-            <v-card
-              color=""
-              class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
-              to="/Products"
-              router
-              flat
+            </v-card-text>
+          </v-card>
+          <v-card
+            min-width="100%"
+            class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
+            to="/Products"
+            router
+            flat
+            color=""
+          >
+            <v-avatar class="icon" size="60px" tile>
+              <v-img
+                contain
+                :src="getimageUrl(Categorie.folder, Categorie.imgTow)"
+              ></v-img>
+            </v-avatar>
+            <v-card-text
+              class="pa-0 px-1 pt-2 text-center card-text"
+              v-text="Categorie.titalTow"
             >
-              <v-icon class="icon">
-                {{ Servic.ServicIcon }}
-              </v-icon>
+            </v-card-text>
+          </v-card>
+        </swiper-slide>
+        <div
+          class="swiper-pagination swiper-pagination-bullets"
+          slot="pagination"
+        ></div>
+      </swiper>
 
-              <v-card-text
-                class="pa-0 px-1 py-2 text-center ser-text"
-                v-text="Servic.ServicText"
-              >
-              </v-card-text>
-            </v-card>
-          </swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
-        </swiper>
-      </v-card>
+      <v-col class="py-1 pb-2">
+        <div class="tital">
+          فئة
+          <strong class="mx-1">الخدمات</strong>
+        </div>
+      </v-col>
+      <swiper class="swiper" :options="swiperOption">
+        <swiper-slide v-for="Servic in Services" :key="Servic.ServicId">
+          <v-card
+            color=""
+            class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
+            to="/Products"
+            router
+            flat
+          >
+            <v-icon class="icon">
+              {{ Servic.ServicIcon }}
+            </v-icon>
+
+            <v-card-text
+              class="pa-0 px-1 py-2 text-center ser-text"
+              v-text="Servic.ServicText"
+            >
+            </v-card-text>
+          </v-card>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
     </v-container>
   </div>
 </template>
@@ -223,11 +221,9 @@ export default {
           el: ".swiper-pagination",
           clickable: true,
           dynamicBullets: true,
+          type: "progressbar",
         },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
+
         breakpoints: {
           1024: {
             slidesPerView: 6,
@@ -317,27 +313,23 @@ export default {
     }
   }
   .swiper {
-    height: auto;
-    padding-bottom: 45px;
-    ::v-deep.swiper-pagination-bullet {
-      font-size: 10px;
-      width: 9px !important;
-      height: 9px !important;
-      line-height: 1.6;
-      opacity: 0.5;
-      background: rgb(223, 223, 223);
-      transition: all 0.2s 0s linear;
-      color: rgb(82, 82, 82);
+    height: 120px;
+  }
+  .swiperR {
+    height: 320px;
+  }
+  ::v-deep .swiper-container-horizontal > .swiper-pagination-progressbar {
+    top: 90% !important;
+    width: 50px;
+    height: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #eee;
 
-      &:hover {
-        opacity: 1;
-      }
-
-      &.swiper-pagination-bullet-active {
-        opacity: 1;
-        color: #fff;
-        background: $color-2;
-      }
+    span.swiper-pagination-progressbar-fill {
+      background-color: $color-2;
     }
   }
 

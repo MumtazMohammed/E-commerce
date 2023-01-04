@@ -6,6 +6,7 @@
     <TheCategorieSmallScreen />
     <BestOffer />
     <DailyOffer />
+    <TopSale />
     <PremiumCategories />
     <YouMightLikeIt />
     <!-- <CarBrands :AllDateCar="AllDateCar" />
@@ -24,6 +25,7 @@ import TheCategorieSmallScreen from "../A-Home/TheCategorieSmallScreen.vue";
 import OutAdvertisement from "@/Advertisement/OutAdvertisement.vue";
 import BestOffer from "../A-Home/BestOffer.vue";
 import DailyOffer from "../A-Home/DailyOffer.vue";
+import TopSale from "../A-Home/TopSale.vue";
 import Services from "../A-Home/Services.vue";
 import PremiumCategories from "../A-Home/PremiumCategories.vue";
 import YouMightLikeIt from "../A-Home/YouMightLikeIt.vue";
@@ -39,6 +41,7 @@ const components = {
   TheCategorieSmallScreen,
   BestOffer,
   DailyOffer,
+  TopSale,
   YouMightLikeIt,
   NavBar,
   FixedBottomNav,

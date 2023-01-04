@@ -1,10 +1,8 @@
 <template>
-  <div class="Product-Ratings mt-3 ma-1">
+  <div class="Product-Ratings mt-3 ">
     <!-- Product Ratings  -->
-    <v-card color="transparent" class="detail-card overflow--hidden">
-      <v-col cols="12" class="pa-0">
         <div class="ma-2 tital">التقييمات</div>
-        <v-sheet rounded color="orange lighten-5" class="overflow--hidden">
+        <v-sheet  color="orange lighten-5" class="overflow--hidden">
           <v-col cols="12" class="py-0">
             <strong class="mr-1">
               <span>{{ rating }}</span>
@@ -18,31 +16,19 @@
               color="orange"
               readonly
             ></v-rating>
-            <v-tabs
-              show-arrows
-              background-color="transparent"
-              class="mt-2"
+            <v-chip-group
+              class="filter-rating"
+              mandatory
               center-active
+              active-class="white--text primary"
             >
-              <v-tab class="filter-rating">
-                <span class="ml-2">(40)</span> الكل
-              </v-tab>
-              <v-tab class="filter-rating">
-                <span class="ml-2">(20)</span> 1 نجوم
-              </v-tab>
-              <v-tab class="filter-rating">
-                <span class="ml-2">(20)</span> 2 نجوم
-              </v-tab>
-              <v-tab class="filter-rating">
-                <span class="ml-2">(20)</span> 3 نجوم
-              </v-tab>
-              <v-tab class="filter-rating">
-                <span class="ml-2">(20)</span> 4 نجوم
-              </v-tab>
-              <v-tab class="filter-rating">
-                <span class="ml-2">(20)</span> 5 نجوم
-              </v-tab>
-            </v-tabs>
+              <v-chip small> <span class="ml-2">(40)</span> الكل </v-chip>
+              <v-chip small> <span class="ml-2">(20)</span> 1 نجوم </v-chip>
+              <v-chip small> <span class="ml-2">(20)</span> 2 نجوم </v-chip>
+              <v-chip small> <span class="ml-2">(20)</span> 3 نجوم </v-chip>
+              <v-chip small> <span class="ml-2">(20)</span> 4 نجوم </v-chip>
+              <v-chip small> <span class="ml-2">(20)</span> 5 نجوم </v-chip>
+            </v-chip-group>
           </v-col>
           <!-- If no rating  -->
           <v-col cols="12">
@@ -52,11 +38,11 @@
           </v-col>
           <!--  rating  -->
 
-          <v-col cols="12" class="pa-1 mt-1">
+          <v-col cols="12" class="pa-2 mt-1">
             <v-card color="#f7f7f7" tile outlined height="auto" class="comment">
               <v-card-actions class="pa-0">
-                <div class="mr-2">
-                  <v-card-text class="pa-0 pr-1 Customer-name">
+                <div class="">
+                  <v-card-text class="pa-0 Customer-name">
                     محمد أمين
                   </v-card-text>
                   <v-rating
@@ -69,7 +55,7 @@
                   ></v-rating>
                 </div>
                 <v-spacer></v-spacer>
-                <v-card-text class="pa-1 grey--text Customer-name">
+                <v-card-text class="pa-0 grey--text Customer-name">
                   14/07/2024
                 </v-card-text>
               </v-card-actions>
@@ -92,16 +78,13 @@
                     :key="x"
                     class="ma-1"
                     rounded
-                    size="70"
+                    size="50"
                     color="grey darken-2"
                     @click="
                       ActiveImage = getimageUrl(getCarInfo.folder, singleImage)
                     "
                   >
-                    <v-img
-                      contain
-                      :src="getimageUrl(getCarInfo.folder, singleImage)"
-                    >
+                    <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
                     </v-img>
                   </v-avatar>
                 </v-sheet>
@@ -145,16 +128,15 @@
                         :key="x"
                         class="ma-1"
                         rounded
-                        size="70"
+                        size="40"
                         color="grey darken-2"
                       >
                         <v-img
-                          contain
                           :src="getimageUrl(getCarInfo.folder, singleImage)"
                         >
                         </v-img>
                       </v-avatar>
-                      <v-avatar rounded class="ma-1" size="70" color="black">
+                      <v-avatar rounded class="ma-1" size="40" color="black">
                         <span class="white--text">
                           + {{ getCarInfo.images.length - 1 }}
                         </span>
@@ -195,8 +177,6 @@
             </v-card>
           </v-col>
         </v-sheet>
-      </v-col>
-    </v-card>
   </div>
 </template>
 <script>
@@ -255,18 +235,19 @@ export default {
 @import "@/scss/mixin";
 .tital {
   position: relative;
+  // text-align: center;
   font-family: $fontfamliy3;
-  font-size: 24px;
-  color: $fontcolorlinks;
-  font-weight: 500;
+  font-size: 16px;
+  color: fontcolorlinks !important;
+  font-weight: 600;
   pointer-events: none;
-  @media (max-width: 600px) {
-    font-size: 17px;
+  @media (max-width: 400px) {
+    font-size: 14px;
   }
 }
 .detail-card {
   overflow: hidden;
-  box-shadow: 0 0 0 0.5px rgba(128, 128, 128, 0.519) !important;
+  // box-shadow: 0 0 0 0.5px rgba(128, 128, 128, 0.519) !important;
 }
 .Customer-name {
   color: $fontcolorlinks;
@@ -298,8 +279,6 @@ strong {
 .filter-rating {
   font-family: $fontfamliy3;
   letter-spacing: 0 !important;
-  margin: 0 !important;
-  border-radius: 0 !important;
 }
 .no-rating {
   font-family: $fontfamliy3;

@@ -4,16 +4,16 @@
     <div class="car-reviw">
       <v-container class="pa-0">
         <v-row no-gutters class="mt-1">
-          <v-col cols="12" class="pa-0">
+          <v-col cols="12" >
             <ProductImages />
           </v-col>
-          <v-col cols="12" class="CarDetails pa-0">
+          <v-col cols="12" >
             <TheSellerStoreInformation />
           </v-col>
-          <v-col cols="12" class="pa-0">
+          <v-col cols="12" >
             <AdvertisementTow />
           </v-col>
-          <v-col cols="12" class="CarDetails pa-0"><ProductRatings /> </v-col>
+          <v-col cols="12"><ProductRatings /> </v-col>
           <v-col cols="12" class="pa-0">
             <SameWonerProducts />
           </v-col>
@@ -83,10 +83,10 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .car-reviw {
-  width: 100;
+  width: 100%;
   height: auto;
   position: relative;
-  background-color: $simplebackground;
+  background-color: $color-background;
 }
 .container {
   @media (max-width: 1265px) {

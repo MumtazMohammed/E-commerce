@@ -115,6 +115,7 @@ export default {
           el: ".swiper-pagination",
           clickable: true,
           dynamicBullets: true,
+          type: "progressbar",
         },
         breakpoints: {
           1024: {
@@ -179,20 +180,21 @@ export default {
   .swiper {
     height: 290px !important;
     padding: 0 10px;
-    .swiper-pagination::v-deep .swiper-pagination-bullet {
-      border-radius: 50%;
-      width: 9px !important;
-      height: 9px !important;
-      opacity: 1;
-      margin: 0 4px;
-      background-color: #e0e0e0;
-    }
-    .swiper-pagination::v-deep .swiper-pagination-bullet-active {
-      opacity: 1;
+  }
+  ::v-deep .swiper-container-horizontal > .swiper-pagination-progressbar {
+    top: 280px !important;
+    width: 50px;
+    height: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #eee;
+
+    span.swiper-pagination-progressbar-fill {
       background-color: $color-2;
     }
   }
-
   .v-sheet {
     @media (max-width: 950px) {
       padding-left: 0px !important;

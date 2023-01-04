@@ -57,12 +57,10 @@
         <v-card-actions class="pa-3" v-bind="attrs" v-on="on">
           <span class="see-more-coupons">القسائم</span>
           <v-sheet class="px-2 d-flex" width="100%">
-            <v-card flat v-for="i in 3" :key="i" class="coupons">
+            <v-card color="#eee" flat v-for="i in 3" :key="i" class="coupons">
               خصم
               <span class="mx-1">20%</span>
               <ul class="Voucher-sm">
-                <li></li>
-                <li></li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -92,17 +90,9 @@
             v-for="n in 3"
             :key="n"
           >
-            <v-card
-              flat
-              class="card"
-              style="position: relative; border: 1px solid #42a5f5 !important"
-            >
+            <v-card flat class="card" color="#eee">
               <v-row no-gutters justify="center" class="main">
-                <v-col
-                  style="border-left: 1px dashed #90caf9"
-                  class=""
-                  cols="3"
-                >
+                <v-col style="border-left: 1px dashed grey" class="" cols="3">
                   <v-row
                     align="center"
                     style="height: 100%"
@@ -124,7 +114,7 @@
                   <v-card-text class="pa-1 text">
                     أنفق
                     <span class="mx-1">
-                      52<v-icon size="17">mdi-currency-rial</v-icon>
+                      52<v-icon left size="17">mdi-currency-rial</v-icon>
                     </span>
                     كحد أدنى
                   </v-card-text>
@@ -140,13 +130,7 @@
                     justify="center"
                     no-gutters
                   >
-                    <v-btn
-                      small
-                      fab
-                      dark
-                      class="blue lighten-1 btn"
-                      elevation="0"
-                    >
+                    <v-btn small fab dark class="white btn" elevation="0">
                       أخذ
                     </v-btn>
                   </v-row>
@@ -157,7 +141,6 @@
         <button onclick="copyIt()" class="copybtn">COPY</button>
       </div> -->
               <ul class="Voucher">
-                <li></li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -298,11 +281,11 @@ p {
 .coupons {
   font-family: $fontfamliy3 !important;
   padding: 0px 5px;
-  border: 1px solid #42a5f5 !important;
   margin: 0 3px;
   font-size: 12px;
   color: $fontcolorlinks !important;
   border-radius: 3px;
+  font-weight: 600 !important;
   @media (max-width: 600px) {
     font-size: 12px;
   }
@@ -330,16 +313,17 @@ p {
     letter-spacing: 0 !important;
     color: $fontcolorlinks !important;
     font-size: 13px !important;
+    font-weight: 600 !important;
   }
   .btn {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;
-    color: #fff !important;
-    font-size: 12px !important;
+    color: $fontcolorlinks !important;
+    font-size: 14px !important;
     margin: 0 auto !important;
     font-weight: 600;
     @media (max-width: 600px) {
-      font-size: 12px !important;
+      font-size: 13px !important;
     }
   }
 }
@@ -351,7 +335,7 @@ p {
 .Voucher {
   position: absolute;
   top: 0;
-  left: -4.5px;
+  left: -3px;
   padding: 5px 0;
   z-index: 5;
   height: 100%;
@@ -364,13 +348,13 @@ p {
     height: 8px;
     background-color: #ffffff;
     border-radius: 50%;
-    border-right: 2px solid #42a5f5;
+    // border-right: 1px solid #42a5f5;
   }
 }
 .Voucher-sm {
   position: absolute;
   top: 0;
-  left: -4.5px;
+  left: -2px;
   padding: 0;
   z-index: 5;
   height: 100%;
@@ -379,11 +363,10 @@ p {
   justify-content: space-between;
   li {
     list-style: none;
-    width: 8px;
-    height: 8px;
+    width: 4px;
+    height: 4px;
     background-color: #fff;
     border-radius: 50%;
-    border-right: 2px solid #42a5f5;
   }
 }
 </style>

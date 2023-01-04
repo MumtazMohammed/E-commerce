@@ -1,7 +1,7 @@
 <template>
   <div class="car-info my-4">
-    <div class="store-col mx-1">
-      <v-card flat class="store-card pa-2" width="100%">
+    <div class="store-col ">
+      <v-card tile flat class="store-card pa-2" width="100%">
         <v-card-actions class="flex-wrap pa-0">
           <v-avatar size="65px" rounded color="transparent">
             <img
@@ -20,7 +20,7 @@
         </v-card-actions>
       </v-card>
     </div>
-    <v-card flat class="detail-card pa-1 mt-3">
+    <v-card tile flat class="detail-card pa-1 mt-3">
       <p class="tital pa-2">تفاصيل المنتج</p>
       <v-card-text class="pa-2 text">
         الشكل والمبنى، من المهم أن يكون الموقع جاذبا من الناحية البصرية فهو

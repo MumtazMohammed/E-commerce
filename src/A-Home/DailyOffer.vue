@@ -1,5 +1,5 @@
 <template>
-  <div class="DailyOffer">
+  <div class="DailyOffer py-4">
     <v-container class="container py-0">
       <v-card class="card-wrapping" flat color="transparent">
         <div class="pa-3 pt-0 mb-2 d-flex font-weight-bold tital">
@@ -120,11 +120,9 @@ export default {
           el: ".swiper-pagination",
           clickable: true,
           dynamicBullets: true,
+          type: "progressbar",
         },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
+
         breakpoints: {
           1024: {
             slidesPerView: 6,
@@ -191,29 +189,8 @@ export default {
     color: $color-2;
   }
   .swiper {
-    height: auto;
-    padding-bottom: 45px;
+    height: 300px;
     padding-right: 5px !important;
-    ::v-deep.swiper-pagination-bullet {
-      font-size: 10px;
-      width: 9px !important;
-      height: 9px !important;
-      line-height: 1.5;
-      opacity: 0.5;
-      background: rgb(223, 223, 223);
-      transition: all 0.2s 0s linear;
-      color: rgb(82, 82, 82);
-
-      &:hover {
-        opacity: 1;
-      }
-
-      &.swiper-pagination-bullet-active {
-        opacity: 1;
-        color: #fff;
-        background: $color-2;
-      }
-    }
   }
   ::v-deep.swiper-container {
     @media (max-width: 600px) {
@@ -221,7 +198,20 @@ export default {
       padding-left: 5px !important;
     }
   }
+  ::v-deep .swiper-container-horizontal > .swiper-pagination-progressbar {
+    top: 290px !important;
+    width: 50px;
+    height: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #eee;
 
+    span.swiper-pagination-progressbar-fill {
+      background-color: $color-2;
+    }
+  }
   .v-sheet {
     @media (max-width: 950px) {
       padding-left: 0px !important;

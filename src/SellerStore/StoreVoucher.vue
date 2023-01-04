@@ -11,13 +11,9 @@
         v-for="n in 3"
         :key="n"
       >
-        <v-card
-          flat
-          class="card"
-          style="position: relative; border: 1px solid #42A5F5 !important"
-        >
+        <v-card flat color="#eee" class="card">
           <v-row no-gutters justify="center" class="main">
-            <v-col style="border-left: 1px dashed #64B5F6" class="" cols="3">
+            <v-col style="border-left: 1px dashed grey" class="" cols="3">
               <v-row
                 align="center"
                 style="height: 100%"
@@ -39,7 +35,7 @@
               <v-card-text class="pa-1 text">
                 أنفق
                 <span class="mx-1">
-                  52<v-icon size="17">mdi-currency-rial</v-icon>
+                  52<v-icon left size="17">mdi-currency-rial</v-icon>
                 </span>
                 كحد أدنى
               </v-card-text>
@@ -55,7 +51,7 @@
                 justify="center"
                 no-gutters
               >
-                <v-btn small fab dark class="blue lighten-1 btn" elevation="0">
+                <v-btn small fab dark class="white btn" elevation="0">
                   أخذ
                 </v-btn>
               </v-row>
@@ -66,7 +62,6 @@
         <button onclick="copyIt()" class="copybtn">COPY</button>
       </div> -->
           <ul class="Voucher">
-            <li></li>
             <li></li>
             <li></li>
             <li></li>
@@ -161,6 +156,8 @@ export default {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;
     color: $fontcolorlinks !important;
+    font-weight: 600 !important;
+
     @media (max-width: 600px) {
       font-size: 14px !important;
     }
@@ -168,10 +165,13 @@ export default {
   .btn {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;
-    color: #fff !important;
-    font-size: 12px !important;
+    color: $fontcolorlinks !important;
+    font-size: 14px !important;
     margin: 0 auto !important;
     font-weight: 600;
+    @media (max-width: 600px) {
+      font-size: 13px !important;
+    }
   }
 }
 .swiper {
@@ -241,7 +241,7 @@ export default {
 .Voucher {
   position: absolute;
   top: 0;
-  left: -4.5px;
+  left: -3px;
   padding: 5px 0;
   z-index: 5;
   height: 100%;
@@ -252,9 +252,9 @@ export default {
     list-style: none;
     width: 8px;
     height: 8px;
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     border-radius: 50%;
-    border-right: 2px solid #42A5F5;
+    // border-right: 1px solid #42a5f5;
   }
 }
 </style>

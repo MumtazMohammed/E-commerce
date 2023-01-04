@@ -18,7 +18,7 @@
             </v-card-subtitle>
           </v-col>
           <v-col cols="1" style="position: relative">
-            <v-divider vertical class="primary"> </v-divider>
+            <v-divider vertical class="white"> </v-divider>
           </v-col>
 
           <v-col cols="3" style="overflow: hidden">

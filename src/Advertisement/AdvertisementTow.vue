@@ -1,34 +1,32 @@
 <template>
   <div>
     <!-- advertisement  -->
-    <v-container fluid class="py-0 px-1">
-      <v-card
-        flat
-        rounded="md"
-        class="AdvertisementTow"
-        height="220"
-        style="overflow: hidden"
-      >
-        <swiper class="swiper" :options="swiperOption">
-          <swiper-slide v-for="(item, i) in items" :key="i">
-            <v-card
-              style="position: absolute"
-              width="100%"
-              height="100%"
-              :color="item.color"
-              tile
-              flat
-              :img="item.src"
-              :lazy-src="item.src"
-              contain
-            >
-            </v-card>
-            <!-- <v-img contain :src="item.src" :lazy-src="item.src"> </v-img> -->
-          </swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
-        </swiper>
-      </v-card>
-    </v-container>
+    <v-card
+      flat
+      tile
+      class="AdvertisementTow"
+      height="220"
+      style="overflow: hidden"
+    >
+      <swiper class="swiper" :options="swiperOption">
+        <swiper-slide v-for="(item, i) in items" :key="i">
+          <v-card
+            style="position: absolute"
+            width="100%"
+            height="100%"
+            :color="item.color"
+            tile
+            flat
+            :img="item.src"
+            :lazy-src="item.src"
+            contain
+          >
+          </v-card>
+          <!-- <v-img contain :src="item.src" :lazy-src="item.src"> </v-img> -->
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </v-card>
   </div>
 </template>
 <script>
