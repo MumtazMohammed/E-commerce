@@ -1,6 +1,6 @@
 <template>
   <div class="car-info my-4">
-    <div class="store-col ">
+    <div class="store-col">
       <v-card tile flat class="store-card pa-2" width="100%">
         <v-card-actions class="flex-wrap pa-0">
           <v-avatar size="65px" rounded color="transparent">

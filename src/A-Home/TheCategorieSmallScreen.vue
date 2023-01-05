@@ -1,5 +1,5 @@
 <template>
-  <div class="Registration py-4">
+  <div class="Registration py-2">
     <v-container class="py-0">
       <v-col class="py-1 pb-2">
         <div class="tital">

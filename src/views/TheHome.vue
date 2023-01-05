@@ -7,7 +7,7 @@
     <BestOffer />
     <DailyOffer />
     <TopSale />
-    <PremiumCategories />
+    <CompaniesCardAdv />
     <YouMightLikeIt />
     <!-- <CarBrands :AllDateCar="AllDateCar" />
     <CarShape :AllDateCar="AllDateCar" /> -->
@@ -27,7 +27,7 @@ import BestOffer from "../A-Home/BestOffer.vue";
 import DailyOffer from "../A-Home/DailyOffer.vue";
 import TopSale from "../A-Home/TopSale.vue";
 import Services from "../A-Home/Services.vue";
-import PremiumCategories from "../A-Home/PremiumCategories.vue";
+import CompaniesCardAdv from "../A-Home/CompaniesCardAdv.vue";
 import YouMightLikeIt from "../A-Home/YouMightLikeIt.vue";
 // import CarPartsCategories from "../A-Home/CarPartsCategories.vue";
 import DateCar from "../data-json/car-data.json";
@@ -37,7 +37,7 @@ import CarType from "../data-json/CarType.json";
 const components = {
   OutAdvertisement,
   Services,
-  PremiumCategories,
+  CompaniesCardAdv,
   TheCategorieSmallScreen,
   BestOffer,
   DailyOffer,

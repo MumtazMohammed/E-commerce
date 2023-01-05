@@ -1,182 +1,176 @@
 <template>
-  <div class="Product-Ratings mt-3 ">
+  <div class="Product-Ratings mt-3">
     <!-- Product Ratings  -->
-        <div class="ma-2 tital">التقييمات</div>
-        <v-sheet  color="orange lighten-5" class="overflow--hidden">
-          <v-col cols="12" class="py-0">
-            <strong class="mr-1">
-              <span>{{ rating }}</span>
-              من 5
-            </strong>
-            <v-rating
-              v-model="rating"
-              half-increments
-              small
-              background-color="orange"
-              color="orange"
-              readonly
-            ></v-rating>
-            <v-chip-group
-              class="filter-rating"
-              mandatory
-              center-active
-              active-class="white--text primary"
-            >
-              <v-chip small> <span class="ml-2">(40)</span> الكل </v-chip>
-              <v-chip small> <span class="ml-2">(20)</span> 1 نجوم </v-chip>
-              <v-chip small> <span class="ml-2">(20)</span> 2 نجوم </v-chip>
-              <v-chip small> <span class="ml-2">(20)</span> 3 نجوم </v-chip>
-              <v-chip small> <span class="ml-2">(20)</span> 4 نجوم </v-chip>
-              <v-chip small> <span class="ml-2">(20)</span> 5 نجوم </v-chip>
-            </v-chip-group>
-          </v-col>
-          <!-- If no rating  -->
-          <v-col cols="12">
-            <v-card-text class="text-center no-rating">
-              لا يوجد أي تقيمات
-            </v-card-text>
-          </v-col>
-          <!--  rating  -->
+    <div class="ma-2 tital">التقييمات</div>
+    <v-sheet color="orange lighten-5" class="overflow--hidden">
+      <v-col cols="12" class="py-0">
+        <strong class="mr-1">
+          <span>{{ rating }}</span>
+          من 5
+        </strong>
+        <v-rating
+          v-model="rating"
+          half-increments
+          small
+          background-color="orange"
+          color="orange"
+          readonly
+        ></v-rating>
+        <v-chip-group
+          class="filter-rating"
+          mandatory
+          center-active
+          active-class="white--text primary"
+        >
+          <v-chip small> <span class="ml-2">(40)</span> الكل </v-chip>
+          <v-chip small> <span class="ml-2">(20)</span> 1 نجوم </v-chip>
+          <v-chip small> <span class="ml-2">(20)</span> 2 نجوم </v-chip>
+          <v-chip small> <span class="ml-2">(20)</span> 3 نجوم </v-chip>
+          <v-chip small> <span class="ml-2">(20)</span> 4 نجوم </v-chip>
+          <v-chip small> <span class="ml-2">(20)</span> 5 نجوم </v-chip>
+        </v-chip-group>
+      </v-col>
+      <!-- If no rating  -->
+      <v-col cols="12">
+        <v-card-text class="text-center no-rating">
+          لا يوجد أي تقيمات
+        </v-card-text>
+      </v-col>
+      <!--  rating  -->
 
-          <v-col cols="12" class="pa-2 mt-1">
-            <v-card color="#f7f7f7" tile outlined height="auto" class="comment">
-              <v-card-actions class="pa-0">
-                <div class="">
-                  <v-card-text class="pa-0 Customer-name">
-                    محمد أمين
-                  </v-card-text>
-                  <v-rating
-                    v-model="rating"
-                    half-increments
-                    small
-                    background-color="orange darken-1"
-                    color="orange darken-1"
-                    readonly
-                  ></v-rating>
-                </div>
-                <v-spacer></v-spacer>
-                <v-card-text class="pa-0 grey--text Customer-name">
-                  14/07/2024
-                </v-card-text>
-              </v-card-actions>
-              <v-sheet color="transparent" class="my-1">
-                <v-card-subtitle class="pa-1 Customer-comment">
-                  الشكل والمبنى، من المهم أن يكون الموقع جاذبا من الناحية
-                  البصرية فهو يساعد المتصفح على فهم المحتوى أكثر وبالإضافة إلى
-                  الألوان التي ستجعل موقعك ذا إحساس عالي. التنوين، وهو على ثلاث
-                  أشكال: تنوين ضم وتنوين فتح وتنوين كسر هذا نص عشوائي الشكل
-                  والمبنى، من المهم أن يكون الموقع جاذبا من الناحية البصرية فهو
-                  يساعد المتصفح على فهم المحتوى أكثر وبالإضافة إلى الألوان التي
-                  ستجعل موقعك ذا إحساس عالي. التنوين، وهو على ثلاث أشكال: تنوين
-                </v-card-subtitle>
-              </v-sheet>
-              <!-- big screen customer img  -->
-              <div class="hidden-xs-only">
+      <v-col cols="12" class="pa-2 mt-1">
+        <v-card color="#f7f7f7" tile outlined height="auto" class="comment">
+          <v-card-actions class="pa-0">
+            <div class="">
+              <v-card-text class="pa-0 Customer-name"> محمد أمين </v-card-text>
+              <v-rating
+                v-model="rating"
+                half-increments
+                small
+                background-color="orange darken-1"
+                color="orange darken-1"
+                readonly
+              ></v-rating>
+            </div>
+            <v-spacer></v-spacer>
+            <v-card-text class="pa-0 grey--text Customer-name">
+              14/07/2024
+            </v-card-text>
+          </v-card-actions>
+          <v-sheet color="transparent" class="my-1">
+            <v-card-subtitle class="pa-1 Customer-comment">
+              الشكل والمبنى، من المهم أن يكون الموقع جاذبا من الناحية البصرية
+              فهو يساعد المتصفح على فهم المحتوى أكثر وبالإضافة إلى الألوان التي
+              ستجعل موقعك ذا إحساس عالي. التنوين، وهو على ثلاث أشكال: تنوين ضم
+              وتنوين فتح وتنوين كسر هذا نص عشوائي الشكل والمبنى، من المهم أن
+              يكون الموقع جاذبا من الناحية البصرية فهو يساعد المتصفح على فهم
+              المحتوى أكثر وبالإضافة إلى الألوان التي ستجعل موقعك ذا إحساس عالي.
+              التنوين، وهو على ثلاث أشكال: تنوين
+            </v-card-subtitle>
+          </v-sheet>
+          <!-- big screen customer img  -->
+          <div class="hidden-xs-only">
+            <v-sheet class="mt-1" color="grey lighten-2 ">
+              <v-avatar
+                v-for="(singleImage, x) in getCarInfo.images"
+                :key="x"
+                class="ma-1"
+                rounded
+                size="50"
+                color="grey darken-2"
+                @click="
+                  ActiveImage = getimageUrl(getCarInfo.folder, singleImage)
+                "
+              >
+                <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
+                </v-img>
+              </v-avatar>
+            </v-sheet>
+            <v-btn
+              class="close-comment-img"
+              color="grey lighten-2"
+              elevation="0"
+              tile
+              v-if="ActiveImage.length > 0"
+              @click="ActiveImage = ''"
+            >
+              إغلاق
+            </v-btn>
+            <v-card-actions
+              v-if="ActiveImage.length > 0"
+              class="justify-center pa-0"
+            >
+              <v-avatar tile height="300" width="500">
+                <v-img
+                  contain
+                  :src="ActiveImage"
+                  :lazy-src="ActiveImage"
+                ></v-img>
+              </v-avatar>
+            </v-card-actions>
+          </div>
+          <!-- small screen customer img  -->
+          <div class="hidden-sm-and-up">
+            <v-dialog
+              v-model="dialog"
+              fullscreen
+              hide-overlay
+              transition="dialog-bottom-transition"
+            >
+              <template v-slot:activator="{ on, attrs }">
                 <v-sheet class="mt-1" color="grey lighten-2 ">
                   <v-avatar
+                    v-bind="attrs"
+                    v-on="on"
                     v-for="(singleImage, x) in getCarInfo.images"
                     :key="x"
                     class="ma-1"
                     rounded
-                    size="50"
+                    size="40"
                     color="grey darken-2"
-                    @click="
-                      ActiveImage = getimageUrl(getCarInfo.folder, singleImage)
-                    "
                   >
                     <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
                     </v-img>
                   </v-avatar>
-                </v-sheet>
-                <v-btn
-                  class="close-comment-img"
-                  color="grey lighten-2"
-                  elevation="0"
-                  tile
-                  v-if="ActiveImage.length > 0"
-                  @click="ActiveImage = ''"
-                >
-                  إغلاق
-                </v-btn>
-                <v-card-actions
-                  v-if="ActiveImage.length > 0"
-                  class="justify-center pa-0"
-                >
-                  <v-avatar tile height="300" width="500">
-                    <v-img
-                      contain
-                      :src="ActiveImage"
-                      :lazy-src="ActiveImage"
-                    ></v-img>
+                  <v-avatar rounded class="ma-1" size="40" color="black">
+                    <span class="white--text">
+                      + {{ getCarInfo.images.length - 1 }}
+                    </span>
                   </v-avatar>
-                </v-card-actions>
-              </div>
-              <!-- small screen customer img  -->
-              <div class="hidden-sm-and-up">
-                <v-dialog
-                  v-model="dialog"
-                  fullscreen
-                  hide-overlay
-                  transition="dialog-bottom-transition"
+                </v-sheet>
+              </template>
+              <v-card color="grey darken-4">
+                <v-toolbar tile dark flat color="grey darken-3">
+                  <v-btn icon dark @click="dialog = false">
+                    <v-icon>mdi-close</v-icon>
+                  </v-btn>
+                  <v-spacer></v-spacer>
+                  <v-toolbar-title>
+                    {{ customerIMageNo + 1 }} /
+                    {{ getCarInfo.images.length }}
+                  </v-toolbar-title>
+                </v-toolbar>
+                <v-carousel
+                  v-model="customerIMageNo"
+                  height="620px"
+                  width="100%"
+                  touch
+                  hide-delimiters
                 >
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-sheet class="mt-1" color="grey lighten-2 ">
-                      <v-avatar
-                        v-bind="attrs"
-                        v-on="on"
-                        v-for="(singleImage, x) in getCarInfo.images"
-                        :key="x"
-                        class="ma-1"
-                        rounded
-                        size="40"
-                        color="grey darken-2"
-                      >
-                        <v-img
-                          :src="getimageUrl(getCarInfo.folder, singleImage)"
-                        >
-                        </v-img>
-                      </v-avatar>
-                      <v-avatar rounded class="ma-1" size="40" color="black">
-                        <span class="white--text">
-                          + {{ getCarInfo.images.length - 1 }}
-                        </span>
-                      </v-avatar>
-                    </v-sheet>
-                  </template>
-                  <v-card color="grey darken-4">
-                    <v-toolbar tile dark flat color="grey darken-3">
-                      <v-btn icon dark @click="dialog = false">
-                        <v-icon>mdi-close</v-icon>
-                      </v-btn>
-                      <v-spacer></v-spacer>
-                      <v-toolbar-title>
-                        {{ customerIMageNo + 1 }} /
-                        {{ getCarInfo.images.length }}
-                      </v-toolbar-title>
-                    </v-toolbar>
-                    <v-carousel
-                      v-model="customerIMageNo"
-                      height="620px"
-                      width="100%"
-                      touch
-                      hide-delimiters
-                    >
-                      <v-carousel-item
-                        v-for="(singleImage, x) in getCarInfo.images"
-                        :key="x"
-                      >
-                        <v-img
-                          :src="getimageUrl(getCarInfo.folder, singleImage)"
-                        >
-                        </v-img>
-                      </v-carousel-item>
-                    </v-carousel>
-                  </v-card>
-                </v-dialog>
-              </div>
-            </v-card>
-          </v-col>
-        </v-sheet>
+                  <v-carousel-item
+                    v-for="(singleImage, x) in getCarInfo.images"
+                    :key="x"
+                  >
+                    <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
+                    </v-img>
+                  </v-carousel-item>
+                </v-carousel>
+              </v-card>
+            </v-dialog>
+          </div>
+        </v-card>
+      </v-col>
+    </v-sheet>
   </div>
 </template>
 <script>

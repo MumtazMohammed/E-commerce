@@ -724,6 +724,7 @@ export default {
   right: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(10px);
+  background-color: #546e7a94;
+  backdrop-filter: blur(5px);
 }
 </style>

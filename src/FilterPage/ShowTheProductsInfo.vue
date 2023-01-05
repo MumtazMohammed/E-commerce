@@ -4,13 +4,13 @@
     <div class="car-reviw">
       <v-container class="pa-0">
         <v-row no-gutters class="mt-1">
-          <v-col cols="12" >
+          <v-col cols="12">
             <ProductImages />
           </v-col>
-          <v-col cols="12" >
+          <v-col cols="12">
             <TheSellerStoreInformation />
           </v-col>
-          <v-col cols="12" >
+          <v-col cols="12">
             <AdvertisementTow />
           </v-col>
           <v-col cols="12"><ProductRatings /> </v-col>

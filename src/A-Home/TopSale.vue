@@ -1,28 +1,28 @@
 <template>
-  <div class="BestOffer">
+  <div class="BestOffer py-2">
     <v-container class="container py-0">
-      <v-row class="mb-2" no-gutters>
+      <v-row no-gutters>
         <v-col sm="6" class="my-auto">
           <div class="pa-3 d-flex font-weight-bold tital">
             الأعلى
             <strong class="mx-1">مبيعاً</strong>
           </div>
         </v-col>
-        <v-col sm="6">
+        <v-col sm="6" class="my-auto">
           <v-chip-group
-            class="filter-sale pa-3"
-            mandatoryfilter-sale-active
+            v-model="chip"
+            class="filter-sale pl-2"
             active-class="filter-sale-active "
           >
-            <v-chip small> اليوم </v-chip>
-            <v-chip small> اسبوعي </v-chip>
-            <v-chip small> شهري </v-chip>
+            <v-chip small> في اليوم </v-chip>
+            <v-chip small> في الأسبوع </v-chip>
+            <v-chip small> في الشهر </v-chip>
           </v-chip-group>
         </v-col>
       </v-row>
 
       <!-- <span class="line my-3 mx-auto"></span> -->
-      <swiper class="swiper" :options="swiperOption">
+      <swiper class="swiper pt-2" :options="swiperOption">
         <swiper-slide v-for="(Product, index) in VerifiedCar" :key="index">
           <v-card
             :to="{
@@ -38,15 +38,41 @@
             min-height="200"
             flat
             tile
-            color="#eee"
+            color=" transparent"
             style="overflow: hidden"
           >
             <v-img
-              height="100"
-              class="mx-auto"
+              height="170"
+              contain
               :src="getimageUrl(Product.folder, Product.image)"
-            ></v-img>
-            <v-card-text
+            >
+              <v-card
+                class="img-cover"
+                :img="getimageUrl(Product.folder, Product.image)"
+                width="100%"
+                height="100%"
+              ></v-card>
+            </v-img>
+            <v-card-actions class="justify-center px-1">
+              <v-card tile width="100%" class="pa-1">
+                <v-row no-gutters>
+                  <v-col cols="6" class="text-center">
+                    <v-chip
+                      label
+                      style="background-color: #fc624d; color: white"
+                      class=""
+                      small
+                    >
+                      484
+                    </v-chip>
+                  </v-col>
+                  <v-col cols="6">
+                    <span class="filter-sale">في اليوم</span>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </v-card-actions>
+            <!-- <v-card-text
               class="d-inline-block card-text py-0 pa-2 text-truncate"
             >
               {{ Product.name }} {{ Product.company }}
@@ -70,7 +96,7 @@
               <span class="card-text grey--text px-2">
                 {{ Product.location }}
               </span>
-            </v-card-actions>
+            </v-card-actions> -->
           </v-card>
         </swiper-slide>
         <!-- <swiper-slide>
@@ -108,6 +134,7 @@ export default {
   },
   data() {
     return {
+      chip: 0,
       VerifiedCar,
       carName: this.$route.params.carName,
       carId: this.$route.params.carId,
@@ -117,7 +144,7 @@ export default {
         freeMode: false,
         effect: "cards",
         slidesPerColumn: 2,
-        spaceBetween: 0,
+        spaceBetween: 5,
         autoplay: false,
         loop: false,
         loopFillGroupWithBlank: false,
@@ -130,28 +157,28 @@ export default {
 
         breakpoints: {
           1024: {
+            slidesPerView: 6,
+            slidesPerGroup: 6,
+          },
+          768: {
             slidesPerView: 5,
             slidesPerGroup: 5,
           },
-          768: {
+          640: {
             slidesPerView: 4,
             slidesPerGroup: 4,
           },
-          640: {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
-          },
           471: {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
+            slidesPerView: 4,
+            slidesPerGroup: 4,
           },
           470: {
             slidesPerView: 3,
             slidesPerGroup: 3,
           },
           250: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
           },
         },
       },
@@ -195,6 +222,7 @@ export default {
   .filter-sale {
     font-family: $fontfamliy3;
     letter-spacing: 0 !important;
+    color: $fontcolorlinks !important;
   }
   .filter-sale-active {
     background-color: $color-2 !important;
@@ -274,27 +302,29 @@ export default {
 
 //
 .swiper {
-  height: 430px;
+  height: 470px;
   margin-left: auto;
   margin-right: auto;
 
   .swiper-slide {
     height: 200px;
-    margin: 1px !important;
+    // margin: 1px !important;
+    margin-bottom: 15px !important;
   }
 }
 ::v-deep .swiper-container-horizontal > .swiper-pagination-progressbar {
-  top: 420px !important;
+  top: 455px !important;
   width: 50px;
   height: 5px;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   background-color: #eee;
 
   span.swiper-pagination-progressbar-fill {
     background-color: $color-2;
+    box-shadow: inset 0 0 0 0.2px #eee;
   }
 }
 ::v-deep .swiper-wrapper {
@@ -308,6 +338,18 @@ export default {
   justify-content: end;
 }
 ::v-deep .v-chip .v-chip__content {
-  align-items: flex-start;
+  // align-items: flex-start;
+}
+.img-cover {
+  position: relative;
+  z-index: -2;
+}
+.img-cover::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #546e7a94;
+  backdrop-filter: blur(5px);
 }
 </style>

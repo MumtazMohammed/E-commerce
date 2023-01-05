@@ -1,25 +1,53 @@
 <template>
-  <div class="SpicalShowRoom">
-    <v-container class="px-0">
+  <div class="SpicalShowRoom py-2">
+    <v-container class="pa-0">
       <v-col>
         <div class="mb-2 tital">
           الشركات
           <strong class="mx-1">التجارية</strong>
         </div>
       </v-col>
+
       <v-row no-gutters class="">
-        <v-col md="3" sm="3" lg="3" cols="4" class="pa-1" v-for="i in 6" :key="i">
-          <v-card to="/SellerStorePage" outlined height="">
-            <v-card-actions class="justify-center pa-0">
-              <v-img
-                height="125"
-                max-width="125"
-                src="../assets/outsrc/adidas-logo.png"
-                alt="../assets/outsrc/adidas-logo.png"
-              ></v-img>
-            </v-card-actions>
-            <v-divider></v-divider>
-            <p class="ma-0 my-2">نايك</p>
+        <v-col
+          md="3"
+          sm="4"
+          lg="3"
+          cols="6"
+          class="pa-1"
+          v-for="i in 6"
+          :key="i"
+        >
+          <v-card class="mx-auto" color="grey lighten-4">
+            <v-img
+              height="200"
+              contain
+              class="white"
+              src="../assets/outsrc/adidas-logo.png"
+            >
+            </v-img>
+            <v-card-text class="pt-6" style="position: relative">
+              <v-btn
+                absolute
+                color="orange"
+                class="white--text"
+                fab
+                left
+                small
+                top
+                to="/SellerStorePage"
+              >
+                <v-icon>mdi-cart</v-icon>
+              </v-btn>
+
+              <h3 class="text-h5 font-weight-light orange--text mb-2">
+                أديداس
+              </h3>
+              <div class="font-weight-light text-h6 mb-2">
+                Our Vintage kitchen utensils delight any chef.<br />
+                Made of bamboo by hand
+              </div>
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -228,8 +256,15 @@ p {
 }
 ::v-deep .v-image.v-responsive.theme--light {
   @media (max-width: 600px) {
-    height: 70px !important;
-    max-width: 70px !important;
+    height: 150px !important;
   }
+}
+.v-card--reveal {
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  opacity: 0.5;
+  position: absolute;
+  width: 100%;
 }
 </style>
