@@ -14,7 +14,7 @@
             min-width="100%"
             max-width="180px"
             color=""
-            class="d-flex mt-3 ServiceCard align-center justify-space-between flex-column"
+            class="d-flex ServiceCard align-center justify-space-between flex-column"
             to="/Products"
             router
             flat
@@ -65,7 +65,7 @@
           <strong class="mx-1">الخدمات</strong>
         </div>
       </v-col>
-      <swiper class="swiper" :options="swiperOption">
+      <!-- <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="Servic in Services" :key="Servic.ServicId">
           <v-card
             color=""
@@ -86,7 +86,41 @@
           </v-card>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </swiper> -->
+      <v-row no-gutters>
+        <v-col class="pa-1" v-for="Servic in Services" :key="Servic.ServicId">
+          <v-card
+            style="width: 100%"
+            to="/Products"
+            color="#fc624d"
+            rounded="lg"
+          >
+            <!-- <v-icon left> {{ Servic.ServicIcon }} </v-icon> -->
+            <!-- <v-spacer></v-spacer> -->
+            <v-card-text
+              class="pa-2 text-center ser-text"
+              v-text="Servic.ServicText"
+            >
+            </v-card-text>
+          </v-card>
+          <!-- <v-card
+            class="d-flex ServiceCard align-center justify-space-between flex-column"
+            to="/Products"
+            router
+            flat
+            rounded="lg"
+          >
+            <v-icon class="icon">
+              {{ Servic.ServicIcon }}
+            </v-icon>
+            <v-card-text
+              class="pa-0 px-1 py-2 text-center ser-text"
+              v-text="Servic.ServicText"
+            >
+            </v-card-text>
+          </v-card> -->
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -156,58 +190,58 @@ export default {
       Services: [
         {
           ServicId: 1,
-          ServicText: "خدمة هندسية",
+          ServicText: "الخدمات الهندسية",
           ServicIcon: "mdi-wrench-cog-outline",
           ServicColor: "red--text text--darken-1",
         },
         {
           ServicId: 2,
-          ServicText: "خدمة برمجية",
+          ServicText: "الخدمات البرمجية",
           ServicIcon: "mdi-blender-software",
           ServicColor: "blue--text text--darken-2",
         },
         {
           ServicId: 3,
-          ServicText: "خدمة عقارية",
+          ServicText: "الخدمات العقارية",
           ServicIcon: "mdi-home-group",
           ServicColor: "",
         },
-        {
-          ServicId: 3,
-          ServicText: "خدمة توصيل",
-          ServicIcon: "mdi-moped",
-          ServicColor: "",
-        },
-        {
-          ServicId: 5,
-          ServicText: " شقق وفنادق",
-          ServicIcon: "mdi-home-city-outline",
-          ServicColor: "cyan--text text--accent-4",
-        },
+        // {
+        //   ServicId: 3,
+        //   ServicText: "خدمة توصيل",
+        //   ServicIcon: "mdi-moped",
+        //   ServicColor: "",
+        // },
+        // {
+        //   ServicId: 5,
+        //   ServicText: " شقق وفنادق",
+        //   ServicIcon: "mdi-home-city-outline",
+        //   ServicColor: "cyan--text text--accent-4",
+        // },
         {
           ServicId: 6,
-          ServicText: " السفر والسياحة",
+          ServicText: "  السفر والسياحة",
           ServicIcon: "mdi-plane-train",
           ServicColor: "deep-orange--text",
         },
-        {
-          ServicId: 7,
-          ServicText: "تأجير مركبات",
-          ServicIcon: "mdi-car-key",
-          ServicColor: "yellow--text text--darken-4",
-        },
-        {
-          ServicId: 8,
-          ServicText: "الصيانة",
-          ServicIcon: "mdi-tools",
-          ServicColor: "grey--text text--accent-3",
-        },
-        {
-          ServicId: 9,
-          ServicText: " خدمات اخرى",
-          ServicIcon: "mdi-filter-variant",
-          ServicColor: "amber--text text--accent-3",
-        },
+        // {
+        //   ServicId: 7,
+        //   ServicText: "خدمة المركبات",
+        //   ServicIcon: "mdi-car-key",
+        //   ServicColor: "yellow--text text--darken-4",
+        // },
+        // {
+        //   ServicId: 8,
+        //   ServicText: "الصيانة",
+        //   ServicIcon: "mdi-tools",
+        //   ServicColor: "grey--text text--accent-3",
+        // },
+        // {
+        //   ServicId: 9,
+        //   ServicText: " خدمات اخرى",
+        //   ServicIcon: "mdi-filter-variant",
+        //   ServicColor: "amber--text text--accent-3",
+        // },
       ],
       swiperOption: {
         initialSlide: 0,
@@ -292,13 +326,13 @@ export default {
     position: relative;
   }
   .icon {
-    font-size: 24px;
+    font-size: 25px;
     // background-color: #eee;
     padding: 8px;
     // width: 20px;
     // height: 20px;
     border-radius: 50% !important;
-    color: $color-2;
+    color: #b2dfdb;
     position: relative;
     z-index: 2;
     box-shadow: 0px 0px 0px 3px $color-background !important;
@@ -307,19 +341,22 @@ export default {
 
     // box-shadow: 0px 0px 5px 0px $fontcolorlinks;
     @media (max-width: 750px) {
-      font-size: 20px;
-      width: 18px;
-      height: 18px;
+      font-size: 25px;
+      padding: 6px;
     }
   }
+
   .swiper {
     height: 120px;
   }
   .swiperR {
-    height: 320px;
+    height: 300px;
+    @media (max-width: 700px) {
+      height: 270px;
+    }
   }
   ::v-deep .swiper-container-horizontal > .swiper-pagination-progressbar {
-    top: 90% !important;
+    top: 95% !important;
     width: 50px;
     height: 5px;
     left: 50%;
@@ -351,10 +388,10 @@ export default {
     letter-spacing: 0;
     font-size: 14px;
     font-weight: 600;
-    color: $fontcolorlinks !important;
+    color: #eee !important;
 
     @media (max-width: 600px) {
-      font-size: 12px;
+      font-size: 13px;
     }
   }
   .tital {

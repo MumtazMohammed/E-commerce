@@ -36,14 +36,15 @@
             }"
             width="100%"
             min-height="200"
-            flat
-            tile
+            
             color=" transparent"
-            style="overflow: hidden"
+            style="overflow: hidden; position: relative"
           >
             <v-img
-              height="170"
               contain
+              height="170"
+              class="blue-grey lighten-3"
+              style="overflow: hidden;"
               :src="getimageUrl(Product.folder, Product.image)"
             >
               <v-card
@@ -53,24 +54,15 @@
                 height="100%"
               ></v-card>
             </v-img>
-            <v-card-actions class="justify-center px-1">
-              <v-card tile width="100%" class="pa-1">
-                <v-row no-gutters>
-                  <v-col cols="6" class="text-center">
-                    <v-chip
-                      label
-                      style="background-color: #fc624d; color: white"
-                      class=""
-                      small
-                    >
-                      484
-                    </v-chip>
-                  </v-col>
-                  <v-col cols="6">
-                    <span class="filter-sale">في اليوم</span>
-                  </v-col>
-                </v-row>
-              </v-card>
+            <v-card-actions class="justify-center">
+              <v-chip
+                style="background-color: #fc624d; color: white"
+                class="filter-sale"
+                small
+              >
+                484
+                <span class="mr-1">في اليوم</span>
+              </v-chip>
             </v-card-actions>
             <!-- <v-card-text
               class="d-inline-block card-text py-0 pa-2 text-truncate"
@@ -222,7 +214,7 @@ export default {
   .filter-sale {
     font-family: $fontfamliy3;
     letter-spacing: 0 !important;
-    color: $fontcolorlinks !important;
+    color: #fff !important;
   }
   .filter-sale-active {
     background-color: $color-2 !important;
@@ -343,13 +335,13 @@ export default {
 .img-cover {
   position: relative;
   z-index: -2;
+  // overflow: hidden;
 }
-.img-cover::after {
+.img-cover::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #546e7a94;
-  backdrop-filter: blur(5px);
+  background-color: #ffffffc1;
 }
 </style>

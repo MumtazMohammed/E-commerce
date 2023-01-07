@@ -464,7 +464,6 @@ export default {
       items: ["Foo", "Bar", "Fizz", "Buzz"],
       customerIMageNo: 0,
       slidesPerView: 1,
-
       ActiveImage: "",
       width: 300,
       sheet: false,
@@ -724,7 +723,7 @@ export default {
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #546e7a94;
-  backdrop-filter: blur(5px);
+  background-color: #ffffffc1;
+  // backdrop-filter: blur(5px);
 }
 </style>
