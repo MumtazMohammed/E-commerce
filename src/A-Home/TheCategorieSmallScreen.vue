@@ -92,7 +92,7 @@
           <v-card
             style="width: 100%"
             to="/Products"
-            color="#fc624d"
+            color="#eee"
             rounded="lg"
           >
             <!-- <v-icon left> {{ Servic.ServicIcon }} </v-icon> -->
@@ -388,7 +388,7 @@ export default {
     letter-spacing: 0;
     font-size: 14px;
     font-weight: 600;
-    color: #eee !important;
+    color: $fontcolorlinks !important;
 
     @media (max-width: 600px) {
       font-size: 13px;
@@ -454,13 +454,5 @@ export default {
     width: 50px !important;
   }
 }
-.swiperr {
-  height: 430px;
-  margin-left: auto;
-  margin-right: auto;
 
-  .swiper-slide {
-    height: 75px;
-  }
-}
 </style>

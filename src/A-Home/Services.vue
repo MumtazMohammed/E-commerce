@@ -1,31 +1,37 @@
 <template>
   <div class="Shape_box hidden-sm-and-up">
     <v-container>
-      <v-card rounded="" flat color="#eee" class="pa-2">
+      <v-card rounded="lg" flat color="#eee" class="pa-1 text">
         <v-row no-gutters>
-          <v-col cols="5" style="position: relative">
-            <v-row align="center" no-gutters>
-              <v-icon right color="primary" size="20">
-                mdi-wallet-outline
-              </v-icon>
-              <v-card-subtitle class="text pa-0"> المحفظة </v-card-subtitle>
+          <v-col cols="4" class="pa-1" style="position: relative">
+            <v-row no-gutters align="center" justify="center">
+              <v-chip
+                small
+                color="green darken-1"
+                text-color="white"
+                class="mx-1"
+              >
+                <v-icon small left>mdi-headphones-settings</v-icon>
+                <span> مساعدة </span>
+              </v-chip>
             </v-row>
           </v-col>
-          <v-col cols="3" style="position: relative">
-            <v-card-subtitle class="text pa-0">
-              نقاط
-              <span class="icon mr-2"> 34 </span>
-            </v-card-subtitle>
-          </v-col>
-          <v-col cols="1" style="position: relative">
-            <v-divider vertical class="white"> </v-divider>
+          <v-col class="pa-1" cols="4" style="position: relative">
+            <v-row no-gutters align="center" justify="center">
+              <v-chip small color="light-blue darken-1" text-color="white">
+                <span> نقاط </span>
+                <span class="mr-2"> 425 </span>
+              </v-chip>
+            </v-row>
           </v-col>
 
-          <v-col cols="3" style="overflow: hidden">
-            <v-card-subtitle class="text pa-0">
-              قسائم
-              <small class="icon mr-2"> 480 </small>
-            </v-card-subtitle>
+          <v-col class="pa-1" cols="4" style="overflow: hidden">
+            <v-row no-gutters align="center" justify="center">
+              <v-chip small color="light-blue darken-1" text-color="white">
+                <span> قسائم </span>
+                <span class="mr-2"> 425 </span>
+              </v-chip>
+            </v-row>
           </v-col>
         </v-row>
       </v-card>
@@ -59,7 +65,7 @@ export default {
     font-family: $fontfamliy3 !important;
     font-size: 14px !important;
     letter-spacing: 0 !important;
-    color: $fontcolorlinks;
+    color: $fontcolor;
     font-weight: 600;
     // text-align: center;
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="Marketing">
-    <v-container class="">
+    <v-container class="container">
       <v-sheet>
         <v-card-title class="welcom-text">
           مرحباً بك في مركز التسويق والعروضات
@@ -299,6 +299,14 @@ export default {
   font-family: $fontfamliy3 !important;
   @media (max-width: 600px) {
     margin-bottom: 50px;
+  }
+  .container {
+    @media (min-width: 960px) {
+      max-width: 1212px !important;
+    }
+    @media (max-width: 450px) {
+      padding: 5px !important;
+    }
   }
   .welcom-text {
     font-family: $fontfamliy3;

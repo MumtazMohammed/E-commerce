@@ -1,6 +1,6 @@
 <template>
   <div class="UserAdd">
-    <v-container class="pa-0 py-sm-3 py-lg-3 py-md-3">
+    <v-container class="container">
       <!-- big Screen Tabs  -->
       <v-tabs
         slider-size="2"
@@ -21,13 +21,13 @@
           الطلبات المشحونة
         </v-tab>
       </v-tabs>
-      <v-card flat min-height="100%" color="transparent" class="">
+      <v-card flat tile min-height="100%" color="" class="">
         <v-tabs-items v-model="tab" class="pa-0 transparent">
           <!-- shipping order  -->
           <v-tab-item value="tab-1">
             <v-row no-gutters>
               <v-col
-                v-for="i in 2"
+                v-for="i in 3"
                 :key="i"
                 cols="12"
                 md="4"
@@ -347,7 +347,14 @@ export default {
     color: #039be5 !important;
     font-size: 16px !important;
   }
-
+  .container {
+    @media (min-width: 960px) {
+      max-width: 1212px !important;
+    }
+    @media (max-width: 450px) {
+      padding: 5px !important;
+    }
+  }
   .btn2 {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0;

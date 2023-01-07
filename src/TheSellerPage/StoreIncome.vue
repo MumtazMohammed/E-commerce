@@ -1,6 +1,6 @@
 <template>
   <div class="PasswordChange">
-    <v-container>
+    <v-container class="container">
       <v-toolbar tile flat>
         <v-menu
           ref="menu"
@@ -66,9 +66,8 @@
             </v-chip>
           </template>
         </v-data-table>
-        <div class="text-center pt-2">
+        <div v-if="itemsPerPage > 10" class="text-center pt-2">
           <v-pagination
-            v-if="itemsPerPage > 10"
             class="elevation-0"
             circle
             v-model="page"
@@ -216,6 +215,14 @@ export default {
     height: 0.5px;
     background-color: rgb(231, 231, 231);
     display: block;
+  }
+  .container {
+    @media (min-width: 960px) {
+      max-width: 1212px !important;
+    }
+    @media (max-width: 450px) {
+      padding: 5px !important;
+    }
   }
 }
 ::v-deep th.text-start {

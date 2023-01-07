@@ -1,7 +1,7 @@
 <template>
   <div class="BusinessInsights">
-    <v-container>
-      <v-sheet class="mb-2" color="transparent" elevation="0" max-width="100%">
+    <v-container class="container">
+      <v-sheet class="pa-3" color="" elevation="0" max-width="100%">
         <v-row class="pa-0" style="flex-wrap: wrap">
           <v-col cols="12" lg="6" md="6" sm="12" class="pa-2">
             <v-card dark flat class="pb-2">
@@ -102,72 +102,80 @@
               </v-sheet>
             </v-card>
           </v-col>
-        </v-row>
-      </v-sheet>
-      <v-sheet
-        dark
-        rounded="lg"
-        class="mx-auto overflow-hidden"
-        max-width="100%"
-      >
-        <v-slide-group center-active v-model="model" class="py-4" show-arrows>
-          <v-slide-item
-            v-for="(Product, i) in Products"
-            :key="i"
-            v-slot="{ active, toggle }"
-          >
-            <v-card
-              outlined
-              :color="active ? 'grey darken-2' : ''"
-              class="ma-2"
-              height="200"
-              width="180"
-              @click="toggle"
+          <v-col cols="12">
+            <v-sheet
+              dark
+              rounded="lg"
+              class="mx-auto overflow-hidden"
+              max-width="100%"
             >
-              <!-- Products main Img  -->
-              <v-img
-                fullscreen
-                height="120px"
-                class="grey darken-3"
-                :src="getimageUrl(Product.folder, Product.image)"
-                :lazy-src="getimageUrl(Product.folder, Product.image)"
-                :alt="getimageUrl(Product.folder, Product.image)"
-              ></v-img>
-              <v-card-text class="detail pa-1 text-truncate">
-                <span>{{ Product.company }} {{ Product.name }}</span>
-              </v-card-text>
-              <v-card-actions class="pa-0">
-                <v-card-text class="price-cat pa-1">
-                  {{ Product.payment }}
-                  <span class="mr-1">ريال</span>
-                </v-card-text>
-                <v-card-text class="price-cat text-end pa-1">
-                  الفئه
-                </v-card-text>
-              </v-card-actions>
-            </v-card>
-          </v-slide-item>
-        </v-slide-group>
-        <v-expand-transition>
-          <v-sheet v-if="model != null" tile>
-            <v-simple-table>
-              <template v-slot:default>
-                <thead>
-                  <tr>
-                    <th class="text-left">Name</th>
-                    <th class="text-left">Calories</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>هونداي ألنترا</td>
-                    <td>5511</td>
-                  </tr>
-                </tbody>
-              </template>
-            </v-simple-table>
-          </v-sheet>
-        </v-expand-transition>
+              <v-slide-group
+                dark
+                center-active
+                v-model="model"
+                class="py-4"
+                show-arrows
+              >
+                <v-slide-item
+                  v-for="(Product, i) in Products"
+                  :key="i"
+                  v-slot="{ active, toggle }"
+                >
+                  <v-card
+                    outlined
+                    :color="active ? 'grey darken-2' : ''"
+                    class="ma-2"
+                    height="200"
+                    width="180"
+                    @click="toggle"
+                  >
+                    <!-- Products main Img  -->
+                    <v-img
+                      fullscreen
+                      height="120px"
+                      class="grey darken-3"
+                      :src="getimageUrl(Product.folder, Product.image)"
+                      :lazy-src="getimageUrl(Product.folder, Product.image)"
+                      :alt="getimageUrl(Product.folder, Product.image)"
+                    ></v-img>
+                    <v-card-text class="detail pa-1 text-truncate">
+                      <span>{{ Product.company }} {{ Product.name }}</span>
+                    </v-card-text>
+                    <v-card-actions class="pa-0">
+                      <v-card-text class="price-cat pa-1">
+                        {{ Product.payment }}
+                        <span class="mr-1">ريال</span>
+                      </v-card-text>
+                      <v-card-text class="price-cat text-end pa-1">
+                        الفئه
+                      </v-card-text>
+                    </v-card-actions>
+                  </v-card>
+                </v-slide-item>
+              </v-slide-group>
+              <v-expand-transition>
+                <v-sheet v-if="model != null" tile>
+                  <v-simple-table>
+                    <template v-slot:default>
+                      <thead>
+                        <tr>
+                          <th class="text-left">Name</th>
+                          <th class="text-left">Calories</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>هونداي ألنترا</td>
+                          <td>5511</td>
+                        </tr>
+                      </tbody>
+                    </template>
+                  </v-simple-table>
+                </v-sheet>
+              </v-expand-transition>
+            </v-sheet>
+          </v-col>
+        </v-row>
       </v-sheet>
     </v-container>
   </div>
@@ -279,6 +287,14 @@ export default {
   min-height: 100vh;
   @media (max-width: 600px) {
     margin-bottom: 50px;
+  }
+  .container {
+    @media (min-width: 960px) {
+      max-width: 1212px !important;
+    }
+    @media (max-width: 450px) {
+      padding: 5px !important;
+    }
   }
   .card-text {
     font-family: $fontfamliy3 !important;
