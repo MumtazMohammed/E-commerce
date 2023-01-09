@@ -1,16 +1,11 @@
 <template>
   <div class="Shape_box hidden-sm-and-up">
     <v-container>
-      <v-card rounded="lg" flat color="#eee" class="pa-1 text">
+      <v-card rounded="lg" outlined color="grey lighten-2" class="pa-1 text">
         <v-row no-gutters>
           <v-col cols="4" class="pa-1" style="position: relative">
             <v-row no-gutters align="center" justify="center">
-              <v-chip
-                small
-                color="green darken-1"
-                text-color="white"
-                class="mx-1"
-              >
+              <v-chip color="green lighten-1" text-color="white" class="mx-1">
                 <v-icon small left>mdi-headphones-settings</v-icon>
                 <span> مساعدة </span>
               </v-chip>
@@ -18,16 +13,15 @@
           </v-col>
           <v-col class="pa-1" cols="4" style="position: relative">
             <v-row no-gutters align="center" justify="center">
-              <v-chip small color="light-blue darken-1" text-color="white">
+              <v-chip color="light-blue" text-color="white">
                 <span> نقاط </span>
                 <span class="mr-2"> 425 </span>
               </v-chip>
             </v-row>
           </v-col>
-
           <v-col class="pa-1" cols="4" style="overflow: hidden">
             <v-row no-gutters align="center" justify="center">
-              <v-chip small color="light-blue darken-1" text-color="white">
+              <v-chip color="light-blue" text-color="white">
                 <span> قسائم </span>
                 <span class="mr-2"> 425 </span>
               </v-chip>

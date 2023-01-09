@@ -3,8 +3,8 @@
     <!-- Product Ratings  -->
     <div class="ma-2 tital">التقييمات</div>
     <v-sheet color="orange lighten-5" class="overflow--hidden">
-      <v-col cols="12" class="py-0">
-        <strong class="mr-1">
+      <v-col cols="12" class="">
+        <strong class="pa-1">
           <span>{{ rating }}</span>
           من 5
         </strong>
@@ -16,11 +16,13 @@
           color="orange"
           readonly
         ></v-rating>
+      </v-col>
+      <v-col cols="12" class="pa-0">
         <v-chip-group
           class="filter-rating"
           mandatory
           center-active
-          active-class="white--text primary"
+          active-class="white--text orange"
         >
           <v-chip small> <span class="ml-2">(40)</span> الكل </v-chip>
           <v-chip small> <span class="ml-2">(20)</span> 1 نجوم </v-chip>
@@ -37,8 +39,7 @@
         </v-card-text>
       </v-col>
       <!--  rating  -->
-
-      <v-col cols="12" class="pa-2 mt-1">
+      <v-col cols="12" class="pa-2">
         <v-card color="#f7f7f7" tile outlined height="auto" class="comment">
           <v-card-actions class="pa-0">
             <div class="">
@@ -169,6 +170,13 @@
             </v-dialog>
           </div>
         </v-card>
+      </v-col>
+      <v-col cols="12" class="pa-1">
+        <v-card-actions class="justify-center pa-0">
+          <v-btn dark small class="elevation-0 show-all-btn orange"
+            >مشاهدة الكل</v-btn
+          >
+        </v-card-actions>
       </v-col>
     </v-sheet>
   </div>
@@ -321,5 +329,9 @@ strong {
 }
 ::v-deep .v-image.v-responsive.theme--light {
   align-items: center;
+}
+.show-all-btn {
+  font-family: $fontfamliy3;
+  letter-spacing: 0 !important;
 }
 </style>

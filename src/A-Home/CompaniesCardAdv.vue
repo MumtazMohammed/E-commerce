@@ -14,7 +14,7 @@
           sm="4"
           lg="2"
           cols="6"
-          class="pa-1"
+          class="pa-2"
           v-for="i in 6"
           :key="i"
         >
@@ -26,21 +26,23 @@
               src="../assets/outsrc/adidas-logo.png"
             >
             </v-img>
-            <v-card-text class="pt-6" style="position: relative">
-              <v-btn
-                absolute
-                color="#fc624d"
-                class="white--text"
-                fab
-                left
-                small
-                top
-                to="/SellerStorePage"
-              >
-                <v-icon>mdi-cart</v-icon>
-              </v-btn>
+            <v-card-text class="py-2" style="position: relative">
+              <v-card-actions class="justify-center pa-0">
+                <v-btn
+                  color="#fc624d"
+                  class="white--text brand elevation-0"
+                  small
+                  top
+                  to="/SellerStorePage"
+                >
+                  <v-icon right>mdi-cart</v-icon>
+                  أديداس
+                </v-btn>
+              </v-card-actions>
 
-              <v-card-text class="pa-0 brand"> أديداس </v-card-text>
+              <!-- <v-card-text to="/SellerStorePage" class="pa-0 brand">
+                أديداس
+              </v-card-text> -->
               <!-- <div class="font-weight-light text-h6 mb-2">
                 Our Vintage kitchen utensils delight any chef.<br />
                 Made of bamboo by hand
@@ -92,7 +94,6 @@ export default {
 @import "@/scss/mixin";
 .SpicalShowRoom {
   width: 100%;
-  min-height: 40vh;
   background-color: $color-background;
   .tital {
     position: relative;
